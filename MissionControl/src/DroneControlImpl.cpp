@@ -1,14 +1,17 @@
-#include <drone_mapper/DroneControlImpl.h>
-#include <drone_mapper/ScanResultToVoxels.h>
-#include <drone_mapper/Logger.h>
+#include "DroneControlImpl.h"
+#include <UserCommon/ScanResultToVoxels.h>
+#include <UserCommon/Logger.h>
 
 #include <utility>
 #include <string>
 
-namespace drone_mapper {
+namespace mission_control_330371063_324976703 {
+using namespace common;
 
-DroneControlImpl::DroneControlImpl(types::DroneConfigData drone,
-                                   types::MissionConfigData mission,
+using namespace user_common_330371063_324976703;
+
+DroneControlImpl::DroneControlImpl(common::types::DroneConfigData drone,
+                                   common::types::MissionConfigData mission,
                                    ILidar& lidar,
                                    IGPS& gps,
                                    IDroneMovement& movement,
@@ -22,27 +25,27 @@ DroneControlImpl::DroneControlImpl(types::DroneConfigData drone,
       output_map_(output_map),
       mapping_algorithm_(mapping_algorithm) {}
 
-types::DroneStepResult DroneControlImpl::step() {
+common::types::DroneStepResult DroneControlImpl::step() {
     Logger::setStep(step_index_);
 
     // 1. Build current state.
-    types::DroneState current_state = state();
+    common::types::DroneState current_state = state();
 
     // 2. Get the latest scan result pointer (null on first call).
-    static thread_local const types::LidarScanResult* last_scan_ptr = nullptr;
-    static thread_local types::LidarScanResult last_scan_storage;
+    static thread_local const common::types::LidarScanResult* last_scan_ptr = nullptr;
+    static thread_local common::types::LidarScanResult last_scan_storage;
 
     // 3. Obtain command from algorithm or pending state
-    types::MappingStepCommand cmd;
+    common::types::MappingStepCommand cmd;
     if (pending_command_.has_value()) {
         cmd = pending_command_.value();
     } else {
         cmd = mapping_algorithm_.nextStep(current_state, last_scan_ptr);
         last_scan_ptr = nullptr; // Reset scan pointer
 
-        if (cmd.status == types::AlgorithmStatus::Finished ||
-            cmd.status == types::AlgorithmStatus::FinishedWithUnmappableVoxels) {
-            return types::DroneStepResult{types::DroneStepStatus::Completed, "Mapping complete."};
+        if (cmd.status == common::types::AlgorithmStatus::Finished ||
+            cmd.status == common::types::AlgorithmStatus::FinishedWithUnmappableVoxels) {
+            return common::types::DroneStepResult{common::types::DroneStepStatus::Completed, "Mapping complete."};
         }
     }
 
@@ -51,10 +54,10 @@ types::DroneStepResult DroneControlImpl::step() {
     // 4. Execute movement command chunk
     if (cmd.movement.has_value()) {
         auto& move = cmd.movement.value();
-        types::MovementResult result{true, {}};
+        common::types::MovementResult result{true, {}};
 
         switch (move.type) {
-            case types::MovementCommandType::Rotate: {
+            case common::types::MovementCommandType::Rotate: {
                 double max_rot = drone_.max_rotate.numerical_value_in(deg);
                 double cmd_angle = move.angle.numerical_value_in(deg);
                 double chunk = std::min(std::abs(cmd_angle), max_rot);
@@ -69,7 +72,7 @@ types::DroneStepResult DroneControlImpl::step() {
                 }
                 break;
             }
-            case types::MovementCommandType::Advance: {
+            case common::types::MovementCommandType::Advance: {
                 double max_adv = drone_.max_advance.numerical_value_in(cm);
                 double cmd_dist = move.distance.numerical_value_in(cm);
                 double chunk = std::min(cmd_dist, max_adv);
@@ -83,7 +86,7 @@ types::DroneStepResult DroneControlImpl::step() {
                 }
                 break;
             }
-            case types::MovementCommandType::Elevate: {
+            case common::types::MovementCommandType::Elevate: {
                 double max_elev = drone_.max_elevate.numerical_value_in(cm);
                 double cmd_dist = move.distance.numerical_value_in(cm);
                 double chunk = std::min(std::abs(cmd_dist), max_elev);
@@ -98,14 +101,14 @@ types::DroneStepResult DroneControlImpl::step() {
                 }
                 break;
             }
-            case types::MovementCommandType::Hover:
+            case common::types::MovementCommandType::Hover:
                 break;
         }
 
         if (!result) {
             pending_command_.reset();
-            return types::DroneStepResult{
-                types::DroneStepStatus::Error,
+            return common::types::DroneStepResult{
+                common::types::DroneStepStatus::Error,
                 "Movement failed: " + result.message
             };
         }
@@ -118,7 +121,7 @@ types::DroneStepResult DroneControlImpl::step() {
             last_scan_storage = lidar_.scan(scan_orient);
             last_scan_ptr = &last_scan_storage;
 
-            types::LidarConfigData lidar_config = lidar_.config();
+            common::types::LidarConfigData lidar_config = lidar_.config();
             ScanResultToVoxels::applyToMap(
                 output_map_,
                 gps_.position(),
@@ -136,14 +139,14 @@ types::DroneStepResult DroneControlImpl::step() {
     std::string action_str = "hover";
     if (cmd.movement.has_value()) {
         switch (cmd.movement.value().type) {
-            case types::MovementCommandType::Rotate:  action_str = "rotate"; break;
-            case types::MovementCommandType::Advance: action_str = "advance"; break;
-            case types::MovementCommandType::Elevate: action_str = "elevate"; break;
-            case types::MovementCommandType::Hover:   action_str = "hover"; break;
+            case common::types::MovementCommandType::Rotate:  action_str = "rotate"; break;
+            case common::types::MovementCommandType::Advance: action_str = "advance"; break;
+            case common::types::MovementCommandType::Elevate: action_str = "elevate"; break;
+            case common::types::MovementCommandType::Hover:   action_str = "hover"; break;
         }
     }
     
-    types::DroneState end_state = state();
+    common::types::DroneState end_state = state();
     Logger::logMovement(
         end_state.position.x.numerical_value_in(cm),
         end_state.position.y.numerical_value_in(cm),
@@ -166,11 +169,11 @@ types::DroneStepResult DroneControlImpl::step() {
     // 6. Increment step counter.
     ++step_index_;
 
-    return types::DroneStepResult{types::DroneStepStatus::Continue, {}};
+    return common::types::DroneStepResult{common::types::DroneStepStatus::Continue, {}};
 }
 
-types::DroneState DroneControlImpl::state() const {
-    return types::DroneState{gps_.position(), gps_.heading(), step_index_};
+common::types::DroneState DroneControlImpl::state() const {
+    return common::types::DroneState{gps_.position(), gps_.heading(), step_index_};
 }
 
-} // namespace drone_mapper
+} // namespace mission_control_330371063_324976703

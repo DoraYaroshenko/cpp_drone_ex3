@@ -1,7 +1,8 @@
-#include <drone_mapper/MappingAlgorithmImpl.h>
-#include <drone_mapper/Units.h>
-#include <drone_mapper/IMap3D.h>
-#include <drone_mapper/CollisionUtils.h>
+#include "MappingAlgorithmImpl.h"
+#include <Common/Units.h>
+#include <Common/IMap3D.h>
+#include <UserCommon/CollisionUtils.h>
+#include <Common/MappingAlgorithmRegistration.h>
 
 #include <mp-units/systems/si/math.h>
 
@@ -17,7 +18,9 @@
 #include <limits>
 #include <tuple>
 
-namespace drone_mapper {
+namespace algorithm_330371063_324976703 {
+
+using namespace user_common_330371063_324976703;
 
 namespace {
 
@@ -120,7 +123,7 @@ bool isVoxelPassable(const VoxelIndex& vi,
                 };
                 if (!map.isInBounds(p)) return false;
                 auto v = map.atVoxel(p);
-                if (v == types::VoxelOccupancy::Occupied || v == types::VoxelOccupancy::PotentiallyOccupied) return false;
+                if (v == common::types::VoxelOccupancy::Occupied || v == common::types::VoxelOccupancy::PotentiallyOccupied) return false;
             }
         }
     }
@@ -154,7 +157,7 @@ bool isVoxelKnownSafe(const VoxelIndex& vi,
                 };
                 if (!map.isInBounds(p)) return false;
                 auto v = map.atVoxel(p);
-                if (v != types::VoxelOccupancy::Empty) return false;
+                if (v != common::types::VoxelOccupancy::Empty) return false;
             }
         }
     }
@@ -185,7 +188,7 @@ std::vector<VoxelIndex> getUnknownVoxelsInSphere(const VoxelIndex& vi,
                 };
                 if (!map.isInBounds(p)) continue;
                 auto v = map.atVoxel(p);
-                if (v == types::VoxelOccupancy::Unmapped) {
+                if (v == common::types::VoxelOccupancy::Unmapped) {
                     VoxelIndex idx = positionToVoxelIndex(p, resolution);
                     if (!seen.count(idx)) {
                         seen.insert(idx);
@@ -244,7 +247,7 @@ std::vector<Orientation> generateScansForUnmapped(const Position3D& drone_pos,
                 Position3D p = voxelIndexToPosition(target, resolution);
                 if (!map.isInBounds(p)) continue;
                 auto v = map.atVoxel(p);
-                if (v == types::VoxelOccupancy::Unmapped) {
+                if (v == common::types::VoxelOccupancy::Unmapped) {
                     Orientation orient = scanOrientationToVoxel(drone_pos, drone_heading, target, resolution);
                     // Deduplicate close orientations
                     bool exists = false;
@@ -304,7 +307,7 @@ FrontierResult findFrontier(const Position3D& drone_pos,
             if (!map.isInBounds(nb_pos)) continue;
 
             auto v = map.atVoxel(nb_pos);
-            if (v == types::VoxelOccupancy::Unmapped) {
+            if (v == common::types::VoxelOccupancy::Unmapped) {
                 has_unmapped_neighbour = true;
                 break;
             }
@@ -446,7 +449,7 @@ std::unordered_map<const void*, SweepState> g_sweep_states;
 // Phase handlers
 // ---------------------------------------------------------------------------
 
-std::optional<types::MappingStepCommand> handleScanSurroundings(
+std::optional<common::types::MappingStepCommand> handleScanSurroundings(
     SweepState& sweep,
     const Position3D& pos,
     const Orientation& heading,
@@ -469,19 +472,19 @@ std::optional<types::MappingStepCommand> handleScanSurroundings(
     return std::nullopt;
 }
 
-std::optional<types::MappingStepCommand> handleExecuteScans(SweepState& sweep) {
+std::optional<common::types::MappingStepCommand> handleExecuteScans(SweepState& sweep) {
     if (!sweep.pending_scans.empty()) {
-        types::MappingStepCommand cmd;
+        common::types::MappingStepCommand cmd;
         cmd.scan_orientation = sweep.pending_scans.back();
         sweep.pending_scans.pop_back();
-        cmd.status = types::AlgorithmStatus::Working;
+        cmd.status = common::types::AlgorithmStatus::Working;
         return cmd;
     }
     sweep.phase = sweep.return_after_scans;
     return std::nullopt;
 }
 
-std::optional<types::MappingStepCommand> handleFindFrontier(
+std::optional<common::types::MappingStepCommand> handleFindFrontier(
     SweepState& sweep,
     const Position3D& pos,
     PhysicalLength resolution,
@@ -517,7 +520,7 @@ std::optional<types::MappingStepCommand> handleFindFrontier(
     return std::nullopt;
 }
 
-std::optional<types::MappingStepCommand> handlePlanPath(
+std::optional<common::types::MappingStepCommand> handlePlanPath(
     SweepState& sweep,
     const Position3D& pos,
     PhysicalLength resolution,
@@ -548,7 +551,7 @@ std::optional<types::MappingStepCommand> handlePlanPath(
 /// Before moving to a path step, check if we need to scan unknown voxels
 /// in the drone sphere at that position. If so, scan from current position
 /// toward those unknowns.
-std::optional<types::MappingStepCommand> handleScanBeforeMove(
+std::optional<common::types::MappingStepCommand> handleScanBeforeMove(
     SweepState& sweep,
     const Position3D& pos,
     const Orientation& heading,
@@ -596,14 +599,14 @@ std::optional<types::MappingStepCommand> handleScanBeforeMove(
     return std::nullopt;
 }
 
-std::optional<types::MappingStepCommand> handleFollowPath(
+std::optional<common::types::MappingStepCommand> handleFollowPath(
     SweepState& sweep,
     const Position3D& pos,
     const Orientation& heading,
     PhysicalLength resolution,
     PhysicalLength radius,
     const IMap3D& map,
-    const types::DroneConfigData& drone_config) {
+    const common::types::DroneConfigData& drone_config) {
 
     if (sweep.path_index >= sweep.planned_path.size()) {
         // Path completed — scan surroundings at the new position
@@ -632,15 +635,15 @@ std::optional<types::MappingStepCommand> handleFollowPath(
     double dy = (target_pos.y - pos.y).numerical_value_in(cm);
     double dz = (target_pos.z - pos.z).numerical_value_in(cm);
 
-    types::MappingStepCommand cmd;
-    cmd.status = types::AlgorithmStatus::Working;
+    common::types::MappingStepCommand cmd;
+    cmd.status = common::types::AlgorithmStatus::Working;
 
     // Handle elevation change first
     if (std::abs(dz) > 0.01) {
         PhysicalLength abs_dist(std::abs(dz) * cm);
         PhysicalLength step = (abs_dist < drone_config.max_elevate) ? abs_dist : drone_config.max_elevate;
-        cmd.movement = types::MovementCommand{
-            types::MovementCommandType::Elevate, {}, {}, (dz > 0) ? step : -step
+        cmd.movement = common::types::MovementCommand{
+            common::types::MovementCommandType::Elevate, {}, {}, (dz > 0) ? step : -step
         };
         if (abs_dist <= drone_config.max_elevate + 0.001 * cm && std::abs(dx) < 0.01 && std::abs(dy) < 0.01) {
             sweep.path_index++;
@@ -665,9 +668,9 @@ std::optional<types::MappingStepCommand> handleFollowPath(
             HorizontalAngle abs_angle(abs_diff * horizontal_angle[deg]);
             HorizontalAngle step_angle = (abs_angle < max_rot) ? abs_angle : max_rot;
 
-            cmd.movement = types::MovementCommand{
-                types::MovementCommandType::Rotate,
-                h_diff.numerical_value_in(deg) > 0 ? types::RotationDirection::Left : types::RotationDirection::Right,
+            cmd.movement = common::types::MovementCommand{
+                common::types::MovementCommandType::Rotate,
+                h_diff.numerical_value_in(deg) > 0 ? common::types::RotationDirection::Left : common::types::RotationDirection::Right,
                 step_angle,
                 {}
             };
@@ -676,8 +679,8 @@ std::optional<types::MappingStepCommand> handleFollowPath(
 
         PhysicalLength adv_dist(horiz_dist * cm);
         PhysicalLength step = (adv_dist < drone_config.max_advance) ? adv_dist : drone_config.max_advance;
-        cmd.movement = types::MovementCommand{
-            types::MovementCommandType::Advance, {}, {}, step
+        cmd.movement = common::types::MovementCommand{
+            common::types::MovementCommandType::Advance, {}, {}, step
         };
         if (adv_dist <= drone_config.max_advance + 0.001 * cm) {
             sweep.path_index++;
@@ -692,12 +695,12 @@ std::optional<types::MappingStepCommand> handleFollowPath(
 
 } // namespace
 
-MappingAlgorithmImpl::~MappingAlgorithmImpl() {
+MappingAlgorithmImpl_330371063_324976703::~MappingAlgorithmImpl_330371063_324976703() {
     g_sweep_states.erase(this);
 }
 
-types::MappingStepCommand MappingAlgorithmImpl::nextStep(const types::DroneState& state,
-                                                         const types::LidarScanResult* /*latest_scan*/) {
+common::types::MappingStepCommand MappingAlgorithmImpl_330371063_324976703::nextStep(const common::types::DroneState& state,
+                                                         const common::types::LidarScanResult* /*latest_scan*/) {
     auto& sweep = g_sweep_states[this];
     const Position3D& pos = state.position;
     const Orientation& heading = state.heading;
@@ -705,7 +708,7 @@ types::MappingStepCommand MappingAlgorithmImpl::nextStep(const types::DroneState
     PhysicalLength radius = drone_config_.radius;
 
     while (true) {
-        std::optional<types::MappingStepCommand> cmd_opt;
+        std::optional<common::types::MappingStepCommand> cmd_opt;
 
         switch (sweep.phase) {
             case SweepPhase::ScanSurroundings:
@@ -727,8 +730,8 @@ types::MappingStepCommand MappingAlgorithmImpl::nextStep(const types::DroneState
                 cmd_opt = handleScanBeforeMove(sweep, pos, heading, resolution, radius, output_map_);
                 break;
             case SweepPhase::Finished: {
-                types::MappingStepCommand cmd;
-                cmd.status = types::AlgorithmStatus::Finished;
+                common::types::MappingStepCommand cmd;
+                cmd.status = common::types::AlgorithmStatus::Finished;
                 return cmd;
             }
         }
@@ -739,4 +742,6 @@ types::MappingStepCommand MappingAlgorithmImpl::nextStep(const types::DroneState
     }
 }
 
-} // namespace drone_mapper
+REGISTER_MAPPING_ALGORITHM(MappingAlgorithmImpl_330371063_324976703);
+
+} // namespace algorithm_330371063_324976703

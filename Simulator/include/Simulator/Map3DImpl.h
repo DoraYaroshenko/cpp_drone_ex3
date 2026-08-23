@@ -2,12 +2,22 @@
 
 #include <TinyNPY.h>
 
-#include <drone_mapper/IMutableMap3D.h>
+#include <Common/IMutableMap3D.h>
 
 #include <filesystem>
 #include <memory>
 
-namespace drone_mapper {
+
+
+
+namespace simulator {
+namespace types {
+using namespace common::types;
+using namespace simulator::types;
+}
+using namespace common;
+namespace user_common_330371063_324976703 {}
+using namespace user_common_330371063_324976703;
 
 class Map3DImpl final : public IMutableMap3D {
 public:
@@ -31,4 +41,7 @@ private:
     types::MapConfig config_;
 };
 
-} // namespace drone_mapper
+
+
+
+} // namespace simulator

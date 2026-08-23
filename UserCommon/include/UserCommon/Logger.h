@@ -3,9 +3,13 @@
 #include <string>
 #include <fstream>
 #include <mutex>
-#include <drone_mapper/Types.h>
+#include <Common/Types.h>
 
-namespace drone_mapper {
+
+namespace user_common_330371063_324976703 {
+using namespace common;
+
+
 
 /**
  * @brief A lightweight streaming logger for simulation visualizations.
@@ -31,4 +35,6 @@ private:
     static std::mutex mutex_;
 };
 
-} // namespace drone_mapper
+
+
+} // namespace user_common_330371063_324976703

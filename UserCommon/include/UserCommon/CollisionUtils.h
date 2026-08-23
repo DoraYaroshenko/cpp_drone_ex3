@@ -1,9 +1,13 @@
 #pragma once
 
-#include <drone_mapper/IMap3D.h>
-#include <drone_mapper/Types.h>
+#include <Common/IMap3D.h>
+#include <Common/Types.h>
 
-namespace drone_mapper {
+
+namespace user_common_330371063_324976703 {
+using namespace common;
+
+
 
 class CollisionUtils {
 public:
@@ -29,4 +33,6 @@ public:
     static bool isDroneFullyInBounds(const IMap3D& map, const Position3D& pos, PhysicalLength radius);
 };
 
-} // namespace drone_mapper
+
+
+} // namespace user_common_330371063_324976703

@@ -6,7 +6,11 @@
 #include <stdexcept>
 #include <string>
 
-namespace drone_mapper {
+
+namespace user_common_330371063_324976703 {
+using namespace common;
+
+
 
 template<typename T>
 T get_with_default(const YAML::Node& node, const std::string& key, const T& default_val) {
@@ -29,4 +33,6 @@ T get_with_check(const YAML::Node& node,
     return val;
 }
 
-} // namespace drone_mapper
+
+
+} // namespace user_common_330371063_324976703

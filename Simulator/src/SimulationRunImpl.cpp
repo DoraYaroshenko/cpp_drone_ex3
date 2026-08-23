@@ -1,13 +1,23 @@
-#include <drone_mapper/SimulationRunImpl.h>
+#include <Simulator/SimulationRunImpl.h>
 
-#include <drone_mapper/MapsComparison.h>
+#include <Simulator/MapsComparison.h>
 #include <iostream>
 
 #include <stdexcept>
 #include <utility>
 #include <vector>
 
-namespace drone_mapper {
+
+
+
+namespace simulator {
+namespace types {
+using namespace common::types;
+using namespace simulator::types;
+}
+using namespace common;
+namespace user_common_330371063_324976703 {}
+using namespace user_common_330371063_324976703;
 
 SimulationRunImpl::SimulationRunImpl(std::unique_ptr<const IMap3D> hidden_map,
                                      std::unique_ptr<IMutableMap3D> output_map,
@@ -15,7 +25,7 @@ SimulationRunImpl::SimulationRunImpl(std::unique_ptr<const IMap3D> hidden_map,
                                      std::unique_ptr<IDroneMovement> movement,
                                      std::unique_ptr<ILidar> lidar,
                                      std::unique_ptr<IMappingAlgorithm> mapping_algorithm,
-                                     std::unique_ptr<IDroneControl> drone_control,
+                                     std::unique_ptr<mission_control::IDroneControl> drone_control,
                                      std::unique_ptr<IMissionControl> mission_control,
                                      types::SimulationConfigData simulation_config,
                                      types::MissionConfigData mission_config,
@@ -94,4 +104,7 @@ types::SimulationResult SimulationRunImpl::run() {
     return result;
 }
 
-} // namespace drone_mapper
+
+
+
+} // namespace simulator

@@ -1,19 +1,29 @@
 #pragma once
 
-#include <drone_mapper/IDroneControl.h>
-#include <drone_mapper/IDroneMovement.h>
-#include <drone_mapper/IGPS.h>
-#include <drone_mapper/ILidar.h>
-#include <drone_mapper/IMap3D.h>
-#include <drone_mapper/IMappingAlgorithm.h>
-#include <drone_mapper/IMissionControl.h>
-#include <drone_mapper/IMutableMap3D.h>
-#include <drone_mapper/ISimulationRun.h>
+#include <MissionControl/IDroneControl.h>
+#include <Common/IDroneMovement.h>
+#include <Common/IGPS.h>
+#include <Common/ILidar.h>
+#include <Common/IMap3D.h>
+#include <Common/IMappingAlgorithm.h>
+#include <Common/IMissionControl.h>
+#include <Common/IMutableMap3D.h>
+#include <Simulator/ISimulationRun.h>
 
 #include <filesystem>
 #include <memory>
 
-namespace drone_mapper {
+
+
+
+namespace simulator {
+namespace types {
+using namespace common::types;
+using namespace simulator::types;
+}
+using namespace common;
+namespace user_common_330371063_324976703 {}
+using namespace user_common_330371063_324976703;
 
 class SimulationRunImpl final : public ISimulationRun {
 public:
@@ -23,7 +33,7 @@ public:
                       std::unique_ptr<IDroneMovement> movement,
                       std::unique_ptr<ILidar> lidar,
                       std::unique_ptr<IMappingAlgorithm> mapping_algorithm,
-                      std::unique_ptr<IDroneControl> drone_control,
+                      std::unique_ptr<mission_control::IDroneControl> drone_control,
                       std::unique_ptr<IMissionControl> mission_control,
                       // Changed: stores run metadata needed to build SimulationResult.
                       types::SimulationConfigData simulation_config,
@@ -40,7 +50,7 @@ private:
     std::unique_ptr<IDroneMovement> movement_;
     std::unique_ptr<ILidar> lidar_;
     std::unique_ptr<IMappingAlgorithm> mapping_algorithm_;
-    std::unique_ptr<IDroneControl> drone_control_;
+    std::unique_ptr<mission_control::IDroneControl> drone_control_;
     std::unique_ptr<IMissionControl> mission_control_;
     // Changed: retained so run() can return the configs and output path in SimulationResult.
     types::SimulationConfigData simulation_config_;
@@ -48,4 +58,7 @@ private:
     std::filesystem::path output_map_file_;
 };
 
-} // namespace drone_mapper
+
+
+
+} // namespace simulator

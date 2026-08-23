@@ -1,9 +1,19 @@
-#include <drone_mapper/MapsComparison.h>
+#include <Simulator/MapsComparison.h>
 
 #include <cmath>
 #include <iostream>
 
-namespace drone_mapper {
+
+
+
+namespace simulator {
+namespace types {
+using namespace common::types;
+using namespace simulator::types;
+}
+using namespace common;
+namespace user_common_330371063_324976703 {}
+using namespace user_common_330371063_324976703;
 
 std::vector<double> MapsComparison::compare(const IMap3D& original,
                                              const std::vector<IMap3D*> targets) {
@@ -117,4 +127,7 @@ std::vector<double> MapsComparison::compare(const IMap3D& original,
     return scores;
 }
 
-} // namespace drone_mapper
+
+
+
+} // namespace simulator

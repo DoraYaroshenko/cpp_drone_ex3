@@ -1,10 +1,20 @@
-#include <drone_mapper/MockMovement.h>
+#include <Simulator/MockMovement.h>
 
 #include <mp-units/systems/si/math.h>
 
 #include <cmath>
 
-namespace drone_mapper {
+
+
+
+namespace simulator {
+namespace types {
+using namespace common::types;
+using namespace simulator::types;
+}
+using namespace common;
+namespace user_common_330371063_324976703 {}
+using namespace user_common_330371063_324976703;
 
 MockMovement::MockMovement(MockGPS& gps) : gps_(gps) {}
 
@@ -43,4 +53,7 @@ types::MovementResult MockMovement::elevate(PhysicalLength distance) {
     return types::MovementResult{true, {}};
 }
 
-} // namespace drone_mapper
+
+
+
+} // namespace simulator

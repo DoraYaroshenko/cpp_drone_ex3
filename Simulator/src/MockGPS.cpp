@@ -1,0 +1,37 @@
+#include <Simulator/MockGPS.h>
+
+
+
+
+namespace simulator {
+namespace types {
+using namespace common::types;
+using namespace simulator::types;
+}
+using namespace common;
+namespace user_common_330371063_324976703 {}
+using namespace user_common_330371063_324976703;
+
+MockGPS::MockGPS(Position3D position, Orientation heading, PhysicalLength resolution)
+    : position_(position), heading_(heading), resolution_(resolution) {}
+
+Position3D MockGPS::position() const {
+    return position_;
+}
+
+Orientation MockGPS::heading() const {
+    return heading_;
+}
+
+void MockGPS::setPosition(Position3D position) {
+    position_ = position;
+}
+
+void MockGPS::setHeading(Orientation heading) {
+    heading_ = heading;
+}
+
+
+
+
+} // namespace simulator

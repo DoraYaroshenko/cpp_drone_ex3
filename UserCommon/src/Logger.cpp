@@ -1,7 +1,11 @@
-#include <drone_mapper/Logger.h>
+#include <UserCommon/Logger.h>
 #include <iostream>
 
-namespace drone_mapper {
+
+namespace user_common_330371063_324976703 {
+using namespace common;
+
+
 
 std::ofstream Logger::out_stream_;
 std::size_t Logger::current_step_id_ = 0;
@@ -61,4 +65,6 @@ void Logger::logVoxel(int x, int y, int z, int value) {
                 << ", \"value\": " << value << "}\n";
 }
 
-} // namespace drone_mapper
+
+
+} // namespace user_common_330371063_324976703

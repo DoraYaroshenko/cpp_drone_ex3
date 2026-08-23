@@ -1,10 +1,14 @@
-#include <drone_mapper/ScanResultToVoxels.h>
+#include <UserCommon/ScanResultToVoxels.h>
 
 #include <mp-units/systems/si/math.h>
 
 #include <limits>
 
-namespace drone_mapper {
+
+namespace user_common_330371063_324976703 {
+using namespace common;
+
+
 namespace {
 
 [[nodiscard]] bool isZeroDistance(PhysicalLength distance) {
@@ -49,16 +53,16 @@ namespace {
 // Evidence strength for conflicting writes to the same voxel.
 // Occupied is a measured hit, Empty is proven free space, and
 // PotentiallyOccupied is only uncertainty from a too-close hit.
-[[nodiscard]] int occupancyPriority(types::VoxelOccupancy occupancy) {
+[[nodiscard]] int occupancyPriority(common::types::VoxelOccupancy occupancy) {
     switch (occupancy) {
-    case types::VoxelOccupancy::Occupied:
+    case common::types::VoxelOccupancy::Occupied:
         return 3;
-    case types::VoxelOccupancy::Empty:
+    case common::types::VoxelOccupancy::Empty:
         return 2;
-    case types::VoxelOccupancy::PotentiallyOccupied:
+    case common::types::VoxelOccupancy::PotentiallyOccupied:
         return 1;
-    case types::VoxelOccupancy::Unmapped:
-    case types::VoxelOccupancy::OutOfBounds:
+    case common::types::VoxelOccupancy::Unmapped:
+    case common::types::VoxelOccupancy::OutOfBounds:
         return 0;
     }
 
@@ -67,12 +71,12 @@ namespace {
 
 void setIfStronger(IMutableMap3D& output_map,
                    const Position3D& position,
-                   types::VoxelOccupancy value) {
+                   common::types::VoxelOccupancy value) {
     if (!output_map.isInBounds(position)) {
         return;
     }
 
-    const types::VoxelOccupancy current_value = output_map.atVoxel(position);
+    const common::types::VoxelOccupancy current_value = output_map.atVoxel(position);
     if (occupancyPriority(value) > occupancyPriority(current_value)) {
         output_map.set(position, value);
     }
@@ -85,7 +89,7 @@ void markBeamSegment(IMutableMap3D& output_map,
                      PhysicalLength start_distance,
                      PhysicalLength end_distance,
                      PhysicalLength step,
-                     types::VoxelOccupancy value) {
+                     common::types::VoxelOccupancy value) {
     for (PhysicalLength distance = start_distance; distance <= end_distance; distance += step) {
         const Position3D current_point = pointAlongBeam(scan_origin, beam_orientation, distance);
         if (!output_map.isInBounds(current_point)) {
@@ -100,8 +104,8 @@ void markBeamSegment(IMutableMap3D& output_map,
 void ScanResultToVoxels::applyToMap(IMutableMap3D& output_map,
                                     const Position3D& scan_origin,
                                     const Orientation& drone_heading,
-                                    const types::LidarScanResult& scan,
-                                    const types::LidarConfigData& lidar_config) {
+                                    const common::types::LidarScanResult& scan,
+                                    const common::types::LidarConfigData& lidar_config) {
     if (!output_map.isInBounds(scan_origin)) {
         return;
     }
@@ -113,7 +117,7 @@ void ScanResultToVoxels::applyToMap(IMutableMap3D& output_map,
         return;
     }
 
-    for (const types::LidarHit& hit : scan) {
+    for (const common::types::LidarHit& hit : scan) {
         const Orientation beam_orientation = absoluteBeamOrientation(drone_heading, hit.angle);
 
         if (isZeroDistance(hit.distance)) {
@@ -125,7 +129,7 @@ void ScanResultToVoxels::applyToMap(IMutableMap3D& output_map,
                             0.0 * cm,
                             lidar_config.z_min,
                             step,
-                            types::VoxelOccupancy::PotentiallyOccupied);
+                            common::types::VoxelOccupancy::PotentiallyOccupied);
             continue;
         }
 
@@ -138,7 +142,7 @@ void ScanResultToVoxels::applyToMap(IMutableMap3D& output_map,
                             0.0 * cm,
                             lidar_config.z_max,
                             step,
-                            types::VoxelOccupancy::Empty);
+                            common::types::VoxelOccupancy::Empty);
             continue;
         }
 
@@ -151,12 +155,14 @@ void ScanResultToVoxels::applyToMap(IMutableMap3D& output_map,
                             0.0 * cm,
                             hit.distance,
                             step,
-                            types::VoxelOccupancy::Empty);
+                            common::types::VoxelOccupancy::Empty);
             setIfStronger(output_map,
                           pointAlongBeam(scan_origin, beam_orientation, hit.distance),
-                          types::VoxelOccupancy::Occupied);
+                          common::types::VoxelOccupancy::Occupied);
         }
     }
 }
 
-} // namespace drone_mapper
+
+
+} // namespace user_common_330371063_324976703

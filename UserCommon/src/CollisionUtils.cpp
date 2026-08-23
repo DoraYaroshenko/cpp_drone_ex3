@@ -1,12 +1,16 @@
-#include <drone_mapper/CollisionUtils.h>
+#include <UserCommon/CollisionUtils.h>
 
 #include <algorithm>
 
-namespace drone_mapper {
+
+namespace user_common_330371063_324976703 {
+using namespace common;
+
+
 
 bool CollisionUtils::isDroneColliding(const IMap3D& map, const Position3D& pos, PhysicalLength radius) {
     // Quick check to make sure the BB center itself isn't occupied
-    if (map.isInBounds(pos) && map.atVoxel(pos) == types::VoxelOccupancy::Occupied) {
+    if (map.isInBounds(pos) && map.atVoxel(pos) == common::types::VoxelOccupancy::Occupied) {
         return true;
     }
 
@@ -35,7 +39,7 @@ bool CollisionUtils::isDroneColliding(const IMap3D& map, const Position3D& pos, 
                     pos.z + ZLength(dz * z_extent[cm])
                 };
                 
-                if (map.isInBounds(p) && map.atVoxel(p) == types::VoxelOccupancy::Occupied) {
+                if (map.isInBounds(p) && map.atVoxel(p) == common::types::VoxelOccupancy::Occupied) {
                     return true;
                 }
             }
@@ -69,4 +73,6 @@ bool CollisionUtils::isDroneFullyInBounds(const IMap3D& map, const Position3D& p
     return valid;
 }
 
-} // namespace drone_mapper
+
+
+} // namespace user_common_330371063_324976703

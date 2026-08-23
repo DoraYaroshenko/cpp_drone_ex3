@@ -1,5 +1,5 @@
-#include <drone_mapper/Map3DImpl.h>
-#include <drone_mapper/Logger.h>
+#include <Simulator/Map3DImpl.h>
+#include <UserCommon/Logger.h>
 
 #include <cmath>
 #include <fstream>
@@ -7,7 +7,17 @@
 #include <stdexcept>
 #include <utility>
 
-namespace drone_mapper {
+
+
+
+namespace simulator {
+namespace types {
+using namespace common::types;
+using namespace simulator::types;
+}
+using namespace common;
+namespace user_common_330371063_324976703 {}
+using namespace user_common_330371063_324976703;
 
 namespace {
 
@@ -152,7 +162,7 @@ void Map3DImpl::set(const Position3D& pos, types::VoxelOccupancy value) {
 
     auto logIfChanged = [ix, iy, iz, raw_value](int current_val) {
         if (current_val != raw_value) {
-            Logger::logVoxel(ix, iy, iz, raw_value);
+            ::user_common_330371063_324976703::Logger::logVoxel(ix, iy, iz, raw_value);
         }
     };
 
@@ -208,4 +218,7 @@ void Map3DImpl::save(const std::filesystem::path& path) const {
     }
 }
 
-} // namespace drone_mapper
+
+
+
+} // namespace simulator

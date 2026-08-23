@@ -1,4 +1,4 @@
-#include <drone_mapper/SimulationManager.h>
+#include <Simulator/SimulationManager.h>
 
 #include <chrono>
 #include <ctime>
@@ -10,7 +10,17 @@
 #include <fstream>
 #include <filesystem>
 
-namespace drone_mapper {
+
+
+
+namespace simulator {
+namespace types {
+using namespace common::types;
+using namespace simulator::types;
+}
+using namespace common;
+namespace user_common_330371063_324976703 {}
+using namespace user_common_330371063_324976703;
 
 SimulationManager::SimulationManager(std::unique_ptr<ISimulationRunFactory> run_factory)
     : run_factory_(std::move(run_factory)) {
@@ -41,8 +51,8 @@ types::SimulationManagerReport SimulationManager::run(const types::SimulationCom
     // Cartesian product: simulations × missions × drones × lidars
     for (const auto& [simulation, missions] : composition.simulation_mission_groups) {
         for (const types::MissionConfigData& mission : missions) {
-            for (const types::DroneConfigData& drone : composition.drones) {
-                for (const types::LidarConfigData& lidar : composition.lidars) {
+            for (const types::DroneConfigData& drone : composition.drone_configs) {
+                for (const types::LidarConfigData& lidar : composition.lidar_configs) {
                     // Create the output_results subdirectory inside output_path
                     std::filesystem::path results_dir = output_path / "output_results";
                     std::filesystem::create_directories(results_dir);
@@ -84,6 +94,7 @@ types::SimulationManagerReport SimulationManager::run(const types::SimulationCom
     }
 
     return types::SimulationManagerReport{
+        composition.composition_file,
         time_ss.str(),
         "output_map_accuracy",
         {0.0, 100.0},
@@ -92,4 +103,7 @@ types::SimulationManagerReport SimulationManager::run(const types::SimulationCom
     };
 }
 
-} // namespace drone_mapper
+
+
+
+} // namespace simulator
