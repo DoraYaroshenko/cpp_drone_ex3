@@ -1,0 +1,32 @@
+In this document we wrote the reasoning behind our Simulator\MissionControl\MappingAlgorthim\Common
+structure. This should help you in assignment 3. Try to understand our way of thought about this design, it
+might be helpful in other future design tasks.
+Simulator
+Note that some implementations of the Common folder are stored in the src folder of the Simulator. This is
+not by mistake - the mocks we make are completely simulated, and would be replaced by real API's of real
+components in real life.
+The simulation includes, in its common folder the interfaces for:
+The simulation Manager
+The simulation Run
+The simulation run factory
+Simulation types These are pretty straight forward - they all take part in the "running behind the
+scenes" aspect of the program. They are not a part of what would have been in real life. In the same
+spirit, the src folder includes:
+Mock Lidar
+MockGPS
+MockMovement
+Map3DImpl
+Implementations for simulation and code specific objects Because these are a part of the simulation,
+their implementation can be unrealistic. For example, from the first assignment we know that
+MockLiDAR needs to hold the real, hidden map. We can give that map to both MockGPS and
+MockMovement if they really need it (and only one of them might!).
+Mission Control
+The common includes only the IDroneControl. This is because according to assignment 3, it is the
+responsibility of the Mission Control to bring its own implementation. Note that both could (with minimal
+changes) be implemented in a micro controller of some real life device. The actual interface of MissionControl
+is stored in the Common folder! Because it is used by the simulation, too.
+Mapping algorithm
+Similar to the MissionControl, There is no interface in the common folder of Mapping algorithm, which is
+actually stored in the Common folder. Again because other objects need that interface, too.
+Structuring the project.md2026-07-25
+1 / 1
