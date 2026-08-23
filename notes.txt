@@ -1,5 +1,0 @@
-- when loading .so files, need to make sure that:
-    - we don't try to load files that are way too big
-    - we actually load files (e.g. there is a file with .so extension and we don't get an empty folder or such)
-    if any problems like this or similar happen, we should handle them gracefully and throw errors correctly etc.
-- 
