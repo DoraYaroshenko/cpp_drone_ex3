@@ -7,6 +7,9 @@ add_executable(simulator_330371063_324976703
     src/SimulationManager.cpp
     src/SimulationRunImpl.cpp
     src/SimulationRunFactoryImpl.cpp
+    src/MappingAlgorithmRegistration.cpp
+    src/MissionControlRegistration.cpp
+    src/PluginLoader.cpp
 
     src/MapsComparison.cpp
     ../UserCommon/src/CollisionUtils.cpp
