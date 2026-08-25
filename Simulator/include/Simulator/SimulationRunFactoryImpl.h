@@ -1,6 +1,8 @@
 #pragma once
 
 #include <Simulator/ISimulationRunFactory.h>
+#include <Common/MappingAlgorithmFactory.h>
+#include <Common/MissionControlFactory.h>
 
 
 
@@ -16,12 +18,20 @@ using namespace user_common_330371063_324976703;
 
 class SimulationRunFactoryImpl final : public ISimulationRunFactory {
 public:
+    SimulationRunFactoryImpl(
+        common::MappingAlgorithmFactory algo_factory,
+        common::MissionControlFactory mc_factory);
+
     [[nodiscard]] std::unique_ptr<ISimulationRun>
     create(const types::SimulationConfigData& simulation,
            const types::MissionConfigData& mission,
            const types::DroneConfigData& drone,
            const types::LidarConfigData& lidar,
            const std::filesystem::path& output_path) override;
+
+private:
+    common::MappingAlgorithmFactory algo_factory_;
+    common::MissionControlFactory mc_factory_;
 };
 
 

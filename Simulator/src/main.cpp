@@ -192,10 +192,10 @@ int main(int argc, char** argv) {
         print_usage_and_exit("Failed to parse simulation configuration: " + std::string(e.what()));
     }
 
-    // Load plugins... (Actual concurrent execution will happen in Step 3, we just prep the structure here)
-    // Here we can simulate loading, creating simulation manager, and doing runs.
-    
-    // In Part 2 we simply log that we're set up successfully.
+    // Load raw YAML for output generation
+    YAML::Node config = YAML::LoadFile(sim_path.string());
+
+    std::cout << "Starting Simulation...\n";
     std::cout << "Command line parsing successful.\n";
     std::cout << "Mode: " << (is_comparative ? "Comparative" : "Competitive") << "\n";
     std::cout << "Simulation file: " << sim_path << "\n";
@@ -204,22 +204,81 @@ int main(int argc, char** argv) {
     std::cout << "Mission controls to load: " << mc_plugins_to_load.size() << "\n";
     std::cout << "Output directory: " << output_base_dir << "\n";
 
-    // Simulate loading libraries
-    for (const auto& path : algo_plugins_to_load) {
-        loader.loadLibrary(path);
-    }
-    for (const auto& path : mc_plugins_to_load) {
-        loader.loadLibrary(path);
+    if (is_comparative) {
+        std::map<std::string, simulator::types::SimulationManagerReport> mission_reports;
+        
+        simulator::PluginLoader algo_loader;
+        algo_loader.loadLibrary(algo_plugins_to_load[0]);
+        auto algoFactories = simulator::MappingAlgorithmRegistrar::getInstance().getFactories();
+        if (algoFactories.empty()) print_usage_and_exit("Algorithm failed to register.");
+        auto algoFactory = algoFactories[0];
+        simulator::MappingAlgorithmRegistrar::getInstance().clear();
+        std::string algo_name = std::filesystem::path(algo_plugins_to_load[0]).filename().stem().string();
+        
+        for (const auto& mc_path : mc_plugins_to_load) {
+            simulator::PluginLoader mc_loader;
+            mc_loader.loadLibrary(mc_path);
+            auto mcFactories = simulator::MissionControlRegistrar::getInstance().getFactories();
+            if (mcFactories.empty()) {
+                std::cerr << "Warning: Mission Control " << mc_path << " failed to register.\n";
+                simulator::MissionControlRegistrar::getInstance().clear();
+                continue;
+            }
+            auto mcFactory = mcFactories[0];
+            simulator::MissionControlRegistrar::getInstance().clear();
+            std::string mc_name = std::filesystem::path(mc_path).filename().stem().string();
+            
+            auto run_factory = std::make_unique<simulator::SimulationRunFactoryImpl>(algoFactory, mcFactory);
+            simulator::SimulationManager simulation{std::move(run_factory), num_threads};
+            
+            std::filesystem::path run_out_dir = output_base_dir / mc_name;
+            std::filesystem::create_directories(run_out_dir);
+
+            simulator::types::SimulationManagerReport report = simulation.run(composition, run_out_dir);
+            simulator::YamlParserUtils::writeSimulationOutput(report, config, sim_path.filename().string(), run_out_dir, mc_name);
+            mission_reports[mc_name] = std::move(report);
+            
+            // mc_loader goes out of scope here, so dlclose happens after simulation manager is destroyed.
+        }
+        
+        simulator::YamlParserUtils::writeComparativeReport(sim_path.filename().string(), algo_name, mission_reports, output_base_dir);
+    } else {
+        std::map<std::string, simulator::types::SimulationManagerReport> algo_reports;
+        
+        simulator::PluginLoader mc_loader;
+        mc_loader.loadLibrary(mc_plugins_to_load[0]);
+        auto mcFactories = simulator::MissionControlRegistrar::getInstance().getFactories();
+        if (mcFactories.empty()) print_usage_and_exit("Mission Control failed to register.");
+        auto mcFactory = mcFactories[0];
+        simulator::MissionControlRegistrar::getInstance().clear();
+        std::string mc_name = std::filesystem::path(mc_plugins_to_load[0]).filename().stem().string();
+        
+        for (const auto& algo_path : algo_plugins_to_load) {
+            simulator::PluginLoader algo_loader;
+            algo_loader.loadLibrary(algo_path);
+            auto algoFactories = simulator::MappingAlgorithmRegistrar::getInstance().getFactories();
+            if (algoFactories.empty()) {
+                std::cerr << "Warning: Algorithm " << algo_path << " failed to register.\n";
+                simulator::MappingAlgorithmRegistrar::getInstance().clear();
+                continue;
+            }
+            auto algoFactory = algoFactories[0];
+            simulator::MappingAlgorithmRegistrar::getInstance().clear();
+            std::string algo_name = std::filesystem::path(algo_path).filename().stem().string();
+            
+            auto run_factory = std::make_unique<simulator::SimulationRunFactoryImpl>(algoFactory, mcFactory);
+            simulator::SimulationManager simulation{std::move(run_factory), num_threads};
+            
+            std::filesystem::path run_out_dir = output_base_dir / algo_name;
+            std::filesystem::create_directories(run_out_dir);
+
+            simulator::types::SimulationManagerReport report = simulation.run(composition, run_out_dir);
+            simulator::YamlParserUtils::writeSimulationOutput(report, config, sim_path.filename().string(), run_out_dir, algo_name);
+            algo_reports[algo_name] = std::move(report);
+        }
+        
+        simulator::YamlParserUtils::writeCompetitiveReport(sim_path.filename().string(), mc_name, algo_reports, output_base_dir);
     }
     
-    auto& algoFactories = simulator::MappingAlgorithmRegistrar::getInstance().getFactories();
-    auto& mcFactories = simulator::MissionControlRegistrar::getInstance().getFactories();
-    std::cout << "Successfully registered Algorithms: " << algoFactories.size() << std::endl;
-    std::cout << "Successfully registered Mission Controls: " << mcFactories.size() << std::endl;
-
-    // Cleanup: Clear registrars before unloading the libraries
-    simulator::MappingAlgorithmRegistrar::getInstance().clear();
-    simulator::MissionControlRegistrar::getInstance().clear();
-
     return 0;
 }
