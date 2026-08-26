@@ -1,1 +1,0 @@
-Simulation Run Error: Failed to load map: /workspaces/cpp_drone_ex3/inputs/simulation/map/s_walls_21x21x10.npy error: error: unable to open file

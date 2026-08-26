@@ -1,6 +1,0 @@
-SAVE ERROR - Failed to save NPY file: error: unable to open file
-Step 693: ERROR - Movement exception caught: Collision detected: Drone hit a wall
-SAVE ERROR - Failed to save NPY file: error: unable to open file
-SAVE ERROR - Failed to save NPY file: error: unable to open file
-Step 732: ERROR - Movement exception caught: Collision detected: Drone hit a wall
-SAVE ERROR - Failed to save NPY file: error: unable to open file

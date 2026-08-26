@@ -102,6 +102,9 @@ types::VoxelOccupancy Map3DImpl::atVoxel(const Position3D& pos) const {
         return types::VoxelOccupancy::OutOfBounds;
     }
 
+    if (raw_value > 0) {
+        return types::VoxelOccupancy::Occupied;
+    }
     return static_cast<types::VoxelOccupancy>(raw_value);
 }
 

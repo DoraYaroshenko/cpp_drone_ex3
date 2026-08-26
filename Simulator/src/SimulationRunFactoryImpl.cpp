@@ -38,7 +38,7 @@ SimulationRunFactoryImpl::create(const types::SimulationConfigData& simulation,
         hidden_npy,
         types::MapConfig{
             mission.mission_bounds,
-            Position3D{XLength(0.0*cm), YLength(0.0*cm), ZLength(0.0*cm)},
+            common::Position3D{0.0 * common::cm, 0.0 * common::cm, 0.0 * common::cm},
             simulation.map_resolution
         }
     );

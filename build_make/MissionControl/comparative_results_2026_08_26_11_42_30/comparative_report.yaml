@@ -1,8 +1,0 @@
-comparative_report:
-  composition_file: simulation.yaml
-  algorithm_used: Algorithm_330371063_324976703
-  mission_controls:
-    - MissionControl_330371063_324976703:
-        average_score: -1
-        total_completed: 0
-        total_runs: 4

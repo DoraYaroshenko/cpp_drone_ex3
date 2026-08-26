@@ -64,16 +64,16 @@ namespace {
         if (mc["boundaries"]) {
             YAML::Node b = mc["boundaries"];
             if (b["x_boundary"]) {
-                min_x = get_with_default<double>(b["x_boundary"], "min_cm", min_x);
-                max_x = get_with_default<double>(b["x_boundary"], "max_cm", max_x);
+                min_x = get_with_default<double>(b["x_boundary"], "min_cm", 0.0) + default_bounds.min_x.numerical_value_in(cm);
+                max_x = get_with_default<double>(b["x_boundary"], "max_cm", default_bounds.max_x.numerical_value_in(cm) - default_bounds.min_x.numerical_value_in(cm)) + default_bounds.min_x.numerical_value_in(cm);
             }
             if (b["y_boundary"]) {
-                min_y = get_with_default<double>(b["y_boundary"], "min_cm", min_y);
-                max_y = get_with_default<double>(b["y_boundary"], "max_cm", max_y);
+                min_y = get_with_default<double>(b["y_boundary"], "min_cm", 0.0) + default_bounds.min_y.numerical_value_in(cm);
+                max_y = get_with_default<double>(b["y_boundary"], "max_cm", default_bounds.max_y.numerical_value_in(cm) - default_bounds.min_y.numerical_value_in(cm)) + default_bounds.min_y.numerical_value_in(cm);
             }
             if (b["height_boundary"]) {
-                min_z = get_with_default<double>(b["height_boundary"], "min_cm", min_z);
-                max_z = get_with_default<double>(b["height_boundary"], "max_cm", max_z);
+                min_z = get_with_default<double>(b["height_boundary"], "min_cm", 0.0) + default_bounds.min_height.numerical_value_in(cm);
+                max_z = get_with_default<double>(b["height_boundary"], "max_cm", default_bounds.max_height.numerical_value_in(cm) - default_bounds.min_height.numerical_value_in(cm)) + default_bounds.min_height.numerical_value_in(cm);
             }
         }
 
@@ -116,7 +116,7 @@ namespace {
             init_y = get_with_default<double>(i, "y_cm", 0.0);
             init_z = get_with_default<double>(i, "height_cm", 0.0);
         }
-        sim.initial_drone_position = common::Position3D{init_x * x_extent[cm], init_y * y_extent[cm], init_z * z_extent[cm]};
+        sim.initial_drone_position = common::Position3D{(init_x + offset_x) * x_extent[cm], (init_y + offset_y) * y_extent[cm], (init_z + offset_z) * z_extent[cm]};
         sim.initial_angle = get_with_default<double>(node, "initial_angle_deg", 0.0) * horizontal_angle[deg];
 
         return sim;
