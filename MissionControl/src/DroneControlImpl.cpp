@@ -56,53 +56,62 @@ common::types::DroneStepResult DroneControlImpl::step() {
         auto& move = cmd.movement.value();
         common::types::MovementResult result{true, {}};
 
-        switch (move.type) {
-            case common::types::MovementCommandType::Rotate: {
-                double max_rot = drone_.max_rotate.numerical_value_in(deg);
-                double cmd_angle = move.angle.numerical_value_in(deg);
-                double chunk = std::min(std::abs(cmd_angle), max_rot);
-                if (cmd_angle < 0) chunk = -chunk;
+        try {
+            switch (move.type) {
+                case common::types::MovementCommandType::Rotate: {
+                    double max_rot = drone_.max_rotate.numerical_value_in(deg);
+                    double cmd_angle = move.angle.numerical_value_in(deg);
+                    double chunk = std::min(std::abs(cmd_angle), max_rot);
+                    if (cmd_angle < 0) chunk = -chunk;
 
-                result = movement_.rotate(move.rotation, HorizontalAngle(chunk * deg));
-                
-                double remaining = cmd_angle - chunk;
-                if (std::abs(remaining) > 0.001) {
-                    move.angle = HorizontalAngle(remaining * deg);
-                    is_final_chunk = false;
+                    result = movement_.rotate(move.rotation, HorizontalAngle(chunk * deg));
+                    
+                    double remaining = cmd_angle - chunk;
+                    if (std::abs(remaining) > 0.001) {
+                        move.angle = HorizontalAngle(remaining * deg);
+                        is_final_chunk = false;
+                    }
+                    break;
                 }
-                break;
-            }
-            case common::types::MovementCommandType::Advance: {
-                double max_adv = drone_.max_advance.numerical_value_in(cm);
-                double cmd_dist = move.distance.numerical_value_in(cm);
-                double chunk = std::min(cmd_dist, max_adv);
+                case common::types::MovementCommandType::Advance: {
+                    double max_adv = drone_.max_advance.numerical_value_in(cm);
+                    double cmd_dist = move.distance.numerical_value_in(cm);
+                    double chunk = std::min(cmd_dist, max_adv);
 
-                result = movement_.advance(PhysicalLength(chunk * cm));
-                
-                double remaining = cmd_dist - chunk;
-                if (remaining > 0.001) {
-                    move.distance = PhysicalLength(remaining * cm);
-                    is_final_chunk = false;
+                    result = movement_.advance(PhysicalLength(chunk * cm));
+                    
+                    double remaining = cmd_dist - chunk;
+                    if (remaining > 0.001) {
+                        move.distance = PhysicalLength(remaining * cm);
+                        is_final_chunk = false;
+                    }
+                    break;
                 }
-                break;
-            }
-            case common::types::MovementCommandType::Elevate: {
-                double max_elev = drone_.max_elevate.numerical_value_in(cm);
-                double cmd_dist = move.distance.numerical_value_in(cm);
-                double chunk = std::min(std::abs(cmd_dist), max_elev);
-                if (cmd_dist < 0) chunk = -chunk;
+                case common::types::MovementCommandType::Elevate: {
+                    double max_elev = drone_.max_elevate.numerical_value_in(cm);
+                    double cmd_dist = move.distance.numerical_value_in(cm);
+                    double chunk = std::min(std::abs(cmd_dist), max_elev);
+                    if (cmd_dist < 0) chunk = -chunk;
 
-                result = movement_.elevate(PhysicalLength(chunk * cm));
-                
-                double remaining = cmd_dist - chunk;
-                if (std::abs(remaining) > 0.001) {
-                    move.distance = PhysicalLength(remaining * cm);
-                    is_final_chunk = false;
+                    result = movement_.elevate(PhysicalLength(chunk * cm));
+                    
+                    double remaining = cmd_dist - chunk;
+                    if (std::abs(remaining) > 0.001) {
+                        move.distance = PhysicalLength(remaining * cm);
+                        is_final_chunk = false;
+                    }
+                    break;
                 }
-                break;
+                case common::types::MovementCommandType::Hover:
+                    break;
             }
-            case common::types::MovementCommandType::Hover:
-                break;
+        } catch (const std::runtime_error& e) {
+            // Immediately return the Error status to halt the mission
+            pending_command_.reset();
+            return common::types::DroneStepResult{
+                common::types::DroneStepStatus::Error,
+                "Movement exception caught: " + std::string(e.what())
+            };
         }
 
         if (!result) {

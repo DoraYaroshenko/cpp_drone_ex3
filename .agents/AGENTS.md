@@ -73,4 +73,10 @@ The assignment is separated into three independent parts, each built with its ow
   3. Try to be efficient and exact.
 - **Submission:** A zip file `ex3_<student1_id>_<student2_id>.zip` containing the 5 folders, 4 makefiles, `students.txt`, and `README.md`. No binary files or external libraries (unless standard or explicitly approved).
 
+## Communication Guidelines
+- When answering questions about design decisions, always consider the pros and cons of each option and concisely explain your train of thought.
+
+## Communication Guidelines
+- When answering questions about design decisions, always consider the pros and cons of each option and concisely explain your train of thought.
+
 You can't use any external library except mp-units and yaml-cpp.

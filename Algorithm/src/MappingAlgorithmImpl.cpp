@@ -642,6 +642,14 @@ std::optional<common::types::MappingStepCommand> handleFollowPath(
     if (std::abs(dz) > 0.01) {
         PhysicalLength abs_dist(std::abs(dz) * cm);
         PhysicalLength step = (abs_dist < drone_config.max_elevate) ? abs_dist : drone_config.max_elevate;
+        
+        // Final safety clamp: guarantee we don't overshoot the known safe target voxel
+        // or move more than one resolution unit at a time.
+        PhysicalLength max_safe_step = (abs_dist < resolution) ? abs_dist : resolution;
+        if (step > max_safe_step) {
+            step = max_safe_step;
+        }
+
         cmd.movement = common::types::MovementCommand{
             common::types::MovementCommandType::Elevate, {}, {}, (dz > 0) ? step : -step
         };
@@ -679,6 +687,14 @@ std::optional<common::types::MappingStepCommand> handleFollowPath(
 
         PhysicalLength adv_dist(horiz_dist * cm);
         PhysicalLength step = (adv_dist < drone_config.max_advance) ? adv_dist : drone_config.max_advance;
+
+        // Final safety clamp: guarantee we don't overshoot the known safe target voxel
+        // or move more than one resolution unit at a time.
+        PhysicalLength max_safe_step = (adv_dist < resolution) ? adv_dist : resolution;
+        if (step > max_safe_step) {
+            step = max_safe_step;
+        }
+
         cmd.movement = common::types::MovementCommand{
             common::types::MovementCommandType::Advance, {}, {}, step
         };

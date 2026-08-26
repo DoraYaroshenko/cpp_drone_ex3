@@ -16,6 +16,7 @@ add_subdirectory(common)
 target_precompile_headers(drone_common INTERFACE
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/common/include/Common/Units.h>
 )
+
 add_subdirectory(Algorithm)
 add_subdirectory(MissionControl)
 add_subdirectory(Simulator)
