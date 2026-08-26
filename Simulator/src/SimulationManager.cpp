@@ -92,7 +92,7 @@ types::SimulationManagerReport SimulationManager::run(const types::SimulationCom
             const auto& task = tasks[idx];
             try {
                 std::unique_ptr<ISimulationRun> sim_run =
-                    run_factory_->create(*(task.simulation), *(task.mission), *(task.drone), *(task.lidar), task.run_output);
+                    run_factory_->create(*(task.simulation), *(task.mission), *(task.drone), *(task.lidar), task.run_output / "output_map.npy");
                 runs[idx] = sim_run->run();
             } catch (const std::exception& e) {
                 // Write error log

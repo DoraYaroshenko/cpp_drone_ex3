@@ -9,6 +9,7 @@
 #include <string>
 #include <vector>
 #include <filesystem>
+#include <fstream>
 #include <map>
 #include <chrono>
 #include <ctime>
@@ -204,29 +205,39 @@ int main(int argc, char** argv) {
     std::cout << "Mission controls to load: " << mc_plugins_to_load.size() << "\n";
     std::cout << "Output directory: " << output_base_dir << "\n";
 
+    std::filesystem::create_directories(output_base_dir);
+    std::vector<std::string> failed_plugins;
+
     if (is_comparative) {
         std::map<std::string, simulator::types::SimulationManagerReport> mission_reports;
         
         simulator::PluginLoader algo_loader;
         algo_loader.loadLibrary(algo_plugins_to_load[0]);
         auto algoFactories = simulator::MappingAlgorithmRegistrar::getInstance().getFactories();
-        if (algoFactories.empty()) print_usage_and_exit("Algorithm failed to register.");
+        std::string algo_name = std::filesystem::path(algo_plugins_to_load[0]).filename().stem().string();
+        if (algoFactories.empty()) {
+            std::ofstream err_file(output_base_dir / "error_log.txt", std::ios::app);
+            if (err_file) err_file << "Failed to register algorithm: " << algo_name << std::endl;
+            print_usage_and_exit("Algorithm failed to register.");
+        }
         auto algoFactory = algoFactories[0];
         simulator::MappingAlgorithmRegistrar::getInstance().clear();
-        std::string algo_name = std::filesystem::path(algo_plugins_to_load[0]).filename().stem().string();
         
         for (const auto& mc_path : mc_plugins_to_load) {
             simulator::PluginLoader mc_loader;
             mc_loader.loadLibrary(mc_path);
             auto mcFactories = simulator::MissionControlRegistrar::getInstance().getFactories();
+            std::string mc_name = std::filesystem::path(mc_path).filename().stem().string();
             if (mcFactories.empty()) {
                 std::cerr << "Warning: Mission Control " << mc_path << " failed to register.\n";
+                std::ofstream err_file(output_base_dir / "error_log.txt", std::ios::app);
+                if (err_file) err_file << "Failed to register mission control: " << mc_name << std::endl;
+                failed_plugins.push_back(mc_name);
                 simulator::MissionControlRegistrar::getInstance().clear();
                 continue;
             }
             auto mcFactory = mcFactories[0];
             simulator::MissionControlRegistrar::getInstance().clear();
-            std::string mc_name = std::filesystem::path(mc_path).filename().stem().string();
             
             auto run_factory = std::make_unique<simulator::SimulationRunFactoryImpl>(algoFactory, mcFactory);
             simulator::SimulationManager simulation{std::move(run_factory), num_threads};
@@ -241,30 +252,38 @@ int main(int argc, char** argv) {
             // mc_loader goes out of scope here, so dlclose happens after simulation manager is destroyed.
         }
         
-        simulator::YamlParserUtils::writeComparativeReport(sim_path.filename().string(), algo_name, mission_reports, output_base_dir);
+        std::string folder_name = std::filesystem::path(args["mission_control_folder"]).filename().string();
+        simulator::YamlParserUtils::writeComparativeReport(sim_path.filename().string(), folder_name, mission_reports, output_base_dir, failed_plugins);
     } else {
         std::map<std::string, simulator::types::SimulationManagerReport> algo_reports;
         
         simulator::PluginLoader mc_loader;
         mc_loader.loadLibrary(mc_plugins_to_load[0]);
         auto mcFactories = simulator::MissionControlRegistrar::getInstance().getFactories();
-        if (mcFactories.empty()) print_usage_and_exit("Mission Control failed to register.");
+        std::string mc_name = std::filesystem::path(mc_plugins_to_load[0]).filename().stem().string();
+        if (mcFactories.empty()) {
+            std::ofstream err_file(output_base_dir / "error_log.txt", std::ios::app);
+            if (err_file) err_file << "Failed to register mission control: " << mc_name << std::endl;
+            print_usage_and_exit("Mission Control failed to register.");
+        }
         auto mcFactory = mcFactories[0];
         simulator::MissionControlRegistrar::getInstance().clear();
-        std::string mc_name = std::filesystem::path(mc_plugins_to_load[0]).filename().stem().string();
         
         for (const auto& algo_path : algo_plugins_to_load) {
             simulator::PluginLoader algo_loader;
             algo_loader.loadLibrary(algo_path);
             auto algoFactories = simulator::MappingAlgorithmRegistrar::getInstance().getFactories();
+            std::string algo_name = std::filesystem::path(algo_path).filename().stem().string();
             if (algoFactories.empty()) {
                 std::cerr << "Warning: Algorithm " << algo_path << " failed to register.\n";
+                std::ofstream err_file(output_base_dir / "error_log.txt", std::ios::app);
+                if (err_file) err_file << "Failed to register algorithm: " << algo_name << std::endl;
+                failed_plugins.push_back(algo_name);
                 simulator::MappingAlgorithmRegistrar::getInstance().clear();
                 continue;
             }
             auto algoFactory = algoFactories[0];
             simulator::MappingAlgorithmRegistrar::getInstance().clear();
-            std::string algo_name = std::filesystem::path(algo_path).filename().stem().string();
             
             auto run_factory = std::make_unique<simulator::SimulationRunFactoryImpl>(algoFactory, mcFactory);
             simulator::SimulationManager simulation{std::move(run_factory), num_threads};
@@ -277,7 +296,8 @@ int main(int argc, char** argv) {
             algo_reports[algo_name] = std::move(report);
         }
         
-        simulator::YamlParserUtils::writeCompetitiveReport(sim_path.filename().string(), mc_name, algo_reports, output_base_dir);
+        std::string mc_filename = std::filesystem::path(args["mission_control"]).filename().string();
+        simulator::YamlParserUtils::writeCompetitiveReport(sim_path.filename().string(), mc_filename, algo_reports, output_base_dir, failed_plugins);
     }
     
     return 0;

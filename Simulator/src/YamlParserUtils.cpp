@@ -101,11 +101,11 @@ namespace {
         sim.map_resolution = get_with_check<double>(node, "map_resolution_cm", 1.0, [](const double& v){ return v > 0.0; }, "map_resolution_cm must be > 0") * cm;
         
         double offset_x = 0.0, offset_y = 0.0, offset_z = 0.0;
-        if (node["map_offset"]) {
-            YAML::Node o = node["map_offset"];
-            offset_x = get_with_default<double>(o, "x_cm", 0.0);
-            offset_y = get_with_default<double>(o, "y_cm", 0.0);
-            offset_z = get_with_default<double>(o, "height_cm", 0.0);
+        if (node["map_axes_offset"]) {
+            YAML::Node o = node["map_axes_offset"];
+            offset_x = get_with_default<double>(o, "x_offset", 0.0);
+            offset_y = get_with_default<double>(o, "y_offset", 0.0);
+            offset_z = get_with_default<double>(o, "height_offset", 0.0);
         }
         sim.map_offset = common::Position3D{offset_x * x_extent[cm], offset_y * y_extent[cm], offset_z * z_extent[cm]};
 
@@ -117,7 +117,7 @@ namespace {
             init_z = get_with_default<double>(i, "height_cm", 0.0);
         }
         sim.initial_drone_position = common::Position3D{init_x * x_extent[cm], init_y * y_extent[cm], init_z * z_extent[cm]};
-        sim.initial_angle = get_with_default<double>(node, "initial_heading_deg", 0.0) * horizontal_angle[deg];
+        sim.initial_angle = get_with_default<double>(node, "initial_angle_deg", 0.0) * horizontal_angle[deg];
 
         return sim;
     }
@@ -138,7 +138,7 @@ types::SimulationCompositionData YamlParserUtils::parseCompositions(const std::f
             std::filesystem::path sim_config_path = base_dir / sim_node["simulation_config"].as<std::string>();
             types::SimulationConfigData sim = parseSimulationConfig(sim_config_path);
             if (!sim.map_filename.is_absolute()) {
-                sim.map_filename = std::filesystem::weakly_canonical(sim_config_path.parent_path() / sim.map_filename);
+                sim.map_filename = std::filesystem::weakly_canonical(base_dir / sim.map_filename);
             }
             
             common::types::MappingBounds default_bounds;
@@ -194,44 +194,93 @@ types::SimulationCompositionData YamlParserUtils::parseCompositions(const std::f
 
 void YamlParserUtils::writeComparativeReport(
     const std::string& composition_filename,
-    const std::string& algorithm_name,
+    const std::string& folder_name,
     const std::map<std::string, types::SimulationManagerReport>& mission_reports,
-    const std::filesystem::path& output_path
+    const std::filesystem::path& output_path,
+    const std::vector<std::string>& failed_plugins
 ) {
     YAML::Emitter out;
     out << YAML::BeginMap;
     out << YAML::Key << "comparative_report";
     out << YAML::BeginMap;
     out << YAML::Key << "composition_file" << YAML::Value << composition_filename;
-    out << YAML::Key << "algorithm_used" << YAML::Value << algorithm_name;
-    
-    out << YAML::Key << "mission_controls";
-    out << YAML::BeginSeq;
+    out << YAML::Key << "mission_control_folder" << YAML::Value << folder_name;
+
+    // Get current time for generated_at_utc
+    auto now = std::chrono::system_clock::now();
+    auto utc_time = std::chrono::system_clock::to_time_t(now);
+    std::tm utc_tm = *std::gmtime(&utc_time);
+    std::ostringstream time_ss;
+    time_ss << std::put_time(&utc_tm, "%Y-%m-%dT%H:%M:%SZ");
+    out << YAML::Key << "generated_at_utc" << YAML::Value << time_ss.str();
+
+    struct ResultBucket {
+        double total_score = 0;
+        int total_steps = 0;
+        std::vector<std::string> managers;
+    };
+    std::vector<ResultBucket> buckets;
+    std::vector<std::string> all_failed_plugins = failed_plugins;
 
     for (const auto& [mc_name, report] : mission_reports) {
-        out << YAML::BeginMap;
-        out << YAML::Key << mc_name;
-        out << YAML::BeginMap;
+        if (report.runs.empty()) {
+            all_failed_plugins.push_back(mc_name + ".so");
+            continue;
+        }
 
         double total_score = 0.0;
-        int completed = 0;
-        int total_runs = 0;
+        int total_steps = 0;
         for (const auto& run : report.runs) {
-            total_runs++;
-            total_score += run.mission_score;
-            if (!run.mission_results.empty() && run.mission_results.front().status == common::types::MissionRunStatus::Completed) {
-                completed++;
+            if (run.mission_score != -1.0) {
+                total_score += run.mission_score;
+                if (!run.mission_results.empty()) {
+                    total_steps += run.mission_results.front().steps;
+                }
             }
         }
 
-        out << YAML::Key << "average_score" << YAML::Value << (total_runs > 0 ? (total_score / total_runs) : 0.0);
-        out << YAML::Key << "total_completed" << YAML::Value << completed;
-        out << YAML::Key << "total_runs" << YAML::Value << total_runs;
-        out << YAML::EndMap;
-        out << YAML::EndMap;
+        bool found = false;
+        for (auto& bucket : buckets) {
+            if (std::abs(bucket.total_score - total_score) < 1e-5 && bucket.total_steps == total_steps) {
+                bucket.managers.push_back(mc_name + ".so");
+                found = true;
+                break;
+            }
+        }
+        if (!found) {
+            buckets.push_back({total_score, total_steps, {mc_name + ".so"}});
+        }
     }
 
+    // sort buckets by number of agreeing managers descending
+    std::sort(buckets.begin(), buckets.end(), [](const ResultBucket& a, const ResultBucket& b) {
+        return a.managers.size() > b.managers.size();
+    });
+
+    out << YAML::Key << "results_summary";
+    out << YAML::BeginSeq;
+    for (const auto& bucket : buckets) {
+        out << YAML::BeginMap;
+        out << YAML::Key << "same_results" << YAML::Flow << YAML::BeginSeq;
+        for (const auto& mgr : bucket.managers) {
+            out << mgr;
+        }
+        out << YAML::EndSeq;
+        out << YAML::Key << "total_score" << YAML::Value << bucket.total_score;
+        out << YAML::Key << "total_steps" << YAML::Value << bucket.total_steps;
+        out << YAML::EndMap;
+    }
     out << YAML::EndSeq;
+
+    if (!all_failed_plugins.empty()) {
+        out << YAML::Key << "errors";
+        out << YAML::Flow << YAML::BeginSeq;
+        for (const auto& plugin : all_failed_plugins) {
+            out << plugin;
+        }
+        out << YAML::EndSeq;
+    }
+
     out << YAML::EndMap;
     out << YAML::EndMap;
 
@@ -246,42 +295,78 @@ void YamlParserUtils::writeCompetitiveReport(
     const std::string& composition_filename,
     const std::string& mission_control_name,
     const std::map<std::string, types::SimulationManagerReport>& algo_reports,
-    const std::filesystem::path& output_path
+    const std::filesystem::path& output_path,
+    const std::vector<std::string>& failed_plugins
 ) {
     YAML::Emitter out;
     out << YAML::BeginMap;
     out << YAML::Key << "competitive_report";
     out << YAML::BeginMap;
     out << YAML::Key << "composition_file" << YAML::Value << composition_filename;
-    out << YAML::Key << "mission_control_used" << YAML::Value << mission_control_name;
+    out << YAML::Key << "mission_control" << YAML::Value << mission_control_name;
     
-    out << YAML::Key << "algorithms";
-    out << YAML::BeginSeq;
+    // Get current time for generated_at_utc
+    auto now = std::chrono::system_clock::now();
+    auto utc_time = std::chrono::system_clock::to_time_t(now);
+    std::tm utc_tm = *std::gmtime(&utc_time);
+    std::ostringstream time_ss;
+    time_ss << std::put_time(&utc_tm, "%Y-%m-%dT%H:%M:%SZ");
+    out << YAML::Key << "generated_at_utc" << YAML::Value << time_ss.str();
+
+    struct AlgoResult {
+        std::string algo_so;
+        double total_score = 0;
+        int total_steps = 0;
+    };
+    std::vector<AlgoResult> algo_results;
+    std::vector<std::string> all_failed_plugins = failed_plugins;
 
     for (const auto& [algo_name, report] : algo_reports) {
-        out << YAML::BeginMap;
-        out << YAML::Key << algo_name;
-        out << YAML::BeginMap;
-
-        double total_score = 0.0;
-        int completed = 0;
-        int total_runs = 0;
-        for (const auto& run : report.runs) {
-            total_runs++;
-            total_score += run.mission_score;
-            if (!run.mission_results.empty() && run.mission_results.front().status == common::types::MissionRunStatus::Completed) {
-                completed++;
-            }
+        if (report.runs.empty()) {
+            all_failed_plugins.push_back(algo_name + ".so");
+            continue;
         }
 
-        out << YAML::Key << "average_score" << YAML::Value << (total_runs > 0 ? (total_score / total_runs) : 0.0);
-        out << YAML::Key << "total_completed" << YAML::Value << completed;
-        out << YAML::Key << "total_runs" << YAML::Value << total_runs;
-        out << YAML::EndMap;
-        out << YAML::EndMap;
+        double total_score = 0.0;
+        int total_steps = 0;
+        for (const auto& run : report.runs) {
+            if (run.mission_score != -1.0) {
+                total_score += run.mission_score;
+                if (!run.mission_results.empty()) {
+                    total_steps += run.mission_results.front().steps;
+                }
+            }
+        }
+        algo_results.push_back({algo_name + ".so", total_score, total_steps});
     }
 
+    std::sort(algo_results.begin(), algo_results.end(), [](const AlgoResult& a, const AlgoResult& b) {
+        if (a.total_score != b.total_score) {
+            return a.total_score > b.total_score;
+        }
+        return a.total_steps < b.total_steps;
+    });
+
+    out << YAML::Key << "results_summary";
+    out << YAML::BeginSeq;
+    for (const auto& result : algo_results) {
+        out << YAML::BeginMap;
+        out << YAML::Key << "algorithm" << YAML::Value << result.algo_so;
+        out << YAML::Key << "total_score" << YAML::Value << result.total_score;
+        out << YAML::Key << "total_steps" << YAML::Value << result.total_steps;
+        out << YAML::EndMap;
+    }
     out << YAML::EndSeq;
+
+    if (!all_failed_plugins.empty()) {
+        out << YAML::Key << "errors";
+        out << YAML::Flow << YAML::BeginSeq;
+        for (const auto& plugin : all_failed_plugins) {
+            out << (plugin + ".so");
+        }
+        out << YAML::EndSeq;
+    }
+
     out << YAML::EndMap;
     out << YAML::EndMap;
 
@@ -371,11 +456,13 @@ void YamlParserUtils::writeSimulationOutput(
                         }
                     }
                     out << YAML::EndSeq; // runs
-                    out << YAML::EndMap; // mission
+                    out << YAML::EndMap; // mission (inner)
+                    out << YAML::EndMap; // mission (outer)
                 }
             }
             out << YAML::EndSeq; // missions
-            out << YAML::EndMap; // simulation
+            out << YAML::EndMap; // simulation (inner)
+            out << YAML::EndMap; // simulation (outer)
         }
     }
     out << YAML::EndSeq; // simulations

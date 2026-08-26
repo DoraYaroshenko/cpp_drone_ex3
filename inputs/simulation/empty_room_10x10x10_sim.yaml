@@ -1,5 +1,5 @@
 simulation_config:
-  map_filename: "./map/empty_room_10x10x10.npy"
+  map_filename: "map/empty_room_10x10x10.npy"
   map_resolution_cm: 10
   initial_drone_position:
     x_cm: 50

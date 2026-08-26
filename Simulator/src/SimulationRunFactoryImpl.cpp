@@ -64,7 +64,7 @@ SimulationRunFactoryImpl::create(const types::SimulationConfigData& simulation,
     auto output_map = std::make_unique<Map3DImpl>(output_npy, out_config);
 
     auto gps = std::make_unique<MockGPS>(simulation.initial_drone_position, Orientation{simulation.initial_angle, AltitudeAngle(0.0 * deg)}, mission.gps_resolution);
-    auto movement = std::make_unique<MockMovement>(*gps);
+    auto movement = std::make_unique<MockMovement>(*gps, *hidden_map, drone.radius);
     auto lidar_sensor = std::make_unique<MockLidar>(lidar, *hidden_map, *gps);
 
     common::MappingAlgorithmDependencies algo_deps{

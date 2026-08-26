@@ -23,17 +23,18 @@ public:
     // Comparative Simulation Result Output File
     static void writeComparativeReport(
         const std::string& composition_filename,
-        const std::string& algorithm_name,
+        const std::string& mission_control_folder,
         const std::map<std::string, types::SimulationManagerReport>& mission_reports,
-        const std::filesystem::path& output_path
+        const std::filesystem::path& output_path,
+        const std::vector<std::string>& failed_plugins = {}
     );
 
-    // Competitive Simulation Result Output File
     static void writeCompetitiveReport(
         const std::string& composition_filename,
-        const std::string& mission_control_name,
+        const std::string& mission_control_filename,
         const std::map<std::string, types::SimulationManagerReport>& algo_reports,
-        const std::filesystem::path& output_path
+        const std::filesystem::path& output_path,
+        const std::vector<std::string>& failed_plugins = {}
     );
 };
 

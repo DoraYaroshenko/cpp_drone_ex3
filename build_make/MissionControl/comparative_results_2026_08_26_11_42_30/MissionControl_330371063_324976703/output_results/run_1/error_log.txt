@@ -1,0 +1,1 @@
+Simulation Run Error: Failed to load map: /workspaces/cpp_drone_ex3/inputs/simulation/map/empty_room_30x30x10.npy error: error: unable to open file

@@ -76,7 +76,4 @@ The assignment is separated into three independent parts, each built with its ow
 ## Communication Guidelines
 - When answering questions about design decisions, always consider the pros and cons of each option and concisely explain your train of thought.
 
-## Communication Guidelines
-- When answering questions about design decisions, always consider the pros and cons of each option and concisely explain your train of thought.
-
 You can't use any external library except mp-units and yaml-cpp.

@@ -1,0 +1,1300 @@
+{"type": "movement", "step_id": 0, "x_cm": 150, "y_cm": 200, "z_cm": 10, "h_angle_deg": 0, "v_angle_deg": 0, "action": "hover"}
+{"type": "scan", "step_id": 0, "relative_h_angle_deg": 71.5651, "relative_v_angle_deg": 57.6885}
+{"type": "scan", "step_id": 0, "relative_h_angle_deg": 78.6901, "relative_v_angle_deg": 57.6885}
+{"type": "scan", "step_id": 0, "relative_h_angle_deg": 71.5651, "relative_v_angle_deg": 64.8135}
+{"type": "scan", "step_id": 0, "relative_h_angle_deg": 64.44, "relative_v_angle_deg": 57.6885}
+{"type": "scan", "step_id": 0, "relative_h_angle_deg": 71.5651, "relative_v_angle_deg": 50.5635}
+{"type": "scan", "step_id": 0, "relative_h_angle_deg": 85.6013, "relative_v_angle_deg": 57.6885}
+{"type": "scan", "step_id": 0, "relative_h_angle_deg": 84.5706, "relative_v_angle_deg": 63.1534}
+{"type": "scan", "step_id": 0, "relative_h_angle_deg": 81.59, "relative_v_angle_deg": 67.7135}
+{"type": "scan", "step_id": 0, "relative_h_angle_deg": 77.03, "relative_v_angle_deg": 70.694}
+{"type": "scan", "step_id": 0, "relative_h_angle_deg": 71.5651, "relative_v_angle_deg": 71.7247}
+{"type": "scan", "step_id": 0, "relative_h_angle_deg": 66.1001, "relative_v_angle_deg": 70.694}
+{"type": "scan", "step_id": 0, "relative_h_angle_deg": 61.5401, "relative_v_angle_deg": 67.7135}
+{"type": "scan", "step_id": 0, "relative_h_angle_deg": 58.5595, "relative_v_angle_deg": 63.1534}
+{"type": "movement", "step_id": 0, "x_cm": 150, "y_cm": 200, "z_cm": 10, "h_angle_deg": 0, "v_angle_deg": 0, "action": "hover"}
+{"type": "scan", "step_id": 0, "relative_h_angle_deg": -135, "relative_v_angle_deg": 16.8592}
+{"type": "scan", "step_id": 0, "relative_h_angle_deg": -127.875, "relative_v_angle_deg": 16.8592}
+{"type": "scan", "step_id": 0, "relative_h_angle_deg": -135, "relative_v_angle_deg": 23.9842}
+{"type": "scan", "step_id": 0, "relative_h_angle_deg": -142.125, "relative_v_angle_deg": 16.8592}
+{"type": "scan", "step_id": 0, "relative_h_angle_deg": -135, "relative_v_angle_deg": 9.73419}
+{"type": "scan", "step_id": 0, "relative_h_angle_deg": -120.964, "relative_v_angle_deg": 16.8592}
+{"type": "scan", "step_id": 0, "relative_h_angle_deg": 57.5288, "relative_v_angle_deg": 57.6885}
+{"type": "scan", "step_id": 0, "relative_h_angle_deg": 58.5595, "relative_v_angle_deg": 52.2236}
+{"type": "scan", "step_id": 0, "relative_h_angle_deg": 61.5401, "relative_v_angle_deg": 47.6635}
+{"type": "scan", "step_id": 0, "relative_h_angle_deg": 66.1001, "relative_v_angle_deg": 44.6829}
+{"type": "scan", "step_id": 0, "relative_h_angle_deg": 71.5651, "relative_v_angle_deg": 43.6522}
+{"type": "scan", "step_id": 0, "relative_h_angle_deg": 77.03, "relative_v_angle_deg": 44.6829}
+{"type": "scan", "step_id": 0, "relative_h_angle_deg": 81.59, "relative_v_angle_deg": 47.6635}
+{"type": "scan", "step_id": 0, "relative_h_angle_deg": 84.5706, "relative_v_angle_deg": 52.2236}
+{"type": "scan", "step_id": 0, "relative_h_angle_deg": 92.1211, "relative_v_angle_deg": 57.6885}
+{"type": "scan", "step_id": 0, "relative_h_angle_deg": 92.0303, "relative_v_angle_deg": 59.7935}
+{"type": "scan", "step_id": 0, "relative_h_angle_deg": 91.7583, "relative_v_angle_deg": 61.8727}
+{"type": "scan", "step_id": 0, "relative_h_angle_deg": 91.3057, "relative_v_angle_deg": 63.901}
+{"type": "scan", "step_id": 0, "relative_h_angle_deg": 90.6739, "relative_v_angle_deg": 65.855}
+{"type": "scan", "step_id": 0, "relative_h_angle_deg": 89.8652, "relative_v_angle_deg": 67.7133}
+{"type": "scan", "step_id": 0, "relative_h_angle_deg": 88.8826, "relative_v_angle_deg": 69.4571}
+{"type": "scan", "step_id": 0, "relative_h_angle_deg": 87.7308, "relative_v_angle_deg": 71.0702}
+{"type": "scan", "step_id": 0, "relative_h_angle_deg": 86.4161, "relative_v_angle_deg": 72.5395}
+{"type": "scan", "step_id": 0, "relative_h_angle_deg": 84.9468, "relative_v_angle_deg": 73.8542}
+{"type": "scan", "step_id": 0, "relative_h_angle_deg": 83.3336, "relative_v_angle_deg": 75.006}
+{"type": "scan", "step_id": 0, "relative_h_angle_deg": 81.5899, "relative_v_angle_deg": 75.9886}
+{"type": "scan", "step_id": 0, "relative_h_angle_deg": 79.7316, "relative_v_angle_deg": 76.7974}
+{"type": "scan", "step_id": 0, "relative_h_angle_deg": 77.7776, "relative_v_angle_deg": 77.4291}
+{"type": "scan", "step_id": 0, "relative_h_angle_deg": 75.7493, "relative_v_angle_deg": 77.8817}
+{"type": "scan", "step_id": 0, "relative_h_angle_deg": 73.6701, "relative_v_angle_deg": 78.1538}
+{"type": "scan", "step_id": 0, "relative_h_angle_deg": 71.5651, "relative_v_angle_deg": 78.2445}
+{"type": "scan", "step_id": 0, "relative_h_angle_deg": 69.46, "relative_v_angle_deg": 78.1538}
+{"type": "scan", "step_id": 0, "relative_h_angle_deg": 67.3808, "relative_v_angle_deg": 77.8817}
+{"type": "scan", "step_id": 0, "relative_h_angle_deg": 65.3525, "relative_v_angle_deg": 77.4291}
+{"type": "scan", "step_id": 0, "relative_h_angle_deg": 63.3985, "relative_v_angle_deg": 76.7974}
+{"type": "scan", "step_id": 0, "relative_h_angle_deg": 61.5402, "relative_v_angle_deg": 75.9886}
+{"type": "scan", "step_id": 0, "relative_h_angle_deg": 59.7965, "relative_v_angle_deg": 75.006}
+{"type": "scan", "step_id": 0, "relative_h_angle_deg": 58.1833, "relative_v_angle_deg": 73.8542}
+{"type": "scan", "step_id": 0, "relative_h_angle_deg": 56.714, "relative_v_angle_deg": 72.5395}
+{"type": "scan", "step_id": 0, "relative_h_angle_deg": 55.3993, "relative_v_angle_deg": 71.0702}
+{"type": "scan", "step_id": 0, "relative_h_angle_deg": 54.2475, "relative_v_angle_deg": 69.4571}
+{"type": "scan", "step_id": 0, "relative_h_angle_deg": 53.2649, "relative_v_angle_deg": 67.7133}
+{"type": "scan", "step_id": 0, "relative_h_angle_deg": -121.994, "relative_v_angle_deg": 22.3241}
+{"type": "scan", "step_id": 0, "relative_h_angle_deg": -124.975, "relative_v_angle_deg": 26.8842}
+{"type": "scan", "step_id": 0, "relative_h_angle_deg": -129.535, "relative_v_angle_deg": 29.8647}
+{"type": "scan", "step_id": 0, "relative_h_angle_deg": -135, "relative_v_angle_deg": 30.8955}
+{"type": "scan", "step_id": 0, "relative_h_angle_deg": -140.465, "relative_v_angle_deg": 29.8647}
+{"type": "scan", "step_id": 0, "relative_h_angle_deg": -145.025, "relative_v_angle_deg": 26.8842}
+{"type": "scan", "step_id": 0, "relative_h_angle_deg": -148.006, "relative_v_angle_deg": 22.3241}
+{"type": "scan", "step_id": 0, "relative_h_angle_deg": -149.036, "relative_v_angle_deg": 16.8592}
+{"type": "scan", "step_id": 0, "relative_h_angle_deg": -148.006, "relative_v_angle_deg": 11.3943}
+{"type": "scan", "step_id": 0, "relative_h_angle_deg": -145.025, "relative_v_angle_deg": 6.83422}
+{"type": "scan", "step_id": 0, "relative_h_angle_deg": -140.465, "relative_v_angle_deg": 3.85368}
+{"type": "scan", "step_id": 0, "relative_h_angle_deg": -135, "relative_v_angle_deg": 2.82297}
+{"type": "scan", "step_id": 0, "relative_h_angle_deg": -129.535, "relative_v_angle_deg": 3.85368}
+{"type": "scan", "step_id": 0, "relative_h_angle_deg": -124.975, "relative_v_angle_deg": 6.83422}
+{"type": "scan", "step_id": 0, "relative_h_angle_deg": -121.994, "relative_v_angle_deg": 11.3943}
+{"type": "scan", "step_id": 717, "relative_h_angle_deg": 52.4562, "relative_v_angle_deg": 65.855}
+{"type": "scan", "step_id": 717, "relative_h_angle_deg": 51.8244, "relative_v_angle_deg": 63.901}
+{"type": "scan", "step_id": 717, "relative_h_angle_deg": 51.3718, "relative_v_angle_deg": 61.8727}
+{"type": "scan", "step_id": 717, "relative_h_angle_deg": 51.0998, "relative_v_angle_deg": 59.7935}
+{"type": "scan", "step_id": 717, "relative_h_angle_deg": 51.009, "relative_v_angle_deg": 57.6885}
+{"type": "scan", "step_id": 717, "relative_h_angle_deg": 51.0998, "relative_v_angle_deg": 55.5834}
+{"type": "scan", "step_id": 717, "relative_h_angle_deg": 51.3718, "relative_v_angle_deg": 53.5042}
+{"type": "scan", "step_id": 717, "relative_h_angle_deg": 51.8244, "relative_v_angle_deg": 51.4759}
+{"type": "scan", "step_id": 717, "relative_h_angle_deg": 52.4562, "relative_v_angle_deg": 49.5219}
+{"type": "scan", "step_id": 717, "relative_h_angle_deg": 53.2649, "relative_v_angle_deg": 47.6636}
+{"type": "scan", "step_id": 717, "relative_h_angle_deg": 54.2475, "relative_v_angle_deg": 45.9199}
+{"type": "scan", "step_id": 717, "relative_h_angle_deg": 55.3993, "relative_v_angle_deg": 44.3067}
+{"type": "scan", "step_id": 717, "relative_h_angle_deg": 56.714, "relative_v_angle_deg": 42.8374}
+{"type": "scan", "step_id": 717, "relative_h_angle_deg": 58.1833, "relative_v_angle_deg": 41.5227}
+{"type": "scan", "step_id": 717, "relative_h_angle_deg": 59.7965, "relative_v_angle_deg": 40.3709}
+{"type": "scan", "step_id": 717, "relative_h_angle_deg": 61.5402, "relative_v_angle_deg": 39.3884}
+{"type": "scan", "step_id": 717, "relative_h_angle_deg": 63.3985, "relative_v_angle_deg": 38.5796}
+{"type": "scan", "step_id": 717, "relative_h_angle_deg": 65.3525, "relative_v_angle_deg": 37.9478}
+{"type": "scan", "step_id": 717, "relative_h_angle_deg": 67.3808, "relative_v_angle_deg": 37.4952}
+{"type": "scan", "step_id": 717, "relative_h_angle_deg": 69.46, "relative_v_angle_deg": 37.2232}
+{"type": "scan", "step_id": 717, "relative_h_angle_deg": 71.5651, "relative_v_angle_deg": 37.1324}
+{"type": "scan", "step_id": 717, "relative_h_angle_deg": 73.6701, "relative_v_angle_deg": 37.2232}
+{"type": "scan", "step_id": 717, "relative_h_angle_deg": 75.7493, "relative_v_angle_deg": 37.4952}
+{"type": "scan", "step_id": 717, "relative_h_angle_deg": 77.7776, "relative_v_angle_deg": 37.9478}
+{"type": "scan", "step_id": 717, "relative_h_angle_deg": 79.7316, "relative_v_angle_deg": 38.5796}
+{"type": "scan", "step_id": 717, "relative_h_angle_deg": 81.5899, "relative_v_angle_deg": 39.3884}
+{"type": "scan", "step_id": 717, "relative_h_angle_deg": 83.3336, "relative_v_angle_deg": 40.3709}
+{"type": "scan", "step_id": 717, "relative_h_angle_deg": 84.9468, "relative_v_angle_deg": 41.5227}
+{"type": "scan", "step_id": 717, "relative_h_angle_deg": 86.4161, "relative_v_angle_deg": 42.8374}
+{"type": "scan", "step_id": 717, "relative_h_angle_deg": 87.7308, "relative_v_angle_deg": 44.3067}
+{"type": "scan", "step_id": 717, "relative_h_angle_deg": 88.8826, "relative_v_angle_deg": 45.9199}
+{"type": "scan", "step_id": 717, "relative_h_angle_deg": 89.8652, "relative_v_angle_deg": 47.6636}
+{"type": "scan", "step_id": 717, "relative_h_angle_deg": 90.6739, "relative_v_angle_deg": 49.5219}
+{"type": "scan", "step_id": 717, "relative_h_angle_deg": 91.3057, "relative_v_angle_deg": 51.4759}
+{"type": "scan", "step_id": 717, "relative_h_angle_deg": 91.7583, "relative_v_angle_deg": 53.5042}
+{"type": "scan", "step_id": 717, "relative_h_angle_deg": 92.0303, "relative_v_angle_deg": 55.5834}
+{"type": "movement", "step_id": 334, "x_cm": 150, "y_cm": 200, "z_cm": 10, "h_angle_deg": 0, "v_angle_deg": 0, "action": "hover"}
+{"type": "scan", "step_id": 334, "relative_h_angle_deg": 78.6901, "relative_v_angle_deg": -11.0958}
+{"type": "scan", "step_id": 334, "relative_h_angle_deg": 85.8151, "relative_v_angle_deg": -11.0958}
+{"type": "scan", "step_id": 334, "relative_h_angle_deg": 78.6901, "relative_v_angle_deg": -3.97079}
+{"type": "scan", "step_id": 334, "relative_h_angle_deg": 71.5651, "relative_v_angle_deg": -11.0958}
+{"type": "scan", "step_id": 334, "relative_h_angle_deg": 78.6901, "relative_v_angle_deg": -18.2208}
+{"type": "scan", "step_id": 334, "relative_h_angle_deg": 92.7263, "relative_v_angle_deg": -11.0958}
+{"type": "scan", "step_id": 334, "relative_h_angle_deg": 91.6956, "relative_v_angle_deg": -5.6309}
+{"type": "scan", "step_id": 334, "relative_h_angle_deg": 88.7151, "relative_v_angle_deg": -1.07082}
+{"type": "scan", "step_id": 334, "relative_h_angle_deg": 84.155, "relative_v_angle_deg": 1.90973}
+{"type": "scan", "step_id": 334, "relative_h_angle_deg": 78.6901, "relative_v_angle_deg": 2.94044}
+{"type": "scan", "step_id": 334, "relative_h_angle_deg": 73.2252, "relative_v_angle_deg": 1.90973}
+{"type": "scan", "step_id": 334, "relative_h_angle_deg": 68.6651, "relative_v_angle_deg": -1.07082}
+{"type": "scan", "step_id": 334, "relative_h_angle_deg": 65.6845, "relative_v_angle_deg": -5.6309}
+{"type": "scan", "step_id": 334, "relative_h_angle_deg": 64.6538, "relative_v_angle_deg": -11.0958}
+{"type": "scan", "step_id": 334, "relative_h_angle_deg": 65.6845, "relative_v_angle_deg": -16.5607}
+{"type": "scan", "step_id": 334, "relative_h_angle_deg": 68.6651, "relative_v_angle_deg": -21.1208}
+{"type": "scan", "step_id": 334, "relative_h_angle_deg": 73.2252, "relative_v_angle_deg": -24.1013}
+{"type": "scan", "step_id": 334, "relative_h_angle_deg": 78.6901, "relative_v_angle_deg": -25.132}
+{"type": "scan", "step_id": 334, "relative_h_angle_deg": 84.155, "relative_v_angle_deg": -24.1013}
+{"type": "scan", "step_id": 334, "relative_h_angle_deg": 88.7151, "relative_v_angle_deg": -21.1208}
+{"type": "scan", "step_id": 334, "relative_h_angle_deg": 91.6956, "relative_v_angle_deg": -16.5607}
+{"type": "scan", "step_id": 334, "relative_h_angle_deg": 99.2461, "relative_v_angle_deg": -11.0958}
+{"type": "scan", "step_id": 334, "relative_h_angle_deg": 99.1554, "relative_v_angle_deg": -8.99076}
+{"type": "scan", "step_id": 334, "relative_h_angle_deg": 98.8833, "relative_v_angle_deg": -6.91156}
+{"type": "scan", "step_id": 334, "relative_h_angle_deg": 98.4307, "relative_v_angle_deg": -4.88323}
+{"type": "scan", "step_id": 334, "relative_h_angle_deg": 97.799, "relative_v_angle_deg": -2.92925}
+{"type": "scan", "step_id": 334, "relative_h_angle_deg": 96.9902, "relative_v_angle_deg": -1.07098}
+{"type": "scan", "step_id": 334, "relative_h_angle_deg": 96.0076, "relative_v_angle_deg": 0.672788}
+{"type": "scan", "step_id": 334, "relative_h_angle_deg": 94.8558, "relative_v_angle_deg": 2.28597}
+{"type": "scan", "step_id": 334, "relative_h_angle_deg": 93.5411, "relative_v_angle_deg": 3.75526}
+{"type": "scan", "step_id": 334, "relative_h_angle_deg": 92.0718, "relative_v_angle_deg": 5.06996}
+{"type": "scan", "step_id": 334, "relative_h_angle_deg": 90.4587, "relative_v_angle_deg": 6.22173}
+{"type": "scan", "step_id": 334, "relative_h_angle_deg": 88.7149, "relative_v_angle_deg": 7.2043}
+{"type": "scan", "step_id": 334, "relative_h_angle_deg": 86.8566, "relative_v_angle_deg": 8.01309}
+{"type": "scan", "step_id": 334, "relative_h_angle_deg": 84.9026, "relative_v_angle_deg": 8.64485}
+{"type": "scan", "step_id": 334, "relative_h_angle_deg": 82.8743, "relative_v_angle_deg": 9.09744}
+{"type": "scan", "step_id": 334, "relative_h_angle_deg": 80.7951, "relative_v_angle_deg": 9.36948}
+{"type": "scan", "step_id": 334, "relative_h_angle_deg": 78.6901, "relative_v_angle_deg": 9.46024}
+{"type": "scan", "step_id": 334, "relative_h_angle_deg": 76.585, "relative_v_angle_deg": 9.36948}
+{"type": "scan", "step_id": 334, "relative_h_angle_deg": 74.5058, "relative_v_angle_deg": 9.09744}
+{"type": "scan", "step_id": 334, "relative_h_angle_deg": 72.4775, "relative_v_angle_deg": 8.64485}
+{"type": "scan", "step_id": 334, "relative_h_angle_deg": 70.5235, "relative_v_angle_deg": 8.01309}
+{"type": "scan", "step_id": 334, "relative_h_angle_deg": 68.6652, "relative_v_angle_deg": 7.2043}
+{"type": "scan", "step_id": 334, "relative_h_angle_deg": 66.9215, "relative_v_angle_deg": 6.22173}
+{"type": "scan", "step_id": 334, "relative_h_angle_deg": 65.3083, "relative_v_angle_deg": 5.06996}
+{"type": "scan", "step_id": 334, "relative_h_angle_deg": 63.839, "relative_v_angle_deg": 3.75526}
+{"type": "scan", "step_id": 334, "relative_h_angle_deg": 62.5243, "relative_v_angle_deg": 2.28597}
+{"type": "scan", "step_id": 334, "relative_h_angle_deg": 61.3725, "relative_v_angle_deg": 0.672788}
+{"type": "scan", "step_id": 334, "relative_h_angle_deg": 60.39, "relative_v_angle_deg": -1.07098}
+{"type": "scan", "step_id": 334, "relative_h_angle_deg": 59.5812, "relative_v_angle_deg": -2.92925}
+{"type": "scan", "step_id": 334, "relative_h_angle_deg": 58.9494, "relative_v_angle_deg": -4.88323}
+{"type": "scan", "step_id": 334, "relative_h_angle_deg": 58.4968, "relative_v_angle_deg": -6.91156}
+{"type": "scan", "step_id": 334, "relative_h_angle_deg": 58.2248, "relative_v_angle_deg": -8.99076}
+{"type": "scan", "step_id": 334, "relative_h_angle_deg": 58.134, "relative_v_angle_deg": -11.0958}
+{"type": "scan", "step_id": 334, "relative_h_angle_deg": 58.2248, "relative_v_angle_deg": -13.2008}
+{"type": "scan", "step_id": 334, "relative_h_angle_deg": 58.4968, "relative_v_angle_deg": -15.28}
+{"type": "scan", "step_id": 334, "relative_h_angle_deg": 58.9494, "relative_v_angle_deg": -17.3084}
+{"type": "scan", "step_id": 334, "relative_h_angle_deg": 59.5812, "relative_v_angle_deg": -19.2624}
+{"type": "scan", "step_id": 334, "relative_h_angle_deg": 60.39, "relative_v_angle_deg": -21.1206}
+{"type": "scan", "step_id": 334, "relative_h_angle_deg": 61.3725, "relative_v_angle_deg": -22.8644}
+{"type": "scan", "step_id": 334, "relative_h_angle_deg": 62.5243, "relative_v_angle_deg": -24.4776}
+{"type": "scan", "step_id": 334, "relative_h_angle_deg": 63.839, "relative_v_angle_deg": -25.9469}
+{"type": "scan", "step_id": 334, "relative_h_angle_deg": 65.3083, "relative_v_angle_deg": -27.2616}
+{"type": "scan", "step_id": 334, "relative_h_angle_deg": 66.9215, "relative_v_angle_deg": -28.4133}
+{"type": "scan", "step_id": 334, "relative_h_angle_deg": 68.6652, "relative_v_angle_deg": -29.3959}
+{"type": "scan", "step_id": 334, "relative_h_angle_deg": 70.5235, "relative_v_angle_deg": -30.2047}
+{"type": "scan", "step_id": 334, "relative_h_angle_deg": 72.4775, "relative_v_angle_deg": -30.8365}
+{"type": "scan", "step_id": 334, "relative_h_angle_deg": 74.5058, "relative_v_angle_deg": -31.289}
+{"type": "scan", "step_id": 334, "relative_h_angle_deg": 76.585, "relative_v_angle_deg": -31.5611}
+{"type": "scan", "step_id": 334, "relative_h_angle_deg": 78.6901, "relative_v_angle_deg": -31.6518}
+{"type": "scan", "step_id": 334, "relative_h_angle_deg": 80.7951, "relative_v_angle_deg": -31.5611}
+{"type": "scan", "step_id": 334, "relative_h_angle_deg": 82.8743, "relative_v_angle_deg": -31.289}
+{"type": "scan", "step_id": 334, "relative_h_angle_deg": 84.9026, "relative_v_angle_deg": -30.8365}
+{"type": "scan", "step_id": 334, "relative_h_angle_deg": 86.8566, "relative_v_angle_deg": -30.2047}
+{"type": "scan", "step_id": 334, "relative_h_angle_deg": 88.7149, "relative_v_angle_deg": -29.3959}
+{"type": "scan", "step_id": 334, "relative_h_angle_deg": 90.4587, "relative_v_angle_deg": -28.4133}
+{"type": "scan", "step_id": 334, "relative_h_angle_deg": 92.0718, "relative_v_angle_deg": -27.2616}
+{"type": "scan", "step_id": 334, "relative_h_angle_deg": 93.5411, "relative_v_angle_deg": -25.9469}
+{"type": "scan", "step_id": 334, "relative_h_angle_deg": 94.8558, "relative_v_angle_deg": -24.4776}
+{"type": "scan", "step_id": 334, "relative_h_angle_deg": 96.0076, "relative_v_angle_deg": -22.8644}
+{"type": "scan", "step_id": 334, "relative_h_angle_deg": 96.9902, "relative_v_angle_deg": -21.1206}
+{"type": "scan", "step_id": 334, "relative_h_angle_deg": 97.799, "relative_v_angle_deg": -19.2624}
+{"type": "scan", "step_id": 334, "relative_h_angle_deg": 98.4307, "relative_v_angle_deg": -17.3084}
+{"type": "scan", "step_id": 334, "relative_h_angle_deg": 98.8833, "relative_v_angle_deg": -15.28}
+{"type": "scan", "step_id": 334, "relative_h_angle_deg": 99.1554, "relative_v_angle_deg": -13.2008}
+{"type": "movement", "step_id": 331, "x_cm": 150, "y_cm": 200, "z_cm": 10, "h_angle_deg": 0, "v_angle_deg": 0, "action": "hover"}
+{"type": "scan", "step_id": 331, "relative_h_angle_deg": -135, "relative_v_angle_deg": 5.76818}
+{"type": "scan", "step_id": 331, "relative_h_angle_deg": -127.875, "relative_v_angle_deg": 5.76818}
+{"type": "scan", "step_id": 331, "relative_h_angle_deg": -135, "relative_v_angle_deg": 12.8932}
+{"type": "scan", "step_id": 331, "relative_h_angle_deg": -142.125, "relative_v_angle_deg": 5.76818}
+{"type": "scan", "step_id": 331, "relative_h_angle_deg": -135, "relative_v_angle_deg": -1.35684}
+{"type": "scan", "step_id": 331, "relative_h_angle_deg": -120.964, "relative_v_angle_deg": 5.76818}
+{"type": "scan", "step_id": 331, "relative_h_angle_deg": -121.994, "relative_v_angle_deg": 11.2331}
+{"type": "scan", "step_id": 331, "relative_h_angle_deg": -124.975, "relative_v_angle_deg": 15.7932}
+{"type": "scan", "step_id": 331, "relative_h_angle_deg": -129.535, "relative_v_angle_deg": 18.7737}
+{"type": "scan", "step_id": 331, "relative_h_angle_deg": -135, "relative_v_angle_deg": 19.8044}
+{"type": "scan", "step_id": 331, "relative_h_angle_deg": -140.465, "relative_v_angle_deg": 18.7737}
+{"type": "scan", "step_id": 331, "relative_h_angle_deg": -145.025, "relative_v_angle_deg": 15.7932}
+{"type": "scan", "step_id": 331, "relative_h_angle_deg": -148.006, "relative_v_angle_deg": 11.2331}
+{"type": "scan", "step_id": 331, "relative_h_angle_deg": -149.036, "relative_v_angle_deg": 5.76818}
+{"type": "scan", "step_id": 331, "relative_h_angle_deg": -148.006, "relative_v_angle_deg": 0.303278}
+{"type": "scan", "step_id": 331, "relative_h_angle_deg": -145.025, "relative_v_angle_deg": -4.25681}
+{"type": "scan", "step_id": 331, "relative_h_angle_deg": -140.465, "relative_v_angle_deg": -7.23735}
+{"type": "scan", "step_id": 331, "relative_h_angle_deg": -135, "relative_v_angle_deg": -8.26806}
+{"type": "scan", "step_id": 331, "relative_h_angle_deg": -129.535, "relative_v_angle_deg": -7.23735}
+{"type": "scan", "step_id": 331, "relative_h_angle_deg": -124.975, "relative_v_angle_deg": -4.25681}
+{"type": "scan", "step_id": 331, "relative_h_angle_deg": -121.994, "relative_v_angle_deg": 0.303278}
+{"type": "movement", "step_id": 718, "x_cm": 150, "y_cm": 200, "z_cm": 10, "h_angle_deg": 0, "v_angle_deg": 0, "action": "hover"}
+{"type": "scan", "step_id": 718, "relative_h_angle_deg": -135, "relative_v_angle_deg": -5.76818}
+{"type": "scan", "step_id": 718, "relative_h_angle_deg": -127.875, "relative_v_angle_deg": -5.76818}
+{"type": "scan", "step_id": 718, "relative_h_angle_deg": -135, "relative_v_angle_deg": 1.35684}
+{"type": "scan", "step_id": 718, "relative_h_angle_deg": -142.125, "relative_v_angle_deg": -5.76818}
+{"type": "scan", "step_id": 718, "relative_h_angle_deg": -135, "relative_v_angle_deg": -12.8932}
+{"type": "scan", "step_id": 718, "relative_h_angle_deg": -120.964, "relative_v_angle_deg": -5.76818}
+{"type": "scan", "step_id": 718, "relative_h_angle_deg": -121.994, "relative_v_angle_deg": -0.303278}
+{"type": "scan", "step_id": 718, "relative_h_angle_deg": -124.975, "relative_v_angle_deg": 4.25681}
+{"type": "scan", "step_id": 718, "relative_h_angle_deg": -129.535, "relative_v_angle_deg": 7.23735}
+{"type": "scan", "step_id": 718, "relative_h_angle_deg": -135, "relative_v_angle_deg": 8.26806}
+{"type": "scan", "step_id": 718, "relative_h_angle_deg": -140.465, "relative_v_angle_deg": 7.23735}
+{"type": "scan", "step_id": 718, "relative_h_angle_deg": -145.025, "relative_v_angle_deg": 4.25681}
+{"type": "scan", "step_id": 718, "relative_h_angle_deg": -148.006, "relative_v_angle_deg": -0.303278}
+{"type": "scan", "step_id": 718, "relative_h_angle_deg": -149.036, "relative_v_angle_deg": -5.76818}
+{"type": "scan", "step_id": 718, "relative_h_angle_deg": -148.006, "relative_v_angle_deg": -11.2331}
+{"type": "scan", "step_id": 718, "relative_h_angle_deg": -145.025, "relative_v_angle_deg": -15.7932}
+{"type": "scan", "step_id": 718, "relative_h_angle_deg": -140.465, "relative_v_angle_deg": -18.7737}
+{"type": "scan", "step_id": 718, "relative_h_angle_deg": -135, "relative_v_angle_deg": -19.8044}
+{"type": "scan", "step_id": 718, "relative_h_angle_deg": -129.535, "relative_v_angle_deg": -18.7737}
+{"type": "scan", "step_id": 718, "relative_h_angle_deg": -124.975, "relative_v_angle_deg": -15.7932}
+{"type": "scan", "step_id": 718, "relative_h_angle_deg": -121.994, "relative_v_angle_deg": -11.2331}
+{"type": "movement", "step_id": 719, "x_cm": 150, "y_cm": 200, "z_cm": 10, "h_angle_deg": 0, "v_angle_deg": 0, "action": "hover"}
+{"type": "scan", "step_id": 719, "relative_h_angle_deg": 71.5651, "relative_v_angle_deg": 43.4915}
+{"type": "scan", "step_id": 719, "relative_h_angle_deg": 78.6901, "relative_v_angle_deg": 43.4915}
+{"type": "scan", "step_id": 719, "relative_h_angle_deg": 71.5651, "relative_v_angle_deg": 50.6165}
+{"type": "scan", "step_id": 719, "relative_h_angle_deg": 64.44, "relative_v_angle_deg": 43.4915}
+{"type": "scan", "step_id": 719, "relative_h_angle_deg": 71.5651, "relative_v_angle_deg": 36.3665}
+{"type": "scan", "step_id": 719, "relative_h_angle_deg": 85.6013, "relative_v_angle_deg": 43.4915}
+{"type": "scan", "step_id": 719, "relative_h_angle_deg": 84.5706, "relative_v_angle_deg": 48.9564}
+{"type": "scan", "step_id": 719, "relative_h_angle_deg": 81.59, "relative_v_angle_deg": 53.5165}
+{"type": "scan", "step_id": 719, "relative_h_angle_deg": 77.03, "relative_v_angle_deg": 56.4971}
+{"type": "scan", "step_id": 719, "relative_h_angle_deg": 71.5651, "relative_v_angle_deg": 57.5278}
+{"type": "scan", "step_id": 719, "relative_h_angle_deg": 66.1001, "relative_v_angle_deg": 56.4971}
+{"type": "scan", "step_id": 719, "relative_h_angle_deg": 61.5401, "relative_v_angle_deg": 53.5165}
+{"type": "scan", "step_id": 719, "relative_h_angle_deg": 58.5595, "relative_v_angle_deg": 48.9564}
+{"type": "scan", "step_id": 719, "relative_h_angle_deg": 57.5288, "relative_v_angle_deg": 43.4915}
+{"type": "scan", "step_id": 719, "relative_h_angle_deg": 58.5595, "relative_v_angle_deg": 38.0266}
+{"type": "scan", "step_id": 719, "relative_h_angle_deg": 61.5401, "relative_v_angle_deg": 33.4665}
+{"type": "scan", "step_id": 719, "relative_h_angle_deg": 66.1001, "relative_v_angle_deg": 30.486}
+{"type": "scan", "step_id": 719, "relative_h_angle_deg": 71.5651, "relative_v_angle_deg": 29.4553}
+{"type": "scan", "step_id": 719, "relative_h_angle_deg": 77.03, "relative_v_angle_deg": 30.486}
+{"type": "scan", "step_id": 719, "relative_h_angle_deg": 81.59, "relative_v_angle_deg": 33.4665}
+{"type": "scan", "step_id": 719, "relative_h_angle_deg": 84.5706, "relative_v_angle_deg": 38.0266}
+{"type": "scan", "step_id": 719, "relative_h_angle_deg": 92.1211, "relative_v_angle_deg": 43.4915}
+{"type": "scan", "step_id": 719, "relative_h_angle_deg": 92.0303, "relative_v_angle_deg": 45.5966}
+{"type": "scan", "step_id": 719, "relative_h_angle_deg": 91.7583, "relative_v_angle_deg": 47.6758}
+{"type": "scan", "step_id": 719, "relative_h_angle_deg": 91.3057, "relative_v_angle_deg": 49.7041}
+{"type": "scan", "step_id": 719, "relative_h_angle_deg": 90.6739, "relative_v_angle_deg": 51.6581}
+{"type": "scan", "step_id": 719, "relative_h_angle_deg": 89.8652, "relative_v_angle_deg": 53.5163}
+{"type": "scan", "step_id": 719, "relative_h_angle_deg": 88.8826, "relative_v_angle_deg": 55.2601}
+{"type": "scan", "step_id": 719, "relative_h_angle_deg": 87.7308, "relative_v_angle_deg": 56.8733}
+{"type": "scan", "step_id": 719, "relative_h_angle_deg": 86.4161, "relative_v_angle_deg": 58.3426}
+{"type": "scan", "step_id": 719, "relative_h_angle_deg": 84.9468, "relative_v_angle_deg": 59.6573}
+{"type": "scan", "step_id": 719, "relative_h_angle_deg": 83.3336, "relative_v_angle_deg": 60.8091}
+{"type": "scan", "step_id": 719, "relative_h_angle_deg": 81.5899, "relative_v_angle_deg": 61.7916}
+{"type": "scan", "step_id": 719, "relative_h_angle_deg": 79.7316, "relative_v_angle_deg": 62.6004}
+{"type": "scan", "step_id": 719, "relative_h_angle_deg": 77.7776, "relative_v_angle_deg": 63.2322}
+{"type": "scan", "step_id": 719, "relative_h_angle_deg": 75.7493, "relative_v_angle_deg": 63.6848}
+{"type": "scan", "step_id": 719, "relative_h_angle_deg": 73.6701, "relative_v_angle_deg": 63.9568}
+{"type": "scan", "step_id": 719, "relative_h_angle_deg": 71.5651, "relative_v_angle_deg": 64.0476}
+{"type": "scan", "step_id": 719, "relative_h_angle_deg": 69.46, "relative_v_angle_deg": 63.9568}
+{"type": "scan", "step_id": 719, "relative_h_angle_deg": 67.3808, "relative_v_angle_deg": 63.6848}
+{"type": "scan", "step_id": 719, "relative_h_angle_deg": 65.3525, "relative_v_angle_deg": 63.2322}
+{"type": "scan", "step_id": 719, "relative_h_angle_deg": 63.3985, "relative_v_angle_deg": 62.6004}
+{"type": "scan", "step_id": 719, "relative_h_angle_deg": 61.5402, "relative_v_angle_deg": 61.7916}
+{"type": "scan", "step_id": 719, "relative_h_angle_deg": 59.7965, "relative_v_angle_deg": 60.8091}
+{"type": "scan", "step_id": 719, "relative_h_angle_deg": 58.1833, "relative_v_angle_deg": 59.6573}
+{"type": "scan", "step_id": 719, "relative_h_angle_deg": 56.714, "relative_v_angle_deg": 58.3426}
+{"type": "scan", "step_id": 719, "relative_h_angle_deg": 55.3993, "relative_v_angle_deg": 56.8733}
+{"type": "scan", "step_id": 719, "relative_h_angle_deg": 54.2475, "relative_v_angle_deg": 55.2601}
+{"type": "scan", "step_id": 719, "relative_h_angle_deg": 53.2649, "relative_v_angle_deg": 53.5163}
+{"type": "scan", "step_id": 719, "relative_h_angle_deg": 52.4562, "relative_v_angle_deg": 51.6581}
+{"type": "scan", "step_id": 719, "relative_h_angle_deg": 51.8244, "relative_v_angle_deg": 49.7041}
+{"type": "scan", "step_id": 719, "relative_h_angle_deg": 51.3718, "relative_v_angle_deg": 47.6758}
+{"type": "scan", "step_id": 719, "relative_h_angle_deg": 51.0998, "relative_v_angle_deg": 45.5966}
+{"type": "scan", "step_id": 719, "relative_h_angle_deg": 51.009, "relative_v_angle_deg": 43.4915}
+{"type": "scan", "step_id": 719, "relative_h_angle_deg": 51.0998, "relative_v_angle_deg": 41.3865}
+{"type": "scan", "step_id": 719, "relative_h_angle_deg": 51.3718, "relative_v_angle_deg": 39.3073}
+{"type": "scan", "step_id": 719, "relative_h_angle_deg": 51.8244, "relative_v_angle_deg": 37.2789}
+{"type": "scan", "step_id": 719, "relative_h_angle_deg": 52.4562, "relative_v_angle_deg": 35.325}
+{"type": "scan", "step_id": 719, "relative_h_angle_deg": 53.2649, "relative_v_angle_deg": 33.4667}
+{"type": "scan", "step_id": 719, "relative_h_angle_deg": 54.2475, "relative_v_angle_deg": 31.7229}
+{"type": "scan", "step_id": 719, "relative_h_angle_deg": 55.3993, "relative_v_angle_deg": 30.1097}
+{"type": "scan", "step_id": 719, "relative_h_angle_deg": 56.714, "relative_v_angle_deg": 28.6405}
+{"type": "scan", "step_id": 719, "relative_h_angle_deg": 58.1833, "relative_v_angle_deg": 27.3258}
+{"type": "scan", "step_id": 719, "relative_h_angle_deg": 59.7965, "relative_v_angle_deg": 26.174}
+{"type": "scan", "step_id": 719, "relative_h_angle_deg": 61.5402, "relative_v_angle_deg": 25.1914}
+{"type": "scan", "step_id": 719, "relative_h_angle_deg": 63.3985, "relative_v_angle_deg": 24.3826}
+{"type": "scan", "step_id": 719, "relative_h_angle_deg": 65.3525, "relative_v_angle_deg": 23.7509}
+{"type": "scan", "step_id": 719, "relative_h_angle_deg": 67.3808, "relative_v_angle_deg": 23.2983}
+{"type": "scan", "step_id": 719, "relative_h_angle_deg": 69.46, "relative_v_angle_deg": 23.0262}
+{"type": "scan", "step_id": 719, "relative_h_angle_deg": 71.5651, "relative_v_angle_deg": 22.9355}
+{"type": "scan", "step_id": 719, "relative_h_angle_deg": 73.6701, "relative_v_angle_deg": 23.0262}
+{"type": "scan", "step_id": 719, "relative_h_angle_deg": 75.7493, "relative_v_angle_deg": 23.2983}
+{"type": "scan", "step_id": 719, "relative_h_angle_deg": 77.7776, "relative_v_angle_deg": 23.7509}
+{"type": "scan", "step_id": 719, "relative_h_angle_deg": 79.7316, "relative_v_angle_deg": 24.3826}
+{"type": "scan", "step_id": 719, "relative_h_angle_deg": 81.5899, "relative_v_angle_deg": 25.1914}
+{"type": "scan", "step_id": 719, "relative_h_angle_deg": 83.3336, "relative_v_angle_deg": 26.174}
+{"type": "scan", "step_id": 719, "relative_h_angle_deg": 84.9468, "relative_v_angle_deg": 27.3258}
+{"type": "scan", "step_id": 719, "relative_h_angle_deg": 86.4161, "relative_v_angle_deg": 28.6405}
+{"type": "scan", "step_id": 719, "relative_h_angle_deg": 87.7308, "relative_v_angle_deg": 30.1097}
+{"type": "scan", "step_id": 719, "relative_h_angle_deg": 88.8826, "relative_v_angle_deg": 31.7229}
+{"type": "scan", "step_id": 719, "relative_h_angle_deg": 89.8652, "relative_v_angle_deg": 33.4667}
+{"type": "scan", "step_id": 719, "relative_h_angle_deg": 90.6739, "relative_v_angle_deg": 35.325}
+{"type": "scan", "step_id": 719, "relative_h_angle_deg": 91.3057, "relative_v_angle_deg": 37.2789}
+{"type": "scan", "step_id": 719, "relative_h_angle_deg": 91.7583, "relative_v_angle_deg": 39.3073}
+{"type": "scan", "step_id": 719, "relative_h_angle_deg": 92.0303, "relative_v_angle_deg": 41.3865}
+{"type": "movement", "step_id": 335, "x_cm": 150, "y_cm": 200, "z_cm": 10, "h_angle_deg": 0, "v_angle_deg": 0, "action": "hover"}
+{"type": "scan", "step_id": 335, "relative_h_angle_deg": 71.5651, "relative_v_angle_deg": 70.6404}
+{"type": "scan", "step_id": 335, "relative_h_angle_deg": 78.6901, "relative_v_angle_deg": 70.6404}
+{"type": "scan", "step_id": 335, "relative_h_angle_deg": 71.5651, "relative_v_angle_deg": 77.7654}
+{"type": "scan", "step_id": 335, "relative_h_angle_deg": 64.44, "relative_v_angle_deg": 70.6404}
+{"type": "scan", "step_id": 335, "relative_h_angle_deg": 71.5651, "relative_v_angle_deg": 63.5153}
+{"type": "scan", "step_id": 335, "relative_h_angle_deg": 85.6013, "relative_v_angle_deg": 70.6404}
+{"type": "scan", "step_id": 335, "relative_h_angle_deg": 84.5706, "relative_v_angle_deg": 76.1053}
+{"type": "scan", "step_id": 335, "relative_h_angle_deg": 81.59, "relative_v_angle_deg": 80.6653}
+{"type": "scan", "step_id": 335, "relative_h_angle_deg": 77.03, "relative_v_angle_deg": 83.6459}
+{"type": "scan", "step_id": 335, "relative_h_angle_deg": 71.5651, "relative_v_angle_deg": 84.6766}
+{"type": "scan", "step_id": 335, "relative_h_angle_deg": 66.1001, "relative_v_angle_deg": 83.6459}
+{"type": "scan", "step_id": 335, "relative_h_angle_deg": 61.5401, "relative_v_angle_deg": 80.6653}
+{"type": "scan", "step_id": 335, "relative_h_angle_deg": 58.5595, "relative_v_angle_deg": 76.1053}
+{"type": "scan", "step_id": 335, "relative_h_angle_deg": 57.5288, "relative_v_angle_deg": 70.6404}
+{"type": "scan", "step_id": 335, "relative_h_angle_deg": 58.5595, "relative_v_angle_deg": 65.1754}
+{"type": "scan", "step_id": 335, "relative_h_angle_deg": 61.5401, "relative_v_angle_deg": 60.6154}
+{"type": "scan", "step_id": 335, "relative_h_angle_deg": 66.1001, "relative_v_angle_deg": 57.6348}
+{"type": "scan", "step_id": 335, "relative_h_angle_deg": 71.5651, "relative_v_angle_deg": 56.6041}
+{"type": "scan", "step_id": 335, "relative_h_angle_deg": 77.03, "relative_v_angle_deg": 57.6348}
+{"type": "scan", "step_id": 335, "relative_h_angle_deg": 81.59, "relative_v_angle_deg": 60.6154}
+{"type": "scan", "step_id": 335, "relative_h_angle_deg": 84.5706, "relative_v_angle_deg": 65.1754}
+{"type": "scan", "step_id": 335, "relative_h_angle_deg": 92.1211, "relative_v_angle_deg": 70.6404}
+{"type": "scan", "step_id": 335, "relative_h_angle_deg": 92.0303, "relative_v_angle_deg": 72.7454}
+{"type": "scan", "step_id": 335, "relative_h_angle_deg": 91.7583, "relative_v_angle_deg": 74.8246}
+{"type": "scan", "step_id": 335, "relative_h_angle_deg": 91.3057, "relative_v_angle_deg": 76.8529}
+{"type": "scan", "step_id": 335, "relative_h_angle_deg": 90.6739, "relative_v_angle_deg": 78.8069}
+{"type": "scan", "step_id": 335, "relative_h_angle_deg": 89.8652, "relative_v_angle_deg": 80.6652}
+{"type": "scan", "step_id": 335, "relative_h_angle_deg": 88.8826, "relative_v_angle_deg": 82.4089}
+{"type": "scan", "step_id": 335, "relative_h_angle_deg": 87.7308, "relative_v_angle_deg": 84.0221}
+{"type": "scan", "step_id": 335, "relative_h_angle_deg": 86.4161, "relative_v_angle_deg": 85.4914}
+{"type": "scan", "step_id": 335, "relative_h_angle_deg": 84.9468, "relative_v_angle_deg": 86.8061}
+{"type": "scan", "step_id": 335, "relative_h_angle_deg": 83.3336, "relative_v_angle_deg": 87.9579}
+{"type": "scan", "step_id": 335, "relative_h_angle_deg": 81.5899, "relative_v_angle_deg": 88.9405}
+{"type": "scan", "step_id": 335, "relative_h_angle_deg": 79.7316, "relative_v_angle_deg": 89.7492}
+{"type": "scan", "step_id": 335, "relative_h_angle_deg": 77.7776, "relative_v_angle_deg": 90.381}
+{"type": "scan", "step_id": 335, "relative_h_angle_deg": 75.7493, "relative_v_angle_deg": 90.8336}
+{"type": "scan", "step_id": 335, "relative_h_angle_deg": 73.6701, "relative_v_angle_deg": 91.1056}
+{"type": "scan", "step_id": 335, "relative_h_angle_deg": 71.5651, "relative_v_angle_deg": 91.1964}
+{"type": "scan", "step_id": 335, "relative_h_angle_deg": 69.46, "relative_v_angle_deg": 91.1056}
+{"type": "scan", "step_id": 335, "relative_h_angle_deg": 67.3808, "relative_v_angle_deg": 90.8336}
+{"type": "scan", "step_id": 335, "relative_h_angle_deg": 65.3525, "relative_v_angle_deg": 90.381}
+{"type": "scan", "step_id": 335, "relative_h_angle_deg": 63.3985, "relative_v_angle_deg": 89.7492}
+{"type": "scan", "step_id": 335, "relative_h_angle_deg": 61.5402, "relative_v_angle_deg": 88.9405}
+{"type": "scan", "step_id": 335, "relative_h_angle_deg": 59.7965, "relative_v_angle_deg": 87.9579}
+{"type": "scan", "step_id": 335, "relative_h_angle_deg": 58.1833, "relative_v_angle_deg": 86.8061}
+{"type": "scan", "step_id": 335, "relative_h_angle_deg": 56.714, "relative_v_angle_deg": 85.4914}
+{"type": "scan", "step_id": 335, "relative_h_angle_deg": 55.3993, "relative_v_angle_deg": 84.0221}
+{"type": "scan", "step_id": 335, "relative_h_angle_deg": 54.2475, "relative_v_angle_deg": 82.4089}
+{"type": "scan", "step_id": 335, "relative_h_angle_deg": 53.2649, "relative_v_angle_deg": 80.6652}
+{"type": "scan", "step_id": 335, "relative_h_angle_deg": 52.4562, "relative_v_angle_deg": 78.8069}
+{"type": "scan", "step_id": 335, "relative_h_angle_deg": 51.8244, "relative_v_angle_deg": 76.8529}
+{"type": "scan", "step_id": 335, "relative_h_angle_deg": 51.3718, "relative_v_angle_deg": 74.8246}
+{"type": "scan", "step_id": 335, "relative_h_angle_deg": 51.0998, "relative_v_angle_deg": 72.7454}
+{"type": "scan", "step_id": 335, "relative_h_angle_deg": 51.009, "relative_v_angle_deg": 70.6404}
+{"type": "scan", "step_id": 335, "relative_h_angle_deg": 51.0998, "relative_v_angle_deg": 68.5353}
+{"type": "scan", "step_id": 335, "relative_h_angle_deg": 51.3718, "relative_v_angle_deg": 66.4561}
+{"type": "scan", "step_id": 335, "relative_h_angle_deg": 51.8244, "relative_v_angle_deg": 64.4278}
+{"type": "scan", "step_id": 335, "relative_h_angle_deg": 52.4562, "relative_v_angle_deg": 62.4738}
+{"type": "scan", "step_id": 335, "relative_h_angle_deg": 53.2649, "relative_v_angle_deg": 60.6155}
+{"type": "scan", "step_id": 335, "relative_h_angle_deg": 54.2475, "relative_v_angle_deg": 58.8718}
+{"type": "scan", "step_id": 335, "relative_h_angle_deg": 55.3993, "relative_v_angle_deg": 57.2586}
+{"type": "scan", "step_id": 335, "relative_h_angle_deg": 56.714, "relative_v_angle_deg": 55.7893}
+{"type": "scan", "step_id": 335, "relative_h_angle_deg": 58.1833, "relative_v_angle_deg": 54.4746}
+{"type": "scan", "step_id": 335, "relative_h_angle_deg": 59.7965, "relative_v_angle_deg": 53.3228}
+{"type": "scan", "step_id": 335, "relative_h_angle_deg": 61.5402, "relative_v_angle_deg": 52.3402}
+{"type": "scan", "step_id": 335, "relative_h_angle_deg": 63.3985, "relative_v_angle_deg": 51.5315}
+{"type": "scan", "step_id": 335, "relative_h_angle_deg": 65.3525, "relative_v_angle_deg": 50.8997}
+{"type": "scan", "step_id": 335, "relative_h_angle_deg": 67.3808, "relative_v_angle_deg": 50.4471}
+{"type": "scan", "step_id": 335, "relative_h_angle_deg": 69.46, "relative_v_angle_deg": 50.1751}
+{"type": "scan", "step_id": 335, "relative_h_angle_deg": 71.5651, "relative_v_angle_deg": 50.0843}
+{"type": "scan", "step_id": 335, "relative_h_angle_deg": 73.6701, "relative_v_angle_deg": 50.1751}
+{"type": "scan", "step_id": 335, "relative_h_angle_deg": 75.7493, "relative_v_angle_deg": 50.4471}
+{"type": "scan", "step_id": 335, "relative_h_angle_deg": 77.7776, "relative_v_angle_deg": 50.8997}
+{"type": "scan", "step_id": 335, "relative_h_angle_deg": 79.7316, "relative_v_angle_deg": 51.5315}
+{"type": "scan", "step_id": 335, "relative_h_angle_deg": 81.5899, "relative_v_angle_deg": 52.3402}
+{"type": "scan", "step_id": 335, "relative_h_angle_deg": 83.3336, "relative_v_angle_deg": 53.3228}
+{"type": "scan", "step_id": 335, "relative_h_angle_deg": 84.9468, "relative_v_angle_deg": 54.4746}
+{"type": "scan", "step_id": 335, "relative_h_angle_deg": 86.4161, "relative_v_angle_deg": 55.7893}
+{"type": "scan", "step_id": 335, "relative_h_angle_deg": 87.7308, "relative_v_angle_deg": 57.2586}
+{"type": "scan", "step_id": 335, "relative_h_angle_deg": 88.8826, "relative_v_angle_deg": 58.8718}
+{"type": "scan", "step_id": 335, "relative_h_angle_deg": 89.8652, "relative_v_angle_deg": 60.6155}
+{"type": "scan", "step_id": 335, "relative_h_angle_deg": 90.6739, "relative_v_angle_deg": 62.4738}
+{"type": "scan", "step_id": 335, "relative_h_angle_deg": 91.3057, "relative_v_angle_deg": 64.4278}
+{"type": "scan", "step_id": 335, "relative_h_angle_deg": 91.7583, "relative_v_angle_deg": 66.4561}
+{"type": "scan", "step_id": 335, "relative_h_angle_deg": 92.0303, "relative_v_angle_deg": 68.5353}
+{"type": "movement", "step_id": 332, "x_cm": 150, "y_cm": 200, "z_cm": 10, "h_angle_deg": 0, "v_angle_deg": 0, "action": "hover"}
+{"type": "scan", "step_id": 332, "relative_h_angle_deg": -127.875, "relative_v_angle_deg": 43.9726}
+{"type": "scan", "step_id": 332, "relative_h_angle_deg": -120.75, "relative_v_angle_deg": 43.9726}
+{"type": "scan", "step_id": 332, "relative_h_angle_deg": -127.875, "relative_v_angle_deg": 51.0976}
+{"type": "scan", "step_id": 332, "relative_h_angle_deg": -135, "relative_v_angle_deg": 43.9726}
+{"type": "scan", "step_id": 332, "relative_h_angle_deg": -127.875, "relative_v_angle_deg": 36.8475}
+{"type": "scan", "step_id": 332, "relative_h_angle_deg": -113.839, "relative_v_angle_deg": 43.9726}
+{"type": "scan", "step_id": 332, "relative_h_angle_deg": -114.869, "relative_v_angle_deg": 49.4375}
+{"type": "scan", "step_id": 332, "relative_h_angle_deg": -117.85, "relative_v_angle_deg": 53.9976}
+{"type": "scan", "step_id": 332, "relative_h_angle_deg": -122.41, "relative_v_angle_deg": 56.9781}
+{"type": "scan", "step_id": 332, "relative_h_angle_deg": -127.875, "relative_v_angle_deg": 58.0088}
+{"type": "scan", "step_id": 332, "relative_h_angle_deg": -133.34, "relative_v_angle_deg": 56.9781}
+{"type": "scan", "step_id": 332, "relative_h_angle_deg": -137.9, "relative_v_angle_deg": 53.9976}
+{"type": "scan", "step_id": 332, "relative_h_angle_deg": -140.881, "relative_v_angle_deg": 49.4375}
+{"type": "scan", "step_id": 332, "relative_h_angle_deg": -141.911, "relative_v_angle_deg": 43.9726}
+{"type": "scan", "step_id": 332, "relative_h_angle_deg": -140.881, "relative_v_angle_deg": 38.5077}
+{"type": "scan", "step_id": 332, "relative_h_angle_deg": -137.9, "relative_v_angle_deg": 33.9476}
+{"type": "scan", "step_id": 332, "relative_h_angle_deg": -133.34, "relative_v_angle_deg": 30.967}
+{"type": "scan", "step_id": 332, "relative_h_angle_deg": -127.875, "relative_v_angle_deg": 29.9363}
+{"type": "scan", "step_id": 332, "relative_h_angle_deg": -122.41, "relative_v_angle_deg": 30.967}
+{"type": "scan", "step_id": 332, "relative_h_angle_deg": -117.85, "relative_v_angle_deg": 33.9476}
+{"type": "scan", "step_id": 332, "relative_h_angle_deg": -114.869, "relative_v_angle_deg": 38.5077}
+{"type": "voxel", "step_id": 720, "x": 15, "y": 20, "z": 1, "value": 0}
+{"type": "movement", "step_id": 720, "x_cm": 150, "y_cm": 200, "z_cm": 10, "h_angle_deg": 0, "v_angle_deg": 0, "action": "hover"}
+{"type": "scan", "step_id": 720, "relative_h_angle_deg": -127.875, "relative_v_angle_deg": 38.2859}
+{"type": "scan", "step_id": 720, "relative_h_angle_deg": -120.75, "relative_v_angle_deg": 38.2859}
+{"type": "scan", "step_id": 720, "relative_h_angle_deg": -127.875, "relative_v_angle_deg": 45.4109}
+{"type": "scan", "step_id": 720, "relative_h_angle_deg": -135, "relative_v_angle_deg": 38.2859}
+{"type": "scan", "step_id": 720, "relative_h_angle_deg": -127.875, "relative_v_angle_deg": 31.1609}
+{"type": "voxel", "step_id": 720, "x": 16, "y": 21, "z": 1, "value": 0}
+{"type": "voxel", "step_id": 720, "x": 16, "y": 21, "z": 2, "value": 0}
+{"type": "scan", "step_id": 720, "relative_h_angle_deg": -113.839, "relative_v_angle_deg": 38.2859}
+{"type": "scan", "step_id": 720, "relative_h_angle_deg": -114.869, "relative_v_angle_deg": 43.7508}
+{"type": "scan", "step_id": 720, "relative_h_angle_deg": -117.85, "relative_v_angle_deg": 48.3109}
+{"type": "scan", "step_id": 720, "relative_h_angle_deg": -122.41, "relative_v_angle_deg": 51.2914}
+{"type": "scan", "step_id": 720, "relative_h_angle_deg": -127.875, "relative_v_angle_deg": 52.3221}
+{"type": "scan", "step_id": 720, "relative_h_angle_deg": -133.34, "relative_v_angle_deg": 51.2914}
+{"type": "scan", "step_id": 720, "relative_h_angle_deg": -137.9, "relative_v_angle_deg": 48.3109}
+{"type": "scan", "step_id": 720, "relative_h_angle_deg": -140.881, "relative_v_angle_deg": 43.7508}
+{"type": "voxel", "step_id": 720, "x": 17, "y": 22, "z": 2, "value": 0}
+{"type": "scan", "step_id": 720, "relative_h_angle_deg": -141.911, "relative_v_angle_deg": 38.2859}
+{"type": "scan", "step_id": 720, "relative_h_angle_deg": -140.881, "relative_v_angle_deg": 32.821}
+{"type": "scan", "step_id": 720, "relative_h_angle_deg": -137.9, "relative_v_angle_deg": 28.2609}
+{"type": "scan", "step_id": 720, "relative_h_angle_deg": -133.34, "relative_v_angle_deg": 25.2803}
+{"type": "voxel", "step_id": 720, "x": 17, "y": 22, "z": 3, "value": 0}
+{"type": "voxel", "step_id": 720, "x": 18, "y": 23, "z": 3, "value": 0}
+{"type": "scan", "step_id": 720, "relative_h_angle_deg": -127.875, "relative_v_angle_deg": 24.2496}
+{"type": "scan", "step_id": 720, "relative_h_angle_deg": -122.41, "relative_v_angle_deg": 25.2803}
+{"type": "scan", "step_id": 720, "relative_h_angle_deg": -117.85, "relative_v_angle_deg": 28.2609}
+{"type": "scan", "step_id": 720, "relative_h_angle_deg": -114.869, "relative_v_angle_deg": 32.821}
+{"type": "voxel", "step_id": 720, "x": 18, "y": 23, "z": 4, "value": 0}
+{"type": "voxel", "step_id": 721, "x": 19, "y": 24, "z": 4, "value": 0}
+{"type": "voxel", "step_id": 721, "x": 19, "y": 24, "z": 5, "value": 0}
+{"type": "voxel", "step_id": 721, "x": 15, "y": 21, "z": 1, "value": 0}
+{"type": "voxel", "step_id": 721, "x": 16, "y": 22, "z": 2, "value": 0}
+{"type": "voxel", "step_id": 721, "x": 17, "y": 23, "z": 3, "value": 0}
+{"type": "voxel", "step_id": 721, "x": 18, "y": 24, "z": 3, "value": 0}
+{"type": "voxel", "step_id": 721, "x": 18, "y": 24, "z": 4, "value": 0}
+{"type": "voxel", "step_id": 721, "x": 18, "y": 25, "z": 4, "value": 0}
+{"type": "voxel", "step_id": 721, "x": 19, "y": 25, "z": 4, "value": 0}
+{"type": "voxel", "step_id": 721, "x": 19, "y": 25, "z": 5, "value": 0}
+{"type": "voxel", "step_id": 721, "x": 15, "y": 20, "z": 2, "value": 0}
+{"type": "voxel", "step_id": 721, "x": 16, "y": 21, "z": 3, "value": 0}
+{"type": "voxel", "step_id": 721, "x": 17, "y": 22, "z": 4, "value": 0}
+{"type": "voxel", "step_id": 721, "x": 18, "y": 23, "z": 5, "value": 0}
+{"type": "voxel", "step_id": 721, "x": 16, "y": 20, "z": 1, "value": 0}
+{"type": "movement", "step_id": 721, "x_cm": 150, "y_cm": 200, "z_cm": 10, "h_angle_deg": 0, "v_angle_deg": 0, "action": "hover"}
+{"type": "scan", "step_id": 721, "relative_h_angle_deg": 71.5651, "relative_v_angle_deg": 65.6887}
+{"type": "scan", "step_id": 721, "relative_h_angle_deg": 78.6901, "relative_v_angle_deg": 65.6887}
+{"type": "scan", "step_id": 721, "relative_h_angle_deg": 71.5651, "relative_v_angle_deg": 72.8138}
+{"type": "voxel", "step_id": 721, "x": 17, "y": 21, "z": 2, "value": 0}
+{"type": "scan", "step_id": 721, "relative_h_angle_deg": 64.44, "relative_v_angle_deg": 65.6887}
+{"type": "scan", "step_id": 721, "relative_h_angle_deg": 71.5651, "relative_v_angle_deg": 58.5637}
+{"type": "scan", "step_id": 721, "relative_h_angle_deg": 85.6013, "relative_v_angle_deg": 65.6887}
+{"type": "scan", "step_id": 721, "relative_h_angle_deg": 84.5706, "relative_v_angle_deg": 71.1536}
+{"type": "scan", "step_id": 721, "relative_h_angle_deg": 81.59, "relative_v_angle_deg": 75.7137}
+{"type": "scan", "step_id": 721, "relative_h_angle_deg": 77.03, "relative_v_angle_deg": 78.6943}
+{"type": "scan", "step_id": 721, "relative_h_angle_deg": 71.5651, "relative_v_angle_deg": 79.725}
+{"type": "scan", "step_id": 721, "relative_h_angle_deg": 66.1001, "relative_v_angle_deg": 78.6943}
+{"type": "scan", "step_id": 721, "relative_h_angle_deg": 61.5401, "relative_v_angle_deg": 75.7137}
+{"type": "scan", "step_id": 721, "relative_h_angle_deg": 58.5595, "relative_v_angle_deg": 71.1536}
+{"type": "scan", "step_id": 721, "relative_h_angle_deg": 57.5288, "relative_v_angle_deg": 65.6887}
+{"type": "scan", "step_id": 721, "relative_h_angle_deg": 58.5595, "relative_v_angle_deg": 60.2238}
+{"type": "scan", "step_id": 721, "relative_h_angle_deg": 61.5401, "relative_v_angle_deg": 55.6638}
+{"type": "scan", "step_id": 721, "relative_h_angle_deg": 66.1001, "relative_v_angle_deg": 52.6832}
+{"type": "scan", "step_id": 721, "relative_h_angle_deg": 71.5651, "relative_v_angle_deg": 51.6525}
+{"type": "scan", "step_id": 721, "relative_h_angle_deg": 77.03, "relative_v_angle_deg": 52.6832}
+{"type": "scan", "step_id": 721, "relative_h_angle_deg": 81.59, "relative_v_angle_deg": 55.6638}
+{"type": "scan", "step_id": 721, "relative_h_angle_deg": 84.5706, "relative_v_angle_deg": 60.2238}
+{"type": "scan", "step_id": 721, "relative_h_angle_deg": 92.1211, "relative_v_angle_deg": 65.6887}
+{"type": "scan", "step_id": 721, "relative_h_angle_deg": 92.0303, "relative_v_angle_deg": 67.7938}
+{"type": "scan", "step_id": 721, "relative_h_angle_deg": 91.7583, "relative_v_angle_deg": 69.873}
+{"type": "scan", "step_id": 721, "relative_h_angle_deg": 91.3057, "relative_v_angle_deg": 71.9013}
+{"type": "scan", "step_id": 721, "relative_h_angle_deg": 90.6739, "relative_v_angle_deg": 73.8553}
+{"type": "scan", "step_id": 721, "relative_h_angle_deg": 89.8652, "relative_v_angle_deg": 75.7136}
+{"type": "scan", "step_id": 721, "relative_h_angle_deg": 88.8826, "relative_v_angle_deg": 77.4573}
+{"type": "scan", "step_id": 721, "relative_h_angle_deg": 87.7308, "relative_v_angle_deg": 79.0705}
+{"type": "scan", "step_id": 721, "relative_h_angle_deg": 86.4161, "relative_v_angle_deg": 80.5398}
+{"type": "scan", "step_id": 721, "relative_h_angle_deg": 84.9468, "relative_v_angle_deg": 81.8545}
+{"type": "scan", "step_id": 721, "relative_h_angle_deg": 83.3336, "relative_v_angle_deg": 83.0063}
+{"type": "scan", "step_id": 721, "relative_h_angle_deg": 81.5899, "relative_v_angle_deg": 83.9888}
+{"type": "scan", "step_id": 721, "relative_h_angle_deg": 79.7316, "relative_v_angle_deg": 84.7976}
+{"type": "scan", "step_id": 721, "relative_h_angle_deg": 77.7776, "relative_v_angle_deg": 85.4294}
+{"type": "scan", "step_id": 721, "relative_h_angle_deg": 75.7493, "relative_v_angle_deg": 85.882}
+{"type": "scan", "step_id": 721, "relative_h_angle_deg": 73.6701, "relative_v_angle_deg": 86.154}
+{"type": "scan", "step_id": 721, "relative_h_angle_deg": 71.5651, "relative_v_angle_deg": 86.2448}
+{"type": "scan", "step_id": 721, "relative_h_angle_deg": 69.46, "relative_v_angle_deg": 86.154}
+{"type": "scan", "step_id": 721, "relative_h_angle_deg": 67.3808, "relative_v_angle_deg": 85.882}
+{"type": "scan", "step_id": 721, "relative_h_angle_deg": 65.3525, "relative_v_angle_deg": 85.4294}
+{"type": "scan", "step_id": 721, "relative_h_angle_deg": 63.3985, "relative_v_angle_deg": 84.7976}
+{"type": "scan", "step_id": 721, "relative_h_angle_deg": 61.5402, "relative_v_angle_deg": 83.9888}
+{"type": "scan", "step_id": 721, "relative_h_angle_deg": 59.7965, "relative_v_angle_deg": 83.0063}
+{"type": "scan", "step_id": 721, "relative_h_angle_deg": 58.1833, "relative_v_angle_deg": 81.8545}
+{"type": "voxel", "step_id": 721, "x": 18, "y": 22, "z": 3, "value": 0}
+{"type": "scan", "step_id": 721, "relative_h_angle_deg": 56.714, "relative_v_angle_deg": 80.5398}
+{"type": "scan", "step_id": 721, "relative_h_angle_deg": 55.3993, "relative_v_angle_deg": 79.0705}
+{"type": "scan", "step_id": 721, "relative_h_angle_deg": 54.2475, "relative_v_angle_deg": 77.4573}
+{"type": "scan", "step_id": 721, "relative_h_angle_deg": 53.2649, "relative_v_angle_deg": 75.7136}
+{"type": "scan", "step_id": 721, "relative_h_angle_deg": 52.4562, "relative_v_angle_deg": 73.8553}
+{"type": "scan", "step_id": 721, "relative_h_angle_deg": 51.8244, "relative_v_angle_deg": 71.9013}
+{"type": "scan", "step_id": 721, "relative_h_angle_deg": 51.3718, "relative_v_angle_deg": 69.873}
+{"type": "scan", "step_id": 721, "relative_h_angle_deg": 51.0998, "relative_v_angle_deg": 67.7938}
+{"type": "scan", "step_id": 721, "relative_h_angle_deg": 51.009, "relative_v_angle_deg": 65.6887}
+{"type": "scan", "step_id": 721, "relative_h_angle_deg": 51.0998, "relative_v_angle_deg": 63.5837}
+{"type": "scan", "step_id": 721, "relative_h_angle_deg": 51.3718, "relative_v_angle_deg": 61.5045}
+{"type": "scan", "step_id": 721, "relative_h_angle_deg": 51.8244, "relative_v_angle_deg": 59.4762}
+{"type": "scan", "step_id": 721, "relative_h_angle_deg": 52.4562, "relative_v_angle_deg": 57.5222}
+{"type": "voxel", "step_id": 721, "x": 19, "y": 23, "z": 3, "value": 0}
+{"type": "voxel", "step_id": 721, "x": 19, "y": 23, "z": 4, "value": 0}
+{"type": "voxel", "step_id": 721, "x": 20, "y": 23, "z": 4, "value": 0}
+{"type": "voxel", "step_id": 721, "x": 20, "y": 24, "z": 4, "value": 0}
+{"type": "voxel", "step_id": 721, "x": 20, "y": 24, "z": 5, "value": 0}
+{"type": "scan", "step_id": 721, "relative_h_angle_deg": 53.2649, "relative_v_angle_deg": 55.6639}
+{"type": "scan", "step_id": 721, "relative_h_angle_deg": 54.2475, "relative_v_angle_deg": 53.9201}
+{"type": "scan", "step_id": 721, "relative_h_angle_deg": 55.3993, "relative_v_angle_deg": 52.307}
+{"type": "scan", "step_id": 721, "relative_h_angle_deg": 56.714, "relative_v_angle_deg": 50.8377}
+{"type": "scan", "step_id": 721, "relative_h_angle_deg": 58.1833, "relative_v_angle_deg": 49.523}
+{"type": "scan", "step_id": 721, "relative_h_angle_deg": 59.7965, "relative_v_angle_deg": 48.3712}
+{"type": "scan", "step_id": 721, "relative_h_angle_deg": 61.5402, "relative_v_angle_deg": 47.3886}
+{"type": "scan", "step_id": 721, "relative_h_angle_deg": 63.3985, "relative_v_angle_deg": 46.5798}
+{"type": "scan", "step_id": 721, "relative_h_angle_deg": 65.3525, "relative_v_angle_deg": 45.9481}
+{"type": "scan", "step_id": 721, "relative_h_angle_deg": 67.3808, "relative_v_angle_deg": 45.4955}
+{"type": "scan", "step_id": 721, "relative_h_angle_deg": 69.46, "relative_v_angle_deg": 45.2235}
+{"type": "scan", "step_id": 721, "relative_h_angle_deg": 71.5651, "relative_v_angle_deg": 45.1327}
+{"type": "scan", "step_id": 721, "relative_h_angle_deg": 73.6701, "relative_v_angle_deg": 45.2235}
+{"type": "scan", "step_id": 721, "relative_h_angle_deg": 75.7493, "relative_v_angle_deg": 45.4955}
+{"type": "voxel", "step_id": 721, "x": 18, "y": 23, "z": 2, "value": 0}
+{"type": "scan", "step_id": 721, "relative_h_angle_deg": 77.7776, "relative_v_angle_deg": 45.9481}
+{"type": "scan", "step_id": 721, "relative_h_angle_deg": 79.7316, "relative_v_angle_deg": 46.5798}
+{"type": "scan", "step_id": 721, "relative_h_angle_deg": 81.5899, "relative_v_angle_deg": 47.3886}
+{"type": "scan", "step_id": 721, "relative_h_angle_deg": 83.3336, "relative_v_angle_deg": 48.3712}
+{"type": "scan", "step_id": 721, "relative_h_angle_deg": 84.9468, "relative_v_angle_deg": 49.523}
+{"type": "scan", "step_id": 721, "relative_h_angle_deg": 86.4161, "relative_v_angle_deg": 50.8377}
+{"type": "scan", "step_id": 721, "relative_h_angle_deg": 87.7308, "relative_v_angle_deg": 52.307}
+{"type": "scan", "step_id": 721, "relative_h_angle_deg": 88.8826, "relative_v_angle_deg": 53.9201}
+{"type": "scan", "step_id": 721, "relative_h_angle_deg": 89.8652, "relative_v_angle_deg": 55.6639}
+{"type": "scan", "step_id": 721, "relative_h_angle_deg": 90.6739, "relative_v_angle_deg": 57.5222}
+{"type": "scan", "step_id": 721, "relative_h_angle_deg": 91.3057, "relative_v_angle_deg": 59.4762}
+{"type": "scan", "step_id": 721, "relative_h_angle_deg": 91.7583, "relative_v_angle_deg": 61.5045}
+{"type": "scan", "step_id": 721, "relative_h_angle_deg": 92.0303, "relative_v_angle_deg": 63.5837}
+{"type": "voxel", "step_id": 333, "x": 19, "y": 24, "z": 3, "value": 0}
+{"type": "voxel", "step_id": 333, "x": 20, "y": 25, "z": 3, "value": 0}
+{"type": "voxel", "step_id": 333, "x": 20, "y": 25, "z": 4, "value": 0}
+{"type": "voxel", "step_id": 333, "x": 15, "y": 21, "z": 2, "value": 0}
+{"type": "voxel", "step_id": 333, "x": 16, "y": 22, "z": 3, "value": 0}
+{"type": "voxel", "step_id": 333, "x": 16, "y": 23, "z": 3, "value": 0}
+{"type": "voxel", "step_id": 333, "x": 17, "y": 24, "z": 3, "value": 0}
+{"type": "voxel", "step_id": 333, "x": 17, "y": 24, "z": 4, "value": 0}
+{"type": "voxel", "step_id": 333, "x": 18, "y": 25, "z": 5, "value": 0}
+{"type": "voxel", "step_id": 333, "x": 17, "y": 23, "z": 4, "value": 0}
+{"type": "voxel", "step_id": 333, "x": 17, "y": 24, "z": 5, "value": 0}
+{"type": "voxel", "step_id": 333, "x": 18, "y": 24, "z": 5, "value": 0}
+{"type": "voxel", "step_id": 333, "x": 17, "y": 23, "z": 5, "value": 0}
+{"type": "voxel", "step_id": 333, "x": 18, "y": 24, "z": 6, "value": 0}
+{"type": "voxel", "step_id": 333, "x": 18, "y": 25, "z": 6, "value": 0}
+{"type": "voxel", "step_id": 333, "x": 17, "y": 22, "z": 5, "value": 0}
+{"type": "voxel", "step_id": 333, "x": 18, "y": 23, "z": 6, "value": 0}
+{"type": "voxel", "step_id": 333, "x": 19, "y": 24, "z": 6, "value": 0}
+{"type": "voxel", "step_id": 333, "x": 16, "y": 20, "z": 2, "value": 0}
+{"type": "voxel", "step_id": 333, "x": 17, "y": 21, "z": 3, "value": 0}
+{"type": "voxel", "step_id": 333, "x": 18, "y": 22, "z": 4, "value": 0}
+{"type": "voxel", "step_id": 333, "x": 18, "y": 22, "z": 5, "value": 0}
+{"type": "voxel", "step_id": 333, "x": 19, "y": 23, "z": 5, "value": 0}
+{"type": "voxel", "step_id": 333, "x": 19, "y": 23, "z": 6, "value": 0}
+{"type": "movement", "step_id": 333, "x_cm": 150, "y_cm": 200, "z_cm": 10, "h_angle_deg": 0, "v_angle_deg": 0, "action": "hover"}
+{"type": "scan", "step_id": 333, "relative_h_angle_deg": 71.5651, "relative_v_angle_deg": 17.5484}
+{"type": "scan", "step_id": 333, "relative_h_angle_deg": 78.6901, "relative_v_angle_deg": 17.5484}
+{"type": "scan", "step_id": 333, "relative_h_angle_deg": 71.5651, "relative_v_angle_deg": 24.6734}
+{"type": "scan", "step_id": 333, "relative_h_angle_deg": 64.44, "relative_v_angle_deg": 17.5484}
+{"type": "scan", "step_id": 333, "relative_h_angle_deg": 71.5651, "relative_v_angle_deg": 10.4234}
+{"type": "scan", "step_id": 333, "relative_h_angle_deg": 85.6013, "relative_v_angle_deg": 17.5484}
+{"type": "scan", "step_id": 333, "relative_h_angle_deg": 84.5706, "relative_v_angle_deg": 23.0133}
+{"type": "scan", "step_id": 333, "relative_h_angle_deg": 81.59, "relative_v_angle_deg": 27.5734}
+{"type": "scan", "step_id": 333, "relative_h_angle_deg": 77.03, "relative_v_angle_deg": 30.5539}
+{"type": "scan", "step_id": 333, "relative_h_angle_deg": 71.5651, "relative_v_angle_deg": 31.5846}
+{"type": "scan", "step_id": 333, "relative_h_angle_deg": 66.1001, "relative_v_angle_deg": 30.5539}
+{"type": "scan", "step_id": 333, "relative_h_angle_deg": 61.5401, "relative_v_angle_deg": 27.5734}
+{"type": "scan", "step_id": 333, "relative_h_angle_deg": 58.5595, "relative_v_angle_deg": 23.0133}
+{"type": "scan", "step_id": 333, "relative_h_angle_deg": 57.5288, "relative_v_angle_deg": 17.5484}
+{"type": "scan", "step_id": 333, "relative_h_angle_deg": 58.5595, "relative_v_angle_deg": 12.0835}
+{"type": "scan", "step_id": 333, "relative_h_angle_deg": 61.5401, "relative_v_angle_deg": 7.52341}
+{"type": "scan", "step_id": 333, "relative_h_angle_deg": 66.1001, "relative_v_angle_deg": 4.54287}
+{"type": "scan", "step_id": 333, "relative_h_angle_deg": 71.5651, "relative_v_angle_deg": 3.51216}
+{"type": "scan", "step_id": 333, "relative_h_angle_deg": 77.03, "relative_v_angle_deg": 4.54287}
+{"type": "scan", "step_id": 333, "relative_h_angle_deg": 81.59, "relative_v_angle_deg": 7.52341}
+{"type": "scan", "step_id": 333, "relative_h_angle_deg": 84.5706, "relative_v_angle_deg": 12.0835}
+{"type": "scan", "step_id": 333, "relative_h_angle_deg": 92.1211, "relative_v_angle_deg": 17.5484}
+{"type": "scan", "step_id": 333, "relative_h_angle_deg": 92.0303, "relative_v_angle_deg": 19.6534}
+{"type": "scan", "step_id": 333, "relative_h_angle_deg": 91.7583, "relative_v_angle_deg": 21.7326}
+{"type": "scan", "step_id": 333, "relative_h_angle_deg": 91.3057, "relative_v_angle_deg": 23.761}
+{"type": "scan", "step_id": 333, "relative_h_angle_deg": 90.6739, "relative_v_angle_deg": 25.7149}
+{"type": "scan", "step_id": 333, "relative_h_angle_deg": 89.8652, "relative_v_angle_deg": 27.5732}
+{"type": "scan", "step_id": 333, "relative_h_angle_deg": 88.8826, "relative_v_angle_deg": 29.317}
+{"type": "scan", "step_id": 333, "relative_h_angle_deg": 87.7308, "relative_v_angle_deg": 30.9302}
+{"type": "scan", "step_id": 333, "relative_h_angle_deg": 86.4161, "relative_v_angle_deg": 32.3995}
+{"type": "scan", "step_id": 333, "relative_h_angle_deg": 84.9468, "relative_v_angle_deg": 33.7142}
+{"type": "scan", "step_id": 333, "relative_h_angle_deg": 83.3336, "relative_v_angle_deg": 34.8659}
+{"type": "scan", "step_id": 333, "relative_h_angle_deg": 81.5899, "relative_v_angle_deg": 35.8485}
+{"type": "scan", "step_id": 333, "relative_h_angle_deg": 79.7316, "relative_v_angle_deg": 36.6573}
+{"type": "scan", "step_id": 333, "relative_h_angle_deg": 77.7776, "relative_v_angle_deg": 37.2891}
+{"type": "scan", "step_id": 333, "relative_h_angle_deg": 75.7493, "relative_v_angle_deg": 37.7416}
+{"type": "scan", "step_id": 333, "relative_h_angle_deg": 73.6701, "relative_v_angle_deg": 38.0137}
+{"type": "scan", "step_id": 333, "relative_h_angle_deg": 71.5651, "relative_v_angle_deg": 38.1044}
+{"type": "scan", "step_id": 333, "relative_h_angle_deg": 69.46, "relative_v_angle_deg": 38.0137}
+{"type": "scan", "step_id": 333, "relative_h_angle_deg": 67.3808, "relative_v_angle_deg": 37.7416}
+{"type": "scan", "step_id": 333, "relative_h_angle_deg": 65.3525, "relative_v_angle_deg": 37.2891}
+{"type": "scan", "step_id": 333, "relative_h_angle_deg": 63.3985, "relative_v_angle_deg": 36.6573}
+{"type": "scan", "step_id": 333, "relative_h_angle_deg": 61.5402, "relative_v_angle_deg": 35.8485}
+{"type": "scan", "step_id": 333, "relative_h_angle_deg": 59.7965, "relative_v_angle_deg": 34.8659}
+{"type": "scan", "step_id": 333, "relative_h_angle_deg": 58.1833, "relative_v_angle_deg": 33.7142}
+{"type": "scan", "step_id": 333, "relative_h_angle_deg": 56.714, "relative_v_angle_deg": 32.3995}
+{"type": "scan", "step_id": 333, "relative_h_angle_deg": 55.3993, "relative_v_angle_deg": 30.9302}
+{"type": "scan", "step_id": 333, "relative_h_angle_deg": 54.2475, "relative_v_angle_deg": 29.317}
+{"type": "scan", "step_id": 333, "relative_h_angle_deg": 53.2649, "relative_v_angle_deg": 27.5732}
+{"type": "scan", "step_id": 333, "relative_h_angle_deg": 52.4562, "relative_v_angle_deg": 25.7149}
+{"type": "scan", "step_id": 333, "relative_h_angle_deg": 51.8244, "relative_v_angle_deg": 23.761}
+{"type": "scan", "step_id": 333, "relative_h_angle_deg": 51.3718, "relative_v_angle_deg": 21.7326}
+{"type": "scan", "step_id": 333, "relative_h_angle_deg": 51.0998, "relative_v_angle_deg": 19.6534}
+{"type": "scan", "step_id": 333, "relative_h_angle_deg": 51.009, "relative_v_angle_deg": 17.5484}
+{"type": "scan", "step_id": 333, "relative_h_angle_deg": 51.0998, "relative_v_angle_deg": 15.4434}
+{"type": "scan", "step_id": 333, "relative_h_angle_deg": 51.3718, "relative_v_angle_deg": 13.3642}
+{"type": "scan", "step_id": 333, "relative_h_angle_deg": 51.8244, "relative_v_angle_deg": 11.3358}
+{"type": "scan", "step_id": 333, "relative_h_angle_deg": 52.4562, "relative_v_angle_deg": 9.38185}
+{"type": "scan", "step_id": 333, "relative_h_angle_deg": 53.2649, "relative_v_angle_deg": 7.52357}
+{"type": "scan", "step_id": 333, "relative_h_angle_deg": 54.2475, "relative_v_angle_deg": 5.77981}
+{"type": "scan", "step_id": 333, "relative_h_angle_deg": 55.3993, "relative_v_angle_deg": 4.16663}
+{"type": "scan", "step_id": 333, "relative_h_angle_deg": 56.714, "relative_v_angle_deg": 2.69734}
+{"type": "scan", "step_id": 333, "relative_h_angle_deg": 58.1833, "relative_v_angle_deg": 1.38264}
+{"type": "voxel", "step_id": 333, "x": 19, "y": 22, "z": 5, "value": 0}
+{"type": "scan", "step_id": 333, "relative_h_angle_deg": 59.7965, "relative_v_angle_deg": 0.230864}
+{"type": "scan", "step_id": 333, "relative_h_angle_deg": 61.5402, "relative_v_angle_deg": -0.751708}
+{"type": "scan", "step_id": 333, "relative_h_angle_deg": 63.3985, "relative_v_angle_deg": -1.56049}
+{"type": "scan", "step_id": 333, "relative_h_angle_deg": 65.3525, "relative_v_angle_deg": -2.19226}
+{"type": "scan", "step_id": 333, "relative_h_angle_deg": 67.3808, "relative_v_angle_deg": -2.64484}
+{"type": "scan", "step_id": 333, "relative_h_angle_deg": 69.46, "relative_v_angle_deg": -2.91689}
+{"type": "scan", "step_id": 333, "relative_h_angle_deg": 71.5651, "relative_v_angle_deg": -3.00764}
+{"type": "scan", "step_id": 333, "relative_h_angle_deg": 73.6701, "relative_v_angle_deg": -2.91689}
+{"type": "scan", "step_id": 333, "relative_h_angle_deg": 75.7493, "relative_v_angle_deg": -2.64484}
+{"type": "scan", "step_id": 333, "relative_h_angle_deg": 77.7776, "relative_v_angle_deg": -2.19226}
+{"type": "scan", "step_id": 333, "relative_h_angle_deg": 79.7316, "relative_v_angle_deg": -1.56049}
+{"type": "scan", "step_id": 333, "relative_h_angle_deg": 81.5899, "relative_v_angle_deg": -0.751708}
+{"type": "scan", "step_id": 333, "relative_h_angle_deg": 83.3336, "relative_v_angle_deg": 0.230864}
+{"type": "scan", "step_id": 333, "relative_h_angle_deg": 84.9468, "relative_v_angle_deg": 1.38264}
+{"type": "scan", "step_id": 333, "relative_h_angle_deg": 86.4161, "relative_v_angle_deg": 2.69734}
+{"type": "scan", "step_id": 333, "relative_h_angle_deg": 87.7308, "relative_v_angle_deg": 4.16663}
+{"type": "scan", "step_id": 333, "relative_h_angle_deg": 88.8826, "relative_v_angle_deg": 5.77981}
+{"type": "scan", "step_id": 333, "relative_h_angle_deg": 89.8652, "relative_v_angle_deg": 7.52357}
+{"type": "scan", "step_id": 333, "relative_h_angle_deg": 90.6739, "relative_v_angle_deg": 9.38185}
+{"type": "scan", "step_id": 333, "relative_h_angle_deg": 91.3057, "relative_v_angle_deg": 11.3358}
+{"type": "scan", "step_id": 333, "relative_h_angle_deg": 91.7583, "relative_v_angle_deg": 13.3642}
+{"type": "scan", "step_id": 333, "relative_h_angle_deg": 92.0303, "relative_v_angle_deg": 15.4434}
+{"type": "voxel", "step_id": 336, "x": 20, "y": 23, "z": 6, "value": 0}
+{"type": "voxel", "step_id": 336, "x": 18, "y": 21, "z": 3, "value": 0}
+{"type": "voxel", "step_id": 336, "x": 19, "y": 22, "z": 4, "value": 0}
+{"type": "voxel", "step_id": 336, "x": 20, "y": 23, "z": 5, "value": 0}
+{"type": "voxel", "step_id": 336, "x": 19, "y": 22, "z": 3, "value": 0}
+{"type": "voxel", "step_id": 336, "x": 18, "y": 21, "z": 2, "value": 0}
+{"type": "voxel", "step_id": 336, "x": 18, "y": 22, "z": 2, "value": 0}
+{"type": "voxel", "step_id": 336, "x": 20, "y": 23, "z": 3, "value": 0}
+{"type": "voxel", "step_id": 336, "x": 21, "y": 23, "z": 4, "value": 0}
+{"type": "voxel", "step_id": 336, "x": 17, "y": 21, "z": 1, "value": 0}
+{"type": "voxel", "step_id": 336, "x": 19, "y": 22, "z": 2, "value": 0}
+{"type": "voxel", "step_id": 336, "x": 19, "y": 23, "z": 2, "value": 0}
+{"type": "voxel", "step_id": 336, "x": 20, "y": 24, "z": 3, "value": 0}
+{"type": "voxel", "step_id": 336, "x": 21, "y": 24, "z": 3, "value": 0}
+{"type": "voxel", "step_id": 336, "x": 17, "y": 22, "z": 1, "value": 0}
+{"type": "voxel", "step_id": 336, "x": 19, "y": 24, "z": 2, "value": 0}
+{"type": "voxel", "step_id": 336, "x": 20, "y": 24, "z": 2, "value": 0}
+{"type": "voxel", "step_id": 336, "x": 16, "y": 22, "z": 1, "value": 0}
+{"type": "voxel", "step_id": 336, "x": 17, "y": 23, "z": 2, "value": 0}
+{"type": "voxel", "step_id": 336, "x": 18, "y": 24, "z": 2, "value": 0}
+{"type": "voxel", "step_id": 336, "x": 19, "y": 25, "z": 2, "value": 0}
+{"type": "voxel", "step_id": 336, "x": 19, "y": 25, "z": 3, "value": 0}
+{"type": "voxel", "step_id": 336, "x": 17, "y": 24, "z": 2, "value": 0}
+{"type": "voxel", "step_id": 336, "x": 18, "y": 25, "z": 3, "value": 0}
+{"type": "voxel", "step_id": 336, "x": 19, "y": 26, "z": 3, "value": 0}
+{"type": "voxel", "step_id": 336, "x": 16, "y": 23, "z": 2, "value": 0}
+{"type": "voxel", "step_id": 336, "x": 18, "y": 26, "z": 4, "value": 0}
+{"type": "voxel", "step_id": 336, "x": 15, "y": 22, "z": 2, "value": 0}
+{"type": "voxel", "step_id": 336, "x": 16, "y": 24, "z": 3, "value": 0}
+{"type": "voxel", "step_id": 336, "x": 17, "y": 25, "z": 4, "value": 0}
+{"type": "voxel", "step_id": 336, "x": 17, "y": 26, "z": 4, "value": 0}
+{"type": "voxel", "step_id": 336, "x": 17, "y": 26, "z": 5, "value": 0}
+{"type": "voxel", "step_id": 336, "x": 17, "y": 25, "z": 5, "value": 0}
+{"type": "voxel", "step_id": 336, "x": 16, "y": 24, "z": 4, "value": 0}
+{"type": "voxel", "step_id": 336, "x": 16, "y": 23, "z": 4, "value": 0}
+{"type": "voxel", "step_id": 336, "x": 17, "y": 25, "z": 6, "value": 0}
+{"type": "voxel", "step_id": 336, "x": 16, "y": 22, "z": 4, "value": 0}
+{"type": "voxel", "step_id": 336, "x": 17, "y": 24, "z": 6, "value": 0}
+{"type": "voxel", "step_id": 336, "x": 17, "y": 23, "z": 6, "value": 0}
+{"type": "voxel", "step_id": 336, "x": 18, "y": 24, "z": 7, "value": 0}
+{"type": "voxel", "step_id": 336, "x": 18, "y": 23, "z": 7, "value": 0}
+{"type": "movement", "step_id": 336, "x_cm": 150, "y_cm": 200, "z_cm": 10, "h_angle_deg": 0, "v_angle_deg": 0, "action": "hover"}
+{"type": "scan", "step_id": 336, "relative_h_angle_deg": -127.875, "relative_v_angle_deg": 31.5475}
+{"type": "scan", "step_id": 336, "relative_h_angle_deg": -120.75, "relative_v_angle_deg": 31.5475}
+{"type": "voxel", "step_id": 336, "x": 16, "y": 21, "z": 4, "value": 0}
+{"type": "scan", "step_id": 336, "relative_h_angle_deg": -127.875, "relative_v_angle_deg": 38.6725}
+{"type": "scan", "step_id": 336, "relative_h_angle_deg": -135, "relative_v_angle_deg": 31.5475}
+{"type": "scan", "step_id": 336, "relative_h_angle_deg": -127.875, "relative_v_angle_deg": 24.4224}
+{"type": "scan", "step_id": 336, "relative_h_angle_deg": -113.839, "relative_v_angle_deg": 31.5475}
+{"type": "scan", "step_id": 336, "relative_h_angle_deg": -114.869, "relative_v_angle_deg": 37.0124}
+{"type": "scan", "step_id": 336, "relative_h_angle_deg": -117.85, "relative_v_angle_deg": 41.5724}
+{"type": "scan", "step_id": 336, "relative_h_angle_deg": -122.41, "relative_v_angle_deg": 44.553}
+{"type": "scan", "step_id": 336, "relative_h_angle_deg": -127.875, "relative_v_angle_deg": 45.5837}
+{"type": "scan", "step_id": 336, "relative_h_angle_deg": -133.34, "relative_v_angle_deg": 44.553}
+{"type": "scan", "step_id": 336, "relative_h_angle_deg": -137.9, "relative_v_angle_deg": 41.5724}
+{"type": "scan", "step_id": 336, "relative_h_angle_deg": -140.881, "relative_v_angle_deg": 37.0124}
+{"type": "scan", "step_id": 336, "relative_h_angle_deg": -141.911, "relative_v_angle_deg": 31.5475}
+{"type": "scan", "step_id": 336, "relative_h_angle_deg": -140.881, "relative_v_angle_deg": 26.0826}
+{"type": "scan", "step_id": 336, "relative_h_angle_deg": -137.9, "relative_v_angle_deg": 21.5225}
+{"type": "scan", "step_id": 336, "relative_h_angle_deg": -133.34, "relative_v_angle_deg": 18.5419}
+{"type": "scan", "step_id": 336, "relative_h_angle_deg": -127.875, "relative_v_angle_deg": 17.5112}
+{"type": "scan", "step_id": 336, "relative_h_angle_deg": -122.41, "relative_v_angle_deg": 18.5419}
+{"type": "scan", "step_id": 336, "relative_h_angle_deg": -117.85, "relative_v_angle_deg": 21.5225}
+{"type": "scan", "step_id": 336, "relative_h_angle_deg": -114.869, "relative_v_angle_deg": 26.0826}
+{"type": "voxel", "step_id": 722, "x": 17, "y": 22, "z": 6, "value": 0}
+{"type": "voxel", "step_id": 722, "x": 17, "y": 21, "z": 4, "value": 0}
+{"type": "voxel", "step_id": 722, "x": 18, "y": 22, "z": 6, "value": 0}
+{"type": "voxel", "step_id": 722, "x": 19, "y": 23, "z": 7, "value": 0}
+{"type": "voxel", "step_id": 722, "x": 19, "y": 22, "z": 6, "value": 0}
+{"type": "voxel", "step_id": 722, "x": 18, "y": 21, "z": 4, "value": 0}
+{"type": "voxel", "step_id": 722, "x": 20, "y": 22, "z": 6, "value": 0}
+{"type": "voxel", "step_id": 722, "x": 20, "y": 22, "z": 5, "value": 0}
+{"type": "voxel", "step_id": 722, "x": 17, "y": 20, "z": 2, "value": 0}
+{"type": "voxel", "step_id": 722, "x": 19, "y": 21, "z": 4, "value": 0}
+{"type": "voxel", "step_id": 722, "x": 20, "y": 22, "z": 4, "value": 0}
+{"type": "voxel", "step_id": 722, "x": 21, "y": 22, "z": 5, "value": 0}
+{"type": "voxel", "step_id": 722, "x": 19, "y": 21, "z": 3, "value": 0}
+{"type": "voxel", "step_id": 722, "x": 21, "y": 22, "z": 4, "value": 0}
+{"type": "voxel", "step_id": 722, "x": 20, "y": 22, "z": 3, "value": 0}
+{"type": "voxel", "step_id": 722, "x": 19, "y": 21, "z": 2, "value": 0}
+{"type": "voxel", "step_id": 722, "x": 21, "y": 22, "z": 3, "value": 0}
+{"type": "voxel", "step_id": 722, "x": 17, "y": 20, "z": 1, "value": 0}
+{"type": "voxel", "step_id": 722, "x": 21, "y": 23, "z": 3, "value": 0}
+{"type": "voxel", "step_id": 722, "x": 20, "y": 22, "z": 2, "value": 0}
+{"type": "voxel", "step_id": 722, "x": 20, "y": 23, "z": 2, "value": 0}
+{"type": "voxel", "step_id": 722, "x": 18, "y": 21, "z": 1, "value": 0}
+{"type": "voxel", "step_id": 722, "x": 21, "y": 23, "z": 2, "value": 0}
+{"type": "voxel", "step_id": 722, "x": 18, "y": 22, "z": 1, "value": 0}
+{"type": "voxel", "step_id": 722, "x": 21, "y": 24, "z": 2, "value": 0}
+{"type": "voxel", "step_id": 722, "x": 19, "y": 23, "z": 1, "value": 0}
+{"type": "voxel", "step_id": 722, "x": 18, "y": 23, "z": 1, "value": 0}
+{"type": "voxel", "step_id": 722, "x": 20, "y": 25, "z": 2, "value": 0}
+{"type": "voxel", "step_id": 722, "x": 19, "y": 24, "z": 1, "value": 0}
+{"type": "voxel", "step_id": 722, "x": 17, "y": 23, "z": 1, "value": 0}
+{"type": "voxel", "step_id": 722, "x": 18, "y": 24, "z": 1, "value": 0}
+{"type": "voxel", "step_id": 722, "x": 19, "y": 26, "z": 2, "value": 0}
+{"type": "voxel", "step_id": 722, "x": 18, "y": 25, "z": 2, "value": 0}
+{"type": "voxel", "step_id": 722, "x": 16, "y": 23, "z": 1, "value": 0}
+{"type": "voxel", "step_id": 722, "x": 18, "y": 26, "z": 2, "value": 0}
+{"type": "voxel", "step_id": 722, "x": 17, "y": 25, "z": 2, "value": 0}
+{"type": "voxel", "step_id": 722, "x": 18, "y": 26, "z": 3, "value": 0}
+{"type": "voxel", "step_id": 722, "x": 17, "y": 25, "z": 3, "value": 0}
+{"type": "voxel", "step_id": 722, "x": 15, "y": 22, "z": 1, "value": 0}
+{"type": "voxel", "step_id": 722, "x": 16, "y": 24, "z": 2, "value": 0}
+{"type": "voxel", "step_id": 722, "x": 17, "y": 26, "z": 3, "value": 0}
+{"type": "movement", "step_id": 722, "x_cm": 150, "y_cm": 200, "z_cm": 10, "h_angle_deg": 0, "v_angle_deg": 0, "action": "hover"}
+{"type": "scan", "step_id": 722, "relative_h_angle_deg": 71.5651, "relative_v_angle_deg": -17.5484}
+{"type": "scan", "step_id": 722, "relative_h_angle_deg": 78.6901, "relative_v_angle_deg": -17.5484}
+{"type": "scan", "step_id": 722, "relative_h_angle_deg": 71.5651, "relative_v_angle_deg": -10.4234}
+{"type": "scan", "step_id": 722, "relative_h_angle_deg": 64.44, "relative_v_angle_deg": -17.5484}
+{"type": "scan", "step_id": 722, "relative_h_angle_deg": 71.5651, "relative_v_angle_deg": -24.6734}
+{"type": "scan", "step_id": 722, "relative_h_angle_deg": 85.6013, "relative_v_angle_deg": -17.5484}
+{"type": "scan", "step_id": 722, "relative_h_angle_deg": 84.5706, "relative_v_angle_deg": -12.0835}
+{"type": "scan", "step_id": 722, "relative_h_angle_deg": 81.59, "relative_v_angle_deg": -7.52341}
+{"type": "scan", "step_id": 722, "relative_h_angle_deg": 77.03, "relative_v_angle_deg": -4.54287}
+{"type": "scan", "step_id": 722, "relative_h_angle_deg": 71.5651, "relative_v_angle_deg": -3.51216}
+{"type": "scan", "step_id": 722, "relative_h_angle_deg": 66.1001, "relative_v_angle_deg": -4.54287}
+{"type": "scan", "step_id": 722, "relative_h_angle_deg": 61.5401, "relative_v_angle_deg": -7.52341}
+{"type": "scan", "step_id": 722, "relative_h_angle_deg": 58.5595, "relative_v_angle_deg": -12.0835}
+{"type": "scan", "step_id": 722, "relative_h_angle_deg": 57.5288, "relative_v_angle_deg": -17.5484}
+{"type": "scan", "step_id": 722, "relative_h_angle_deg": 58.5595, "relative_v_angle_deg": -23.0133}
+{"type": "scan", "step_id": 722, "relative_h_angle_deg": 61.5401, "relative_v_angle_deg": -27.5734}
+{"type": "scan", "step_id": 722, "relative_h_angle_deg": 66.1001, "relative_v_angle_deg": -30.5539}
+{"type": "scan", "step_id": 722, "relative_h_angle_deg": 71.5651, "relative_v_angle_deg": -31.5846}
+{"type": "scan", "step_id": 722, "relative_h_angle_deg": 77.03, "relative_v_angle_deg": -30.5539}
+{"type": "scan", "step_id": 722, "relative_h_angle_deg": 81.59, "relative_v_angle_deg": -27.5734}
+{"type": "scan", "step_id": 722, "relative_h_angle_deg": 84.5706, "relative_v_angle_deg": -23.0133}
+{"type": "scan", "step_id": 722, "relative_h_angle_deg": 92.1211, "relative_v_angle_deg": -17.5484}
+{"type": "scan", "step_id": 722, "relative_h_angle_deg": 92.0303, "relative_v_angle_deg": -15.4434}
+{"type": "scan", "step_id": 722, "relative_h_angle_deg": 91.7583, "relative_v_angle_deg": -13.3642}
+{"type": "scan", "step_id": 722, "relative_h_angle_deg": 91.3057, "relative_v_angle_deg": -11.3358}
+{"type": "scan", "step_id": 722, "relative_h_angle_deg": 90.6739, "relative_v_angle_deg": -9.38185}
+{"type": "scan", "step_id": 722, "relative_h_angle_deg": 89.8652, "relative_v_angle_deg": -7.52357}
+{"type": "scan", "step_id": 722, "relative_h_angle_deg": 88.8826, "relative_v_angle_deg": -5.77981}
+{"type": "scan", "step_id": 722, "relative_h_angle_deg": 87.7308, "relative_v_angle_deg": -4.16663}
+{"type": "scan", "step_id": 722, "relative_h_angle_deg": 86.4161, "relative_v_angle_deg": -2.69734}
+{"type": "scan", "step_id": 722, "relative_h_angle_deg": 84.9468, "relative_v_angle_deg": -1.38264}
+{"type": "scan", "step_id": 722, "relative_h_angle_deg": 83.3336, "relative_v_angle_deg": -0.230864}
+{"type": "scan", "step_id": 722, "relative_h_angle_deg": 81.5899, "relative_v_angle_deg": 0.751708}
+{"type": "scan", "step_id": 722, "relative_h_angle_deg": 79.7316, "relative_v_angle_deg": 1.56049}
+{"type": "scan", "step_id": 722, "relative_h_angle_deg": 77.7776, "relative_v_angle_deg": 2.19226}
+{"type": "scan", "step_id": 722, "relative_h_angle_deg": 75.7493, "relative_v_angle_deg": 2.64484}
+{"type": "scan", "step_id": 722, "relative_h_angle_deg": 73.6701, "relative_v_angle_deg": 2.91689}
+{"type": "scan", "step_id": 722, "relative_h_angle_deg": 71.5651, "relative_v_angle_deg": 3.00764}
+{"type": "scan", "step_id": 722, "relative_h_angle_deg": 69.46, "relative_v_angle_deg": 2.91689}
+{"type": "scan", "step_id": 722, "relative_h_angle_deg": 67.3808, "relative_v_angle_deg": 2.64484}
+{"type": "scan", "step_id": 722, "relative_h_angle_deg": 65.3525, "relative_v_angle_deg": 2.19226}
+{"type": "scan", "step_id": 722, "relative_h_angle_deg": 63.3985, "relative_v_angle_deg": 1.56049}
+{"type": "scan", "step_id": 722, "relative_h_angle_deg": 61.5402, "relative_v_angle_deg": 0.751708}
+{"type": "scan", "step_id": 722, "relative_h_angle_deg": 59.7965, "relative_v_angle_deg": -0.230864}
+{"type": "scan", "step_id": 722, "relative_h_angle_deg": 58.1833, "relative_v_angle_deg": -1.38264}
+{"type": "scan", "step_id": 722, "relative_h_angle_deg": 56.714, "relative_v_angle_deg": -2.69734}
+{"type": "scan", "step_id": 722, "relative_h_angle_deg": 55.3993, "relative_v_angle_deg": -4.16663}
+{"type": "scan", "step_id": 722, "relative_h_angle_deg": 54.2475, "relative_v_angle_deg": -5.77981}
+{"type": "scan", "step_id": 722, "relative_h_angle_deg": 53.2649, "relative_v_angle_deg": -7.52357}
+{"type": "scan", "step_id": 722, "relative_h_angle_deg": 52.4562, "relative_v_angle_deg": -9.38185}
+{"type": "scan", "step_id": 722, "relative_h_angle_deg": 51.8244, "relative_v_angle_deg": -11.3358}
+{"type": "scan", "step_id": 722, "relative_h_angle_deg": 51.3718, "relative_v_angle_deg": -13.3642}
+{"type": "scan", "step_id": 722, "relative_h_angle_deg": 51.0998, "relative_v_angle_deg": -15.4434}
+{"type": "scan", "step_id": 722, "relative_h_angle_deg": 51.009, "relative_v_angle_deg": -17.5484}
+{"type": "scan", "step_id": 722, "relative_h_angle_deg": 51.0998, "relative_v_angle_deg": -19.6534}
+{"type": "scan", "step_id": 722, "relative_h_angle_deg": 51.3718, "relative_v_angle_deg": -21.7326}
+{"type": "scan", "step_id": 722, "relative_h_angle_deg": 51.8244, "relative_v_angle_deg": -23.761}
+{"type": "scan", "step_id": 722, "relative_h_angle_deg": 52.4562, "relative_v_angle_deg": -25.7149}
+{"type": "scan", "step_id": 722, "relative_h_angle_deg": 53.2649, "relative_v_angle_deg": -27.5732}
+{"type": "scan", "step_id": 722, "relative_h_angle_deg": 54.2475, "relative_v_angle_deg": -29.317}
+{"type": "scan", "step_id": 722, "relative_h_angle_deg": 55.3993, "relative_v_angle_deg": -30.9302}
+{"type": "scan", "step_id": 722, "relative_h_angle_deg": 56.714, "relative_v_angle_deg": -32.3995}
+{"type": "scan", "step_id": 722, "relative_h_angle_deg": 58.1833, "relative_v_angle_deg": -33.7142}
+{"type": "scan", "step_id": 722, "relative_h_angle_deg": 59.7965, "relative_v_angle_deg": -34.8659}
+{"type": "scan", "step_id": 722, "relative_h_angle_deg": 61.5402, "relative_v_angle_deg": -35.8485}
+{"type": "scan", "step_id": 722, "relative_h_angle_deg": 63.3985, "relative_v_angle_deg": -36.6573}
+{"type": "scan", "step_id": 722, "relative_h_angle_deg": 65.3525, "relative_v_angle_deg": -37.2891}
+{"type": "scan", "step_id": 722, "relative_h_angle_deg": 67.3808, "relative_v_angle_deg": -37.7416}
+{"type": "scan", "step_id": 722, "relative_h_angle_deg": 69.46, "relative_v_angle_deg": -38.0137}
+{"type": "scan", "step_id": 722, "relative_h_angle_deg": 71.5651, "relative_v_angle_deg": -38.1044}
+{"type": "scan", "step_id": 722, "relative_h_angle_deg": 73.6701, "relative_v_angle_deg": -38.0137}
+{"type": "scan", "step_id": 722, "relative_h_angle_deg": 75.7493, "relative_v_angle_deg": -37.7416}
+{"type": "scan", "step_id": 722, "relative_h_angle_deg": 77.7776, "relative_v_angle_deg": -37.2891}
+{"type": "scan", "step_id": 722, "relative_h_angle_deg": 79.7316, "relative_v_angle_deg": -36.6573}
+{"type": "scan", "step_id": 722, "relative_h_angle_deg": 81.5899, "relative_v_angle_deg": -35.8485}
+{"type": "scan", "step_id": 722, "relative_h_angle_deg": 83.3336, "relative_v_angle_deg": -34.8659}
+{"type": "scan", "step_id": 722, "relative_h_angle_deg": 84.9468, "relative_v_angle_deg": -33.7142}
+{"type": "scan", "step_id": 722, "relative_h_angle_deg": 86.4161, "relative_v_angle_deg": -32.3995}
+{"type": "scan", "step_id": 722, "relative_h_angle_deg": 87.7308, "relative_v_angle_deg": -30.9302}
+{"type": "scan", "step_id": 722, "relative_h_angle_deg": 88.8826, "relative_v_angle_deg": -29.317}
+{"type": "scan", "step_id": 722, "relative_h_angle_deg": 89.8652, "relative_v_angle_deg": -27.5732}
+{"type": "scan", "step_id": 722, "relative_h_angle_deg": 90.6739, "relative_v_angle_deg": -25.7149}
+{"type": "scan", "step_id": 722, "relative_h_angle_deg": 91.3057, "relative_v_angle_deg": -23.761}
+{"type": "scan", "step_id": 722, "relative_h_angle_deg": 91.7583, "relative_v_angle_deg": -21.7326}
+{"type": "scan", "step_id": 722, "relative_h_angle_deg": 92.0303, "relative_v_angle_deg": -19.6534}
+{"type": "movement", "step_id": 337, "x_cm": 150, "y_cm": 200, "z_cm": 10, "h_angle_deg": 0, "v_angle_deg": 0, "action": "hover"}
+{"type": "scan", "step_id": 337, "relative_h_angle_deg": 45, "relative_v_angle_deg": 30.0512}
+{"type": "scan", "step_id": 337, "relative_h_angle_deg": 52.125, "relative_v_angle_deg": 30.0512}
+{"type": "scan", "step_id": 337, "relative_h_angle_deg": 45, "relative_v_angle_deg": 37.1762}
+{"type": "scan", "step_id": 337, "relative_h_angle_deg": 37.875, "relative_v_angle_deg": 30.0512}
+{"type": "scan", "step_id": 337, "relative_h_angle_deg": 45, "relative_v_angle_deg": 22.9262}
+{"type": "scan", "step_id": 337, "relative_h_angle_deg": 59.0362, "relative_v_angle_deg": 30.0512}
+{"type": "scan", "step_id": 337, "relative_h_angle_deg": 58.0055, "relative_v_angle_deg": 35.5161}
+{"type": "scan", "step_id": 337, "relative_h_angle_deg": 55.025, "relative_v_angle_deg": 40.0762}
+{"type": "scan", "step_id": 337, "relative_h_angle_deg": 50.4649, "relative_v_angle_deg": 43.0567}
+{"type": "scan", "step_id": 337, "relative_h_angle_deg": 45, "relative_v_angle_deg": 44.0874}
+{"type": "scan", "step_id": 337, "relative_h_angle_deg": 39.5351, "relative_v_angle_deg": 43.0567}
+{"type": "scan", "step_id": 337, "relative_h_angle_deg": 34.975, "relative_v_angle_deg": 40.0762}
+{"type": "scan", "step_id": 337, "relative_h_angle_deg": 31.9945, "relative_v_angle_deg": 35.5161}
+{"type": "scan", "step_id": 337, "relative_h_angle_deg": 30.9638, "relative_v_angle_deg": 30.0512}
+{"type": "scan", "step_id": 337, "relative_h_angle_deg": 31.9945, "relative_v_angle_deg": 24.5863}
+{"type": "scan", "step_id": 337, "relative_h_angle_deg": 34.975, "relative_v_angle_deg": 20.0262}
+{"type": "scan", "step_id": 337, "relative_h_angle_deg": 39.5351, "relative_v_angle_deg": 17.0456}
+{"type": "scan", "step_id": 337, "relative_h_angle_deg": 45, "relative_v_angle_deg": 16.0149}
+{"type": "scan", "step_id": 337, "relative_h_angle_deg": 50.4649, "relative_v_angle_deg": 17.0456}
+{"type": "scan", "step_id": 337, "relative_h_angle_deg": 55.025, "relative_v_angle_deg": 20.0262}
+{"type": "scan", "step_id": 337, "relative_h_angle_deg": 58.0055, "relative_v_angle_deg": 24.5863}
+{"type": "scan", "step_id": 337, "relative_h_angle_deg": 65.556, "relative_v_angle_deg": 30.0512}
+{"type": "scan", "step_id": 337, "relative_h_angle_deg": 65.4653, "relative_v_angle_deg": 32.1562}
+{"type": "scan", "step_id": 337, "relative_h_angle_deg": 65.1932, "relative_v_angle_deg": 34.2354}
+{"type": "scan", "step_id": 337, "relative_h_angle_deg": 64.7407, "relative_v_angle_deg": 36.2638}
+{"type": "scan", "step_id": 337, "relative_h_angle_deg": 64.1089, "relative_v_angle_deg": 38.2177}
+{"type": "scan", "step_id": 337, "relative_h_angle_deg": 63.3001, "relative_v_angle_deg": 40.076}
+{"type": "scan", "step_id": 337, "relative_h_angle_deg": 62.3175, "relative_v_angle_deg": 41.8198}
+{"type": "scan", "step_id": 337, "relative_h_angle_deg": 61.1658, "relative_v_angle_deg": 43.433}
+{"type": "scan", "step_id": 337, "relative_h_angle_deg": 59.8511, "relative_v_angle_deg": 44.9022}
+{"type": "scan", "step_id": 337, "relative_h_angle_deg": 58.3818, "relative_v_angle_deg": 46.2169}
+{"type": "movement", "step_id": 337, "x_cm": 150, "y_cm": 200, "z_cm": 10, "h_angle_deg": 0, "v_angle_deg": 0, "action": "hover"}
+{"type": "scan", "step_id": 337, "relative_h_angle_deg": -127.875, "relative_v_angle_deg": 23.6788}
+{"type": "scan", "step_id": 337, "relative_h_angle_deg": -120.75, "relative_v_angle_deg": 23.6788}
+{"type": "scan", "step_id": 337, "relative_h_angle_deg": 56.7686, "relative_v_angle_deg": 47.3687}
+{"type": "scan", "step_id": 337, "relative_h_angle_deg": 55.0248, "relative_v_angle_deg": 48.3513}
+{"type": "scan", "step_id": 337, "relative_h_angle_deg": 53.1665, "relative_v_angle_deg": 49.1601}
+{"type": "scan", "step_id": 337, "relative_h_angle_deg": 51.2126, "relative_v_angle_deg": 49.7918}
+{"type": "scan", "step_id": 337, "relative_h_angle_deg": 49.1842, "relative_v_angle_deg": 50.2444}
+{"type": "scan", "step_id": 337, "relative_h_angle_deg": 47.105, "relative_v_angle_deg": 50.5165}
+{"type": "scan", "step_id": 337, "relative_h_angle_deg": 45, "relative_v_angle_deg": 50.6072}
+{"type": "scan", "step_id": 337, "relative_h_angle_deg": 42.895, "relative_v_angle_deg": 50.5165}
+{"type": "scan", "step_id": 337, "relative_h_angle_deg": 40.8158, "relative_v_angle_deg": 50.2444}
+{"type": "scan", "step_id": 337, "relative_h_angle_deg": 38.7874, "relative_v_angle_deg": 49.7918}
+{"type": "scan", "step_id": 337, "relative_h_angle_deg": 36.8335, "relative_v_angle_deg": 49.1601}
+{"type": "scan", "step_id": 337, "relative_h_angle_deg": -127.875, "relative_v_angle_deg": 30.8039}
+{"type": "scan", "step_id": 337, "relative_h_angle_deg": -135, "relative_v_angle_deg": 23.6788}
+{"type": "scan", "step_id": 337, "relative_h_angle_deg": -127.875, "relative_v_angle_deg": 16.5538}
+{"type": "scan", "step_id": 337, "relative_h_angle_deg": -113.839, "relative_v_angle_deg": 23.6788}
+{"type": "scan", "step_id": 337, "relative_h_angle_deg": -114.869, "relative_v_angle_deg": 29.1437}
+{"type": "scan", "step_id": 337, "relative_h_angle_deg": -117.85, "relative_v_angle_deg": 33.7038}
+{"type": "scan", "step_id": 337, "relative_h_angle_deg": -122.41, "relative_v_angle_deg": 36.6844}
+{"type": "scan", "step_id": 337, "relative_h_angle_deg": -127.875, "relative_v_angle_deg": 37.7151}
+{"type": "scan", "step_id": 337, "relative_h_angle_deg": -133.34, "relative_v_angle_deg": 36.6844}
+{"type": "scan", "step_id": 337, "relative_h_angle_deg": -137.9, "relative_v_angle_deg": 33.7038}
+{"type": "scan", "step_id": 337, "relative_h_angle_deg": -140.881, "relative_v_angle_deg": 29.1437}
+{"type": "scan", "step_id": 337, "relative_h_angle_deg": -141.911, "relative_v_angle_deg": 23.6788}
+{"type": "scan", "step_id": 337, "relative_h_angle_deg": -140.881, "relative_v_angle_deg": 18.2139}
+{"type": "scan", "step_id": 337, "relative_h_angle_deg": -137.9, "relative_v_angle_deg": 13.6539}
+{"type": "scan", "step_id": 337, "relative_h_angle_deg": -133.34, "relative_v_angle_deg": 10.6733}
+{"type": "scan", "step_id": 337, "relative_h_angle_deg": -127.875, "relative_v_angle_deg": 9.6426}
+{"type": "scan", "step_id": 337, "relative_h_angle_deg": -122.41, "relative_v_angle_deg": 10.6733}
+{"type": "scan", "step_id": 337, "relative_h_angle_deg": -117.85, "relative_v_angle_deg": 13.6539}
+{"type": "scan", "step_id": 337, "relative_h_angle_deg": -114.869, "relative_v_angle_deg": 18.2139}
+{"type": "scan", "step_id": 337, "relative_h_angle_deg": 34.9752, "relative_v_angle_deg": 48.3513}
+{"type": "scan", "step_id": 337, "relative_h_angle_deg": 33.2314, "relative_v_angle_deg": 47.3687}
+{"type": "scan", "step_id": 337, "relative_h_angle_deg": 31.6182, "relative_v_angle_deg": 46.2169}
+{"type": "scan", "step_id": 337, "relative_h_angle_deg": 30.1489, "relative_v_angle_deg": 44.9022}
+{"type": "scan", "step_id": 337, "relative_h_angle_deg": 28.8342, "relative_v_angle_deg": 43.433}
+{"type": "scan", "step_id": 337, "relative_h_angle_deg": 27.6825, "relative_v_angle_deg": 41.8198}
+{"type": "scan", "step_id": 337, "relative_h_angle_deg": 26.6999, "relative_v_angle_deg": 40.076}
+{"type": "scan", "step_id": 337, "relative_h_angle_deg": 25.8911, "relative_v_angle_deg": 38.2177}
+{"type": "scan", "step_id": 723, "relative_h_angle_deg": 25.2593, "relative_v_angle_deg": 36.2638}
+{"type": "scan", "step_id": 723, "relative_h_angle_deg": 24.8068, "relative_v_angle_deg": 34.2354}
+{"type": "scan", "step_id": 723, "relative_h_angle_deg": 24.5347, "relative_v_angle_deg": 32.1562}
+{"type": "scan", "step_id": 723, "relative_h_angle_deg": 24.444, "relative_v_angle_deg": 30.0512}
+{"type": "scan", "step_id": 723, "relative_h_angle_deg": 24.5347, "relative_v_angle_deg": 27.9461}
+{"type": "scan", "step_id": 723, "relative_h_angle_deg": 24.8068, "relative_v_angle_deg": 25.8669}
+{"type": "scan", "step_id": 723, "relative_h_angle_deg": 25.2593, "relative_v_angle_deg": 23.8386}
+{"type": "scan", "step_id": 723, "relative_h_angle_deg": 25.8911, "relative_v_angle_deg": 21.8846}
+{"type": "scan", "step_id": 723, "relative_h_angle_deg": 26.6999, "relative_v_angle_deg": 20.0264}
+{"type": "scan", "step_id": 723, "relative_h_angle_deg": 27.6825, "relative_v_angle_deg": 18.2826}
+{"type": "scan", "step_id": 723, "relative_h_angle_deg": 28.8342, "relative_v_angle_deg": 16.6694}
+{"type": "scan", "step_id": 723, "relative_h_angle_deg": 30.1489, "relative_v_angle_deg": 15.2001}
+{"type": "scan", "step_id": 723, "relative_h_angle_deg": 31.6182, "relative_v_angle_deg": 13.8854}
+{"type": "scan", "step_id": 723, "relative_h_angle_deg": 33.2314, "relative_v_angle_deg": 12.7336}
+{"type": "scan", "step_id": 723, "relative_h_angle_deg": 34.9752, "relative_v_angle_deg": 11.7511}
+{"type": "scan", "step_id": 723, "relative_h_angle_deg": 36.8335, "relative_v_angle_deg": 10.9423}
+{"type": "scan", "step_id": 723, "relative_h_angle_deg": 38.7874, "relative_v_angle_deg": 10.3105}
+{"type": "scan", "step_id": 723, "relative_h_angle_deg": 40.8158, "relative_v_angle_deg": 9.85794}
+{"type": "scan", "step_id": 723, "relative_h_angle_deg": 42.895, "relative_v_angle_deg": 9.58589}
+{"type": "scan", "step_id": 723, "relative_h_angle_deg": 45, "relative_v_angle_deg": 9.49514}
+{"type": "scan", "step_id": 723, "relative_h_angle_deg": 47.105, "relative_v_angle_deg": 9.58589}
+{"type": "scan", "step_id": 723, "relative_h_angle_deg": 49.1842, "relative_v_angle_deg": 9.85794}
+{"type": "scan", "step_id": 723, "relative_h_angle_deg": 51.2126, "relative_v_angle_deg": 10.3105}
+{"type": "scan", "step_id": 723, "relative_h_angle_deg": 53.1665, "relative_v_angle_deg": 10.9423}
+{"type": "scan", "step_id": 723, "relative_h_angle_deg": 55.0248, "relative_v_angle_deg": 11.7511}
+{"type": "scan", "step_id": 723, "relative_h_angle_deg": 56.7686, "relative_v_angle_deg": 12.7336}
+{"type": "scan", "step_id": 723, "relative_h_angle_deg": 58.3818, "relative_v_angle_deg": 13.8854}
+{"type": "scan", "step_id": 723, "relative_h_angle_deg": 59.8511, "relative_v_angle_deg": 15.2001}
+{"type": "scan", "step_id": 723, "relative_h_angle_deg": 61.1658, "relative_v_angle_deg": 16.6694}
+{"type": "scan", "step_id": 723, "relative_h_angle_deg": 62.3175, "relative_v_angle_deg": 18.2826}
+{"type": "scan", "step_id": 723, "relative_h_angle_deg": 63.3001, "relative_v_angle_deg": 20.0264}
+{"type": "scan", "step_id": 723, "relative_h_angle_deg": 64.1089, "relative_v_angle_deg": 21.8846}
+{"type": "scan", "step_id": 723, "relative_h_angle_deg": 64.7407, "relative_v_angle_deg": 23.8386}
+{"type": "scan", "step_id": 723, "relative_h_angle_deg": 65.1932, "relative_v_angle_deg": 25.8669}
+{"type": "scan", "step_id": 723, "relative_h_angle_deg": 65.4653, "relative_v_angle_deg": 27.9461}
+{"type": "movement", "step_id": 723, "x_cm": 150, "y_cm": 200, "z_cm": 10, "h_angle_deg": 0, "v_angle_deg": 0, "action": "hover"}
+{"type": "scan", "step_id": 723, "relative_h_angle_deg": 71.5651, "relative_v_angle_deg": 57.6885}
+{"type": "scan", "step_id": 723, "relative_h_angle_deg": 78.6901, "relative_v_angle_deg": 57.6885}
+{"type": "scan", "step_id": 723, "relative_h_angle_deg": 71.5651, "relative_v_angle_deg": 64.8135}
+{"type": "scan", "step_id": 723, "relative_h_angle_deg": 64.44, "relative_v_angle_deg": 57.6885}
+{"type": "scan", "step_id": 723, "relative_h_angle_deg": 71.5651, "relative_v_angle_deg": 50.5635}
+{"type": "scan", "step_id": 723, "relative_h_angle_deg": 85.6013, "relative_v_angle_deg": 57.6885}
+{"type": "scan", "step_id": 723, "relative_h_angle_deg": 84.5706, "relative_v_angle_deg": 63.1534}
+{"type": "scan", "step_id": 1, "relative_h_angle_deg": 81.59, "relative_v_angle_deg": 67.7135}
+{"type": "scan", "step_id": 1, "relative_h_angle_deg": 77.03, "relative_v_angle_deg": 70.694}
+{"type": "scan", "step_id": 1, "relative_h_angle_deg": 71.5651, "relative_v_angle_deg": 71.7247}
+{"type": "scan", "step_id": 1, "relative_h_angle_deg": 66.1001, "relative_v_angle_deg": 70.694}
+{"type": "scan", "step_id": 1, "relative_h_angle_deg": 61.5401, "relative_v_angle_deg": 67.7135}
+{"type": "scan", "step_id": 1, "relative_h_angle_deg": 58.5595, "relative_v_angle_deg": 63.1534}
+{"type": "scan", "step_id": 1, "relative_h_angle_deg": 57.5288, "relative_v_angle_deg": 57.6885}
+{"type": "scan", "step_id": 1, "relative_h_angle_deg": 58.5595, "relative_v_angle_deg": 52.2236}
+{"type": "scan", "step_id": 1, "relative_h_angle_deg": 61.5401, "relative_v_angle_deg": 47.6635}
+{"type": "scan", "step_id": 1, "relative_h_angle_deg": 66.1001, "relative_v_angle_deg": 44.6829}
+{"type": "scan", "step_id": 1, "relative_h_angle_deg": 71.5651, "relative_v_angle_deg": 43.6522}
+{"type": "scan", "step_id": 1, "relative_h_angle_deg": 77.03, "relative_v_angle_deg": 44.6829}
+{"type": "scan", "step_id": 1, "relative_h_angle_deg": 81.59, "relative_v_angle_deg": 47.6635}
+{"type": "scan", "step_id": 1, "relative_h_angle_deg": 84.5706, "relative_v_angle_deg": 52.2236}
+{"type": "scan", "step_id": 1, "relative_h_angle_deg": 92.1211, "relative_v_angle_deg": 57.6885}
+{"type": "scan", "step_id": 1, "relative_h_angle_deg": 92.0303, "relative_v_angle_deg": 59.7935}
+{"type": "scan", "step_id": 1, "relative_h_angle_deg": 91.7583, "relative_v_angle_deg": 61.8727}
+{"type": "scan", "step_id": 1, "relative_h_angle_deg": 91.3057, "relative_v_angle_deg": 63.901}
+{"type": "scan", "step_id": 1, "relative_h_angle_deg": 90.6739, "relative_v_angle_deg": 65.855}
+{"type": "scan", "step_id": 1, "relative_h_angle_deg": 89.8652, "relative_v_angle_deg": 67.7133}
+{"type": "scan", "step_id": 1, "relative_h_angle_deg": 88.8826, "relative_v_angle_deg": 69.4571}
+{"type": "scan", "step_id": 1, "relative_h_angle_deg": 87.7308, "relative_v_angle_deg": 71.0702}
+{"type": "scan", "step_id": 1, "relative_h_angle_deg": 86.4161, "relative_v_angle_deg": 72.5395}
+{"type": "scan", "step_id": 1, "relative_h_angle_deg": 84.9468, "relative_v_angle_deg": 73.8542}
+{"type": "scan", "step_id": 1, "relative_h_angle_deg": 83.3336, "relative_v_angle_deg": 75.006}
+{"type": "scan", "step_id": 1, "relative_h_angle_deg": 81.5899, "relative_v_angle_deg": 75.9886}
+{"type": "scan", "step_id": 1, "relative_h_angle_deg": 79.7316, "relative_v_angle_deg": 76.7974}
+{"type": "scan", "step_id": 1, "relative_h_angle_deg": 77.7776, "relative_v_angle_deg": 77.4291}
+{"type": "scan", "step_id": 1, "relative_h_angle_deg": 75.7493, "relative_v_angle_deg": 77.8817}
+{"type": "scan", "step_id": 1, "relative_h_angle_deg": 73.6701, "relative_v_angle_deg": 78.1538}
+{"type": "scan", "step_id": 1, "relative_h_angle_deg": 71.5651, "relative_v_angle_deg": 78.2445}
+{"type": "scan", "step_id": 1, "relative_h_angle_deg": 69.46, "relative_v_angle_deg": 78.1538}
+{"type": "scan", "step_id": 1, "relative_h_angle_deg": 67.3808, "relative_v_angle_deg": 77.8817}
+{"type": "scan", "step_id": 1, "relative_h_angle_deg": 65.3525, "relative_v_angle_deg": 77.4291}
+{"type": "scan", "step_id": 1, "relative_h_angle_deg": 63.3985, "relative_v_angle_deg": 76.7974}
+{"type": "scan", "step_id": 1, "relative_h_angle_deg": 61.5402, "relative_v_angle_deg": 75.9886}
+{"type": "scan", "step_id": 1, "relative_h_angle_deg": 59.7965, "relative_v_angle_deg": 75.006}
+{"type": "scan", "step_id": 1, "relative_h_angle_deg": 58.1833, "relative_v_angle_deg": 73.8542}
+{"type": "scan", "step_id": 1, "relative_h_angle_deg": 56.714, "relative_v_angle_deg": 72.5395}
+{"type": "scan", "step_id": 1, "relative_h_angle_deg": 55.3993, "relative_v_angle_deg": 71.0702}
+{"type": "scan", "step_id": 1, "relative_h_angle_deg": 54.2475, "relative_v_angle_deg": 69.4571}
+{"type": "scan", "step_id": 1, "relative_h_angle_deg": 53.2649, "relative_v_angle_deg": 67.7133}
+{"type": "scan", "step_id": 1, "relative_h_angle_deg": 52.4562, "relative_v_angle_deg": 65.855}
+{"type": "scan", "step_id": 1, "relative_h_angle_deg": 51.8244, "relative_v_angle_deg": 63.901}
+{"type": "scan", "step_id": 1, "relative_h_angle_deg": 51.3718, "relative_v_angle_deg": 61.8727}
+{"type": "scan", "step_id": 1, "relative_h_angle_deg": 51.0998, "relative_v_angle_deg": 59.7935}
+{"type": "scan", "step_id": 1, "relative_h_angle_deg": 51.009, "relative_v_angle_deg": 57.6885}
+{"type": "scan", "step_id": 1, "relative_h_angle_deg": 51.0998, "relative_v_angle_deg": 55.5834}
+{"type": "scan", "step_id": 1, "relative_h_angle_deg": 51.3718, "relative_v_angle_deg": 53.5042}
+{"type": "scan", "step_id": 1, "relative_h_angle_deg": 51.8244, "relative_v_angle_deg": 51.4759}
+{"type": "scan", "step_id": 1, "relative_h_angle_deg": 52.4562, "relative_v_angle_deg": 49.5219}
+{"type": "scan", "step_id": 1, "relative_h_angle_deg": 53.2649, "relative_v_angle_deg": 47.6636}
+{"type": "scan", "step_id": 1, "relative_h_angle_deg": 54.2475, "relative_v_angle_deg": 45.9199}
+{"type": "scan", "step_id": 1, "relative_h_angle_deg": 55.3993, "relative_v_angle_deg": 44.3067}
+{"type": "scan", "step_id": 1, "relative_h_angle_deg": 56.714, "relative_v_angle_deg": 42.8374}
+{"type": "scan", "step_id": 1, "relative_h_angle_deg": 58.1833, "relative_v_angle_deg": 41.5227}
+{"type": "scan", "step_id": 1, "relative_h_angle_deg": 59.7965, "relative_v_angle_deg": 40.3709}
+{"type": "scan", "step_id": 1, "relative_h_angle_deg": 61.5402, "relative_v_angle_deg": 39.3884}
+{"type": "scan", "step_id": 1, "relative_h_angle_deg": 63.3985, "relative_v_angle_deg": 38.5796}
+{"type": "scan", "step_id": 1, "relative_h_angle_deg": 65.3525, "relative_v_angle_deg": 37.9478}
+{"type": "scan", "step_id": 1, "relative_h_angle_deg": 67.3808, "relative_v_angle_deg": 37.4952}
+{"type": "scan", "step_id": 1, "relative_h_angle_deg": 69.46, "relative_v_angle_deg": 37.2232}
+{"type": "scan", "step_id": 1, "relative_h_angle_deg": 71.5651, "relative_v_angle_deg": 37.1324}
+{"type": "scan", "step_id": 1, "relative_h_angle_deg": 73.6701, "relative_v_angle_deg": 37.2232}
+{"type": "scan", "step_id": 1, "relative_h_angle_deg": 75.7493, "relative_v_angle_deg": 37.4952}
+{"type": "scan", "step_id": 1, "relative_h_angle_deg": 77.7776, "relative_v_angle_deg": 37.9478}
+{"type": "scan", "step_id": 1, "relative_h_angle_deg": 79.7316, "relative_v_angle_deg": 38.5796}
+{"type": "scan", "step_id": 1, "relative_h_angle_deg": 81.5899, "relative_v_angle_deg": 39.3884}
+{"type": "scan", "step_id": 1, "relative_h_angle_deg": 83.3336, "relative_v_angle_deg": 40.3709}
+{"type": "scan", "step_id": 1, "relative_h_angle_deg": 84.9468, "relative_v_angle_deg": 41.5227}
+{"type": "scan", "step_id": 1, "relative_h_angle_deg": 86.4161, "relative_v_angle_deg": 42.8374}
+{"type": "scan", "step_id": 1, "relative_h_angle_deg": 87.7308, "relative_v_angle_deg": 44.3067}
+{"type": "scan", "step_id": 1, "relative_h_angle_deg": 88.8826, "relative_v_angle_deg": 45.9199}
+{"type": "scan", "step_id": 1, "relative_h_angle_deg": 89.8652, "relative_v_angle_deg": 47.6636}
+{"type": "scan", "step_id": 1, "relative_h_angle_deg": 90.6739, "relative_v_angle_deg": 49.5219}
+{"type": "scan", "step_id": 1, "relative_h_angle_deg": 91.3057, "relative_v_angle_deg": 51.4759}
+{"type": "scan", "step_id": 1, "relative_h_angle_deg": 91.7583, "relative_v_angle_deg": 53.5042}
+{"type": "scan", "step_id": 1, "relative_h_angle_deg": 92.0303, "relative_v_angle_deg": 55.5834}
+{"type": "voxel", "step_id": 334, "x": 8, "y": 7, "z": 7, "value": 0}
+{"type": "voxel", "step_id": 334, "x": 3, "y": 9, "z": 2, "value": 0}
+{"type": "movement", "step_id": 334, "x_cm": 150, "y_cm": 200, "z_cm": 10, "h_angle_deg": 0, "v_angle_deg": 0, "action": "hover"}
+{"type": "scan", "step_id": 334, "relative_h_angle_deg": -127.875, "relative_v_angle_deg": 14.7414}
+{"type": "scan", "step_id": 334, "relative_h_angle_deg": -120.75, "relative_v_angle_deg": 14.7414}
+{"type": "scan", "step_id": 334, "relative_h_angle_deg": -127.875, "relative_v_angle_deg": 21.8664}
+{"type": "scan", "step_id": 334, "relative_h_angle_deg": -135, "relative_v_angle_deg": 14.7414}
+{"type": "scan", "step_id": 334, "relative_h_angle_deg": -127.875, "relative_v_angle_deg": 7.61638}
+{"type": "scan", "step_id": 334, "relative_h_angle_deg": -113.839, "relative_v_angle_deg": 14.7414}
+{"type": "scan", "step_id": 334, "relative_h_angle_deg": -114.869, "relative_v_angle_deg": 20.2063}
+{"type": "scan", "step_id": 334, "relative_h_angle_deg": -117.85, "relative_v_angle_deg": 24.7664}
+{"type": "scan", "step_id": 334, "relative_h_angle_deg": -122.41, "relative_v_angle_deg": 27.7469}
+{"type": "scan", "step_id": 334, "relative_h_angle_deg": -127.875, "relative_v_angle_deg": 28.7776}
+{"type": "scan", "step_id": 334, "relative_h_angle_deg": -133.34, "relative_v_angle_deg": 27.7469}
+{"type": "scan", "step_id": 334, "relative_h_angle_deg": -137.9, "relative_v_angle_deg": 24.7664}
+{"type": "scan", "step_id": 334, "relative_h_angle_deg": -140.881, "relative_v_angle_deg": 20.2063}
+{"type": "scan", "step_id": 334, "relative_h_angle_deg": -141.911, "relative_v_angle_deg": 14.7414}
+{"type": "scan", "step_id": 334, "relative_h_angle_deg": -140.881, "relative_v_angle_deg": 9.27649}
+{"type": "scan", "step_id": 334, "relative_h_angle_deg": -137.9, "relative_v_angle_deg": 4.71641}
+{"type": "scan", "step_id": 334, "relative_h_angle_deg": -133.34, "relative_v_angle_deg": 1.73586}
+{"type": "scan", "step_id": 334, "relative_h_angle_deg": -127.875, "relative_v_angle_deg": 0.70515}
+{"type": "scan", "step_id": 334, "relative_h_angle_deg": -122.41, "relative_v_angle_deg": 1.73586}
+{"type": "scan", "step_id": 334, "relative_h_angle_deg": -117.85, "relative_v_angle_deg": 4.71641}
+{"type": "scan", "step_id": 334, "relative_h_angle_deg": -114.869, "relative_v_angle_deg": 9.27649}
+{"type": "movement", "step_id": 724, "x_cm": 150, "y_cm": 200, "z_cm": 10, "h_angle_deg": 0, "v_angle_deg": 0, "action": "hover"}
+{"type": "scan", "step_id": 724, "relative_h_angle_deg": 45, "relative_v_angle_deg": 81.0699}
+{"type": "scan", "step_id": 724, "relative_h_angle_deg": 52.125, "relative_v_angle_deg": 81.0699}
+{"type": "scan", "step_id": 724, "relative_h_angle_deg": 45, "relative_v_angle_deg": 88.1949}
+{"type": "scan", "step_id": 724, "relative_h_angle_deg": 37.875, "relative_v_angle_deg": 81.0699}
+{"type": "scan", "step_id": 724, "relative_h_angle_deg": 45, "relative_v_angle_deg": 73.9448}
+{"type": "scan", "step_id": 724, "relative_h_angle_deg": 59.0362, "relative_v_angle_deg": 81.0699}
+{"type": "scan", "step_id": 724, "relative_h_angle_deg": 58.0055, "relative_v_angle_deg": 86.5348}
+{"type": "scan", "step_id": 724, "relative_h_angle_deg": 55.025, "relative_v_angle_deg": 91.0948}
+{"type": "scan", "step_id": 724, "relative_h_angle_deg": 50.4649, "relative_v_angle_deg": 94.0754}
+{"type": "scan", "step_id": 724, "relative_h_angle_deg": 45, "relative_v_angle_deg": 95.1061}
+{"type": "scan", "step_id": 724, "relative_h_angle_deg": 39.5351, "relative_v_angle_deg": 94.0754}
+{"type": "scan", "step_id": 724, "relative_h_angle_deg": 34.975, "relative_v_angle_deg": 91.0948}
+{"type": "scan", "step_id": 724, "relative_h_angle_deg": 31.9945, "relative_v_angle_deg": 86.5348}
+{"type": "scan", "step_id": 724, "relative_h_angle_deg": 30.9638, "relative_v_angle_deg": 81.0699}
+{"type": "scan", "step_id": 724, "relative_h_angle_deg": 31.9945, "relative_v_angle_deg": 75.605}
+{"type": "scan", "step_id": 724, "relative_h_angle_deg": 34.975, "relative_v_angle_deg": 71.0449}
+{"type": "scan", "step_id": 724, "relative_h_angle_deg": 39.5351, "relative_v_angle_deg": 68.0643}
+{"type": "scan", "step_id": 724, "relative_h_angle_deg": 45, "relative_v_angle_deg": 67.0336}
+{"type": "scan", "step_id": 724, "relative_h_angle_deg": 50.4649, "relative_v_angle_deg": 68.0643}
+{"type": "scan", "step_id": 724, "relative_h_angle_deg": 55.025, "relative_v_angle_deg": 71.0449}
+{"type": "scan", "step_id": 724, "relative_h_angle_deg": 58.0055, "relative_v_angle_deg": 75.605}
+{"type": "scan", "step_id": 724, "relative_h_angle_deg": 65.556, "relative_v_angle_deg": 81.0699}
+{"type": "scan", "step_id": 724, "relative_h_angle_deg": 65.4653, "relative_v_angle_deg": 83.1749}
+{"type": "scan", "step_id": 724, "relative_h_angle_deg": 65.1932, "relative_v_angle_deg": 85.2541}
+{"type": "scan", "step_id": 724, "relative_h_angle_deg": 64.7407, "relative_v_angle_deg": 87.2824}
+{"type": "scan", "step_id": 724, "relative_h_angle_deg": 64.1089, "relative_v_angle_deg": 89.2364}
+{"type": "scan", "step_id": 724, "relative_h_angle_deg": 63.3001, "relative_v_angle_deg": 91.0947}
+{"type": "scan", "step_id": 724, "relative_h_angle_deg": 62.3175, "relative_v_angle_deg": 92.8384}
+{"type": "scan", "step_id": 724, "relative_h_angle_deg": 61.1658, "relative_v_angle_deg": 94.4516}
+{"type": "scan", "step_id": 724, "relative_h_angle_deg": 59.8511, "relative_v_angle_deg": 95.9209}
+{"type": "scan", "step_id": 724, "relative_h_angle_deg": 58.3818, "relative_v_angle_deg": 97.2356}
+{"type": "scan", "step_id": 724, "relative_h_angle_deg": 56.7686, "relative_v_angle_deg": 98.3874}
+{"type": "scan", "step_id": 724, "relative_h_angle_deg": 55.0248, "relative_v_angle_deg": 99.37}
+{"type": "scan", "step_id": 724, "relative_h_angle_deg": 53.1665, "relative_v_angle_deg": 100.179}
+{"type": "scan", "step_id": 724, "relative_h_angle_deg": 51.2126, "relative_v_angle_deg": 100.811}
+{"type": "scan", "step_id": 724, "relative_h_angle_deg": 49.1842, "relative_v_angle_deg": 101.263}
+{"type": "scan", "step_id": 724, "relative_h_angle_deg": 47.105, "relative_v_angle_deg": 101.535}
+{"type": "scan", "step_id": 724, "relative_h_angle_deg": 45, "relative_v_angle_deg": 101.626}
+{"type": "scan", "step_id": 724, "relative_h_angle_deg": 42.895, "relative_v_angle_deg": 101.535}
+{"type": "scan", "step_id": 724, "relative_h_angle_deg": 40.8158, "relative_v_angle_deg": 101.263}
+{"type": "scan", "step_id": 724, "relative_h_angle_deg": 38.7874, "relative_v_angle_deg": 100.811}
+{"type": "scan", "step_id": 724, "relative_h_angle_deg": 36.8335, "relative_v_angle_deg": 100.179}
+{"type": "scan", "step_id": 724, "relative_h_angle_deg": 34.9752, "relative_v_angle_deg": 99.37}
+{"type": "scan", "step_id": 724, "relative_h_angle_deg": 33.2314, "relative_v_angle_deg": 98.3874}
+{"type": "scan", "step_id": 724, "relative_h_angle_deg": 31.6182, "relative_v_angle_deg": 97.2356}
+{"type": "scan", "step_id": 724, "relative_h_angle_deg": 30.1489, "relative_v_angle_deg": 95.9209}
+{"type": "scan", "step_id": 724, "relative_h_angle_deg": 28.8342, "relative_v_angle_deg": 94.4516}
+{"type": "scan", "step_id": 724, "relative_h_angle_deg": 27.6825, "relative_v_angle_deg": 92.8384}
+{"type": "scan", "step_id": 724, "relative_h_angle_deg": 26.6999, "relative_v_angle_deg": 91.0947}
+{"type": "scan", "step_id": 724, "relative_h_angle_deg": 25.8911, "relative_v_angle_deg": 89.2364}
+{"type": "scan", "step_id": 724, "relative_h_angle_deg": 25.2593, "relative_v_angle_deg": 87.2824}
+{"type": "scan", "step_id": 724, "relative_h_angle_deg": 24.8068, "relative_v_angle_deg": 85.2541}
+{"type": "scan", "step_id": 724, "relative_h_angle_deg": 24.5347, "relative_v_angle_deg": 83.1749}
+{"type": "scan", "step_id": 724, "relative_h_angle_deg": 24.444, "relative_v_angle_deg": 81.0699}
+{"type": "scan", "step_id": 724, "relative_h_angle_deg": 24.5347, "relative_v_angle_deg": 78.9648}
+{"type": "scan", "step_id": 724, "relative_h_angle_deg": 24.8068, "relative_v_angle_deg": 76.8856}
+{"type": "scan", "step_id": 724, "relative_h_angle_deg": 25.2593, "relative_v_angle_deg": 74.8573}
+{"type": "scan", "step_id": 724, "relative_h_angle_deg": 25.8911, "relative_v_angle_deg": 72.9033}
+{"type": "scan", "step_id": 724, "relative_h_angle_deg": 26.6999, "relative_v_angle_deg": 71.045}
+{"type": "scan", "step_id": 724, "relative_h_angle_deg": 27.6825, "relative_v_angle_deg": 69.3013}
+{"type": "scan", "step_id": 724, "relative_h_angle_deg": 28.8342, "relative_v_angle_deg": 67.6881}
+{"type": "scan", "step_id": 724, "relative_h_angle_deg": 30.1489, "relative_v_angle_deg": 66.2188}
+{"type": "scan", "step_id": 724, "relative_h_angle_deg": 31.6182, "relative_v_angle_deg": 64.9041}
+{"type": "scan", "step_id": 724, "relative_h_angle_deg": 33.2314, "relative_v_angle_deg": 63.7523}
+{"type": "scan", "step_id": 724, "relative_h_angle_deg": 34.9752, "relative_v_angle_deg": 62.7698}
+{"type": "scan", "step_id": 724, "relative_h_angle_deg": 36.8335, "relative_v_angle_deg": 61.961}
+{"type": "scan", "step_id": 724, "relative_h_angle_deg": 38.7874, "relative_v_angle_deg": 61.3292}
+{"type": "scan", "step_id": 724, "relative_h_angle_deg": 40.8158, "relative_v_angle_deg": 60.8766}
+{"type": "scan", "step_id": 724, "relative_h_angle_deg": 42.895, "relative_v_angle_deg": 60.6046}
+{"type": "scan", "step_id": 724, "relative_h_angle_deg": 45, "relative_v_angle_deg": 60.5138}
+{"type": "scan", "step_id": 724, "relative_h_angle_deg": 47.105, "relative_v_angle_deg": 60.6046}
+{"type": "scan", "step_id": 724, "relative_h_angle_deg": 49.1842, "relative_v_angle_deg": 60.8766}
+{"type": "scan", "step_id": 724, "relative_h_angle_deg": 51.2126, "relative_v_angle_deg": 61.3292}
+{"type": "scan", "step_id": 724, "relative_h_angle_deg": 53.1665, "relative_v_angle_deg": 61.961}
+{"type": "scan", "step_id": 724, "relative_h_angle_deg": 55.0248, "relative_v_angle_deg": 62.7698}
+{"type": "scan", "step_id": 724, "relative_h_angle_deg": 56.7686, "relative_v_angle_deg": 63.7523}
+{"type": "scan", "step_id": 724, "relative_h_angle_deg": 58.3818, "relative_v_angle_deg": 64.9041}
+{"type": "scan", "step_id": 724, "relative_h_angle_deg": 59.8511, "relative_v_angle_deg": 66.2188}
+{"type": "scan", "step_id": 724, "relative_h_angle_deg": 61.1658, "relative_v_angle_deg": 67.6881}
+{"type": "scan", "step_id": 724, "relative_h_angle_deg": 62.3175, "relative_v_angle_deg": 69.3013}
+{"type": "scan", "step_id": 724, "relative_h_angle_deg": 63.3001, "relative_v_angle_deg": 71.045}
+{"type": "scan", "step_id": 724, "relative_h_angle_deg": 64.1089, "relative_v_angle_deg": 72.9033}
+{"type": "scan", "step_id": 724, "relative_h_angle_deg": 64.7407, "relative_v_angle_deg": 74.8573}
+{"type": "scan", "step_id": 724, "relative_h_angle_deg": 65.1932, "relative_v_angle_deg": 76.8856}
+{"type": "scan", "step_id": 724, "relative_h_angle_deg": 65.4653, "relative_v_angle_deg": 78.9648}
+{"type": "voxel", "step_id": 338, "x": 21, "y": 22, "z": 2, "value": 0}
+{"type": "voxel", "step_id": 338, "x": 19, "y": 22, "z": 1, "value": 0}
+{"type": "voxel", "step_id": 338, "x": 20, "y": 22, "z": 1, "value": 0}
+{"type": "voxel", "step_id": 338, "x": 20, "y": 23, "z": 1, "value": 0}
+{"type": "voxel", "step_id": 338, "x": 21, "y": 23, "z": 1, "value": 0}
+{"type": "voxel", "step_id": 338, "x": 21, "y": 24, "z": 1, "value": 0}
+{"type": "voxel", "step_id": 338, "x": 20, "y": 24, "z": 1, "value": 0}
+{"type": "movement", "step_id": 338, "x_cm": 150, "y_cm": 200, "z_cm": 10, "h_angle_deg": 0, "v_angle_deg": 0, "action": "hover"}
+{"type": "scan", "step_id": 338, "relative_h_angle_deg": -127.875, "relative_v_angle_deg": 5.01235}
+{"type": "scan", "step_id": 338, "relative_h_angle_deg": -120.75, "relative_v_angle_deg": 5.01235}
+{"type": "scan", "step_id": 338, "relative_h_angle_deg": -127.875, "relative_v_angle_deg": 12.1374}
+{"type": "scan", "step_id": 338, "relative_h_angle_deg": -135, "relative_v_angle_deg": 5.01235}
+{"type": "scan", "step_id": 338, "relative_h_angle_deg": -127.875, "relative_v_angle_deg": -2.11267}
+{"type": "scan", "step_id": 338, "relative_h_angle_deg": -113.839, "relative_v_angle_deg": 5.01235}
+{"type": "scan", "step_id": 338, "relative_h_angle_deg": -114.869, "relative_v_angle_deg": 10.4773}
+{"type": "scan", "step_id": 338, "relative_h_angle_deg": -117.85, "relative_v_angle_deg": 15.0373}
+{"type": "scan", "step_id": 338, "relative_h_angle_deg": -122.41, "relative_v_angle_deg": 18.0179}
+{"type": "scan", "step_id": 338, "relative_h_angle_deg": -127.875, "relative_v_angle_deg": 19.0486}
+{"type": "scan", "step_id": 338, "relative_h_angle_deg": -133.34, "relative_v_angle_deg": 18.0179}
+{"type": "scan", "step_id": 338, "relative_h_angle_deg": -137.9, "relative_v_angle_deg": 15.0373}
+{"type": "scan", "step_id": 338, "relative_h_angle_deg": -140.881, "relative_v_angle_deg": 10.4773}
+{"type": "scan", "step_id": 338, "relative_h_angle_deg": -141.911, "relative_v_angle_deg": 5.01235}
+{"type": "scan", "step_id": 338, "relative_h_angle_deg": -140.881, "relative_v_angle_deg": -0.452557}
+{"type": "scan", "step_id": 338, "relative_h_angle_deg": -137.9, "relative_v_angle_deg": -5.01264}
+{"type": "scan", "step_id": 338, "relative_h_angle_deg": -133.34, "relative_v_angle_deg": -7.99319}
+{"type": "scan", "step_id": 338, "relative_h_angle_deg": -127.875, "relative_v_angle_deg": -9.0239}
+{"type": "scan", "step_id": 338, "relative_h_angle_deg": -122.41, "relative_v_angle_deg": -7.99319}
+{"type": "scan", "step_id": 338, "relative_h_angle_deg": -117.85, "relative_v_angle_deg": -5.01264}
+{"type": "scan", "step_id": 338, "relative_h_angle_deg": -114.869, "relative_v_angle_deg": -0.452557}
+{"type": "voxel", "step_id": 725, "x": 20, "y": 25, "z": 1, "value": 0}
+{"type": "voxel", "step_id": 725, "x": 21, "y": 25, "z": 1, "value": 0}
+{"type": "voxel", "step_id": 725, "x": 19, "y": 25, "z": 1, "value": 0}
+{"type": "voxel", "step_id": 725, "x": 20, "y": 26, "z": 1, "value": 0}
+{"type": "voxel", "step_id": 725, "x": 19, "y": 26, "z": 1, "value": 0}
+{"type": "movement", "step_id": 725, "x_cm": 150, "y_cm": 200, "z_cm": 10, "h_angle_deg": 0, "v_angle_deg": 0, "action": "hover"}
+{"type": "scan", "step_id": 725, "relative_h_angle_deg": 71.5651, "relative_v_angle_deg": 43.4915}
+{"type": "scan", "step_id": 725, "relative_h_angle_deg": 78.6901, "relative_v_angle_deg": 43.4915}
+{"type": "scan", "step_id": 725, "relative_h_angle_deg": 71.5651, "relative_v_angle_deg": 50.6165}
+{"type": "scan", "step_id": 725, "relative_h_angle_deg": 64.44, "relative_v_angle_deg": 43.4915}
+{"type": "scan", "step_id": 725, "relative_h_angle_deg": 71.5651, "relative_v_angle_deg": 36.3665}
+{"type": "scan", "step_id": 725, "relative_h_angle_deg": 85.6013, "relative_v_angle_deg": 43.4915}
+{"type": "scan", "step_id": 725, "relative_h_angle_deg": 84.5706, "relative_v_angle_deg": 48.9564}
+{"type": "scan", "step_id": 725, "relative_h_angle_deg": 81.59, "relative_v_angle_deg": 53.5165}
+{"type": "scan", "step_id": 725, "relative_h_angle_deg": 77.03, "relative_v_angle_deg": 56.4971}
+{"type": "scan", "step_id": 725, "relative_h_angle_deg": 71.5651, "relative_v_angle_deg": 57.5278}
+{"type": "scan", "step_id": 725, "relative_h_angle_deg": 66.1001, "relative_v_angle_deg": 56.4971}
+{"type": "scan", "step_id": 725, "relative_h_angle_deg": 61.5401, "relative_v_angle_deg": 53.5165}
+{"type": "scan", "step_id": 725, "relative_h_angle_deg": 58.5595, "relative_v_angle_deg": 48.9564}
+{"type": "scan", "step_id": 725, "relative_h_angle_deg": 57.5288, "relative_v_angle_deg": 43.4915}
+{"type": "scan", "step_id": 725, "relative_h_angle_deg": 58.5595, "relative_v_angle_deg": 38.0266}
+{"type": "scan", "step_id": 725, "relative_h_angle_deg": 61.5401, "relative_v_angle_deg": 33.4665}
+{"type": "scan", "step_id": 725, "relative_h_angle_deg": 66.1001, "relative_v_angle_deg": 30.486}
+{"type": "scan", "step_id": 725, "relative_h_angle_deg": 71.5651, "relative_v_angle_deg": 29.4553}
+{"type": "scan", "step_id": 725, "relative_h_angle_deg": 77.03, "relative_v_angle_deg": 30.486}
+{"type": "scan", "step_id": 725, "relative_h_angle_deg": 81.59, "relative_v_angle_deg": 33.4665}
+{"type": "scan", "step_id": 725, "relative_h_angle_deg": 84.5706, "relative_v_angle_deg": 38.0266}
+{"type": "scan", "step_id": 725, "relative_h_angle_deg": 92.1211, "relative_v_angle_deg": 43.4915}
+{"type": "scan", "step_id": 725, "relative_h_angle_deg": 92.0303, "relative_v_angle_deg": 45.5966}
+{"type": "scan", "step_id": 725, "relative_h_angle_deg": 91.7583, "relative_v_angle_deg": 47.6758}
+{"type": "scan", "step_id": 725, "relative_h_angle_deg": 91.3057, "relative_v_angle_deg": 49.7041}
+{"type": "scan", "step_id": 725, "relative_h_angle_deg": 90.6739, "relative_v_angle_deg": 51.6581}
+{"type": "scan", "step_id": 725, "relative_h_angle_deg": 89.8652, "relative_v_angle_deg": 53.5163}
+{"type": "scan", "step_id": 725, "relative_h_angle_deg": 88.8826, "relative_v_angle_deg": 55.2601}
+{"type": "scan", "step_id": 725, "relative_h_angle_deg": 87.7308, "relative_v_angle_deg": 56.8733}
+{"type": "scan", "step_id": 725, "relative_h_angle_deg": 86.4161, "relative_v_angle_deg": 58.3426}
+{"type": "scan", "step_id": 725, "relative_h_angle_deg": 84.9468, "relative_v_angle_deg": 59.6573}
+{"type": "scan", "step_id": 725, "relative_h_angle_deg": 83.3336, "relative_v_angle_deg": 60.8091}
+{"type": "scan", "step_id": 725, "relative_h_angle_deg": 81.5899, "relative_v_angle_deg": 61.7916}
+{"type": "scan", "step_id": 725, "relative_h_angle_deg": 79.7316, "relative_v_angle_deg": 62.6004}
+{"type": "scan", "step_id": 725, "relative_h_angle_deg": 77.7776, "relative_v_angle_deg": 63.2322}
+{"type": "scan", "step_id": 725, "relative_h_angle_deg": 75.7493, "relative_v_angle_deg": 63.6848}
+{"type": "scan", "step_id": 725, "relative_h_angle_deg": 73.6701, "relative_v_angle_deg": 63.9568}
+{"type": "scan", "step_id": 725, "relative_h_angle_deg": 71.5651, "relative_v_angle_deg": 64.0476}
+{"type": "voxel", "step_id": 725, "x": 18, "y": 25, "z": 1, "value": 0}
+{"type": "scan", "step_id": 725, "relative_h_angle_deg": 69.46, "relative_v_angle_deg": 63.9568}
+{"type": "scan", "step_id": 725, "relative_h_angle_deg": 67.3808, "relative_v_angle_deg": 63.6848}
+{"type": "scan", "step_id": 725, "relative_h_angle_deg": 65.3525, "relative_v_angle_deg": 63.2322}
+{"type": "scan", "step_id": 725, "relative_h_angle_deg": 63.3985, "relative_v_angle_deg": 62.6004}
+{"type": "scan", "step_id": 725, "relative_h_angle_deg": 61.5402, "relative_v_angle_deg": 61.7916}
+{"type": "scan", "step_id": 725, "relative_h_angle_deg": 59.7965, "relative_v_angle_deg": 60.8091}
+{"type": "scan", "step_id": 725, "relative_h_angle_deg": 58.1833, "relative_v_angle_deg": 59.6573}
+{"type": "scan", "step_id": 725, "relative_h_angle_deg": 56.714, "relative_v_angle_deg": 58.3426}
+{"type": "scan", "step_id": 725, "relative_h_angle_deg": 55.3993, "relative_v_angle_deg": 56.8733}
+{"type": "scan", "step_id": 725, "relative_h_angle_deg": 54.2475, "relative_v_angle_deg": 55.2601}
+{"type": "scan", "step_id": 725, "relative_h_angle_deg": 53.2649, "relative_v_angle_deg": 53.5163}
+{"type": "scan", "step_id": 725, "relative_h_angle_deg": 52.4562, "relative_v_angle_deg": 51.6581}
+{"type": "scan", "step_id": 725, "relative_h_angle_deg": 51.8244, "relative_v_angle_deg": 49.7041}
+{"type": "scan", "step_id": 725, "relative_h_angle_deg": 51.3718, "relative_v_angle_deg": 47.6758}
+{"type": "scan", "step_id": 725, "relative_h_angle_deg": 51.0998, "relative_v_angle_deg": 45.5966}
+{"type": "scan", "step_id": 725, "relative_h_angle_deg": 51.009, "relative_v_angle_deg": 43.4915}
+{"type": "scan", "step_id": 725, "relative_h_angle_deg": 51.0998, "relative_v_angle_deg": 41.3865}
+{"type": "scan", "step_id": 725, "relative_h_angle_deg": 51.3718, "relative_v_angle_deg": 39.3073}
+{"type": "scan", "step_id": 725, "relative_h_angle_deg": 51.8244, "relative_v_angle_deg": 37.2789}
+{"type": "scan", "step_id": 725, "relative_h_angle_deg": 52.4562, "relative_v_angle_deg": 35.325}
+{"type": "scan", "step_id": 725, "relative_h_angle_deg": 53.2649, "relative_v_angle_deg": 33.4667}
+{"type": "scan", "step_id": 725, "relative_h_angle_deg": 54.2475, "relative_v_angle_deg": 31.7229}
+{"type": "scan", "step_id": 725, "relative_h_angle_deg": 55.3993, "relative_v_angle_deg": 30.1097}
+{"type": "scan", "step_id": 725, "relative_h_angle_deg": 56.714, "relative_v_angle_deg": 28.6405}
+{"type": "scan", "step_id": 725, "relative_h_angle_deg": 58.1833, "relative_v_angle_deg": 27.3258}
+{"type": "scan", "step_id": 725, "relative_h_angle_deg": 59.7965, "relative_v_angle_deg": 26.174}
+{"type": "scan", "step_id": 725, "relative_h_angle_deg": 61.5402, "relative_v_angle_deg": 25.1914}
+{"type": "scan", "step_id": 725, "relative_h_angle_deg": 63.3985, "relative_v_angle_deg": 24.3826}
+{"type": "scan", "step_id": 725, "relative_h_angle_deg": 65.3525, "relative_v_angle_deg": 23.7509}
+{"type": "scan", "step_id": 725, "relative_h_angle_deg": 67.3808, "relative_v_angle_deg": 23.2983}
+{"type": "scan", "step_id": 725, "relative_h_angle_deg": 69.46, "relative_v_angle_deg": 23.0262}
+{"type": "scan", "step_id": 725, "relative_h_angle_deg": 71.5651, "relative_v_angle_deg": 22.9355}
+{"type": "scan", "step_id": 725, "relative_h_angle_deg": 73.6701, "relative_v_angle_deg": 23.0262}
+{"type": "scan", "step_id": 725, "relative_h_angle_deg": 75.7493, "relative_v_angle_deg": 23.2983}
+{"type": "scan", "step_id": 725, "relative_h_angle_deg": 77.7776, "relative_v_angle_deg": 23.7509}
+{"type": "scan", "step_id": 725, "relative_h_angle_deg": 79.7316, "relative_v_angle_deg": 24.3826}
+{"type": "scan", "step_id": 725, "relative_h_angle_deg": 81.5899, "relative_v_angle_deg": 25.1914}
+{"type": "scan", "step_id": 725, "relative_h_angle_deg": 83.3336, "relative_v_angle_deg": 26.174}
+{"type": "scan", "step_id": 725, "relative_h_angle_deg": 84.9468, "relative_v_angle_deg": 27.3258}
+{"type": "scan", "step_id": 725, "relative_h_angle_deg": 86.4161, "relative_v_angle_deg": 28.6405}
+{"type": "scan", "step_id": 725, "relative_h_angle_deg": 87.7308, "relative_v_angle_deg": 30.1097}
+{"type": "scan", "step_id": 725, "relative_h_angle_deg": 88.8826, "relative_v_angle_deg": 31.7229}
+{"type": "scan", "step_id": 725, "relative_h_angle_deg": 89.8652, "relative_v_angle_deg": 33.4667}
+{"type": "scan", "step_id": 725, "relative_h_angle_deg": 90.6739, "relative_v_angle_deg": 35.325}
+{"type": "scan", "step_id": 725, "relative_h_angle_deg": 91.3057, "relative_v_angle_deg": 37.2789}
+{"type": "scan", "step_id": 725, "relative_h_angle_deg": 91.7583, "relative_v_angle_deg": 39.3073}
+{"type": "scan", "step_id": 725, "relative_h_angle_deg": 92.0303, "relative_v_angle_deg": 41.3865}
+{"type": "voxel", "step_id": 335, "x": 17, "y": 24, "z": 1, "value": 0}
+{"type": "voxel", "step_id": 335, "x": 18, "y": 26, "z": 1, "value": 0}
+{"type": "voxel", "step_id": 335, "x": 17, "y": 25, "z": 1, "value": 0}

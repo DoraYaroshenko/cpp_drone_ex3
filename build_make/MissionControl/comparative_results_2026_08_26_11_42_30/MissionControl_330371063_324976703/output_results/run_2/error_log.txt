@@ -1,0 +1,1 @@
+Simulation Run Error: Failed to load map: /workspaces/cpp_drone_ex3/inputs/simulation/map/pillar_with_boundary_20x20x40.npy error: error: unable to open file

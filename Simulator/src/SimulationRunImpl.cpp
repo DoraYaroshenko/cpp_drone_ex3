@@ -6,6 +6,7 @@
 #include <stdexcept>
 #include <utility>
 #include <vector>
+#include <fstream>
 
 
 
@@ -73,6 +74,11 @@ types::SimulationResult SimulationRunImpl::run() {
         types::MissionRunResult mission_result = mission_control_->runMission();
         result.mission_results.push_back(std::move(mission_result));
     } catch (const std::exception& e) {
+        std::ofstream err_file(output_map_file_.parent_path() / "error_log.txt", std::ios::app);
+        if (err_file) {
+            err_file << "Mission Exception: " << e.what() << "\n";
+        }
+        
         types::MissionRunResult error_result;
         error_result.status = types::MissionRunStatus::Error;
         error_result.errors.push_back(types::ErrorRef{"MISSION_EXCEPTION", e.what()});
@@ -85,6 +91,10 @@ types::SimulationResult SimulationRunImpl::run() {
         std::vector<double> scores = MapsComparison::compare(*hidden_map_, targets);
         result.mission_score = scores.empty() ? -1.0 : scores[0];
     } catch (const std::exception& e) {
+        std::ofstream err_file(output_map_file_.parent_path() / "error_log.txt", std::ios::app);
+        if (err_file) {
+            err_file << "MapsComparison Exception: " << e.what() << "\n";
+        }
         std::cerr << "MapsComparison Exception: " << e.what() << std::endl;
         result.mission_score = -1.0;
     }
