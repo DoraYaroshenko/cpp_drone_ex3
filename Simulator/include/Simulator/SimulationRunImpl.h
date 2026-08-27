@@ -33,7 +33,6 @@ public:
                       std::unique_ptr<IDroneMovement> movement,
                       std::unique_ptr<ILidar> lidar,
                       std::unique_ptr<IMappingAlgorithm> mapping_algorithm,
-                      std::unique_ptr<mission_control::IDroneControl> drone_control,
                       std::unique_ptr<IMissionControl> mission_control,
                       // Changed: stores run metadata needed to build SimulationResult.
                       types::SimulationConfigData simulation_config,
@@ -50,7 +49,6 @@ private:
     std::unique_ptr<IDroneMovement> movement_;
     std::unique_ptr<ILidar> lidar_;
     std::unique_ptr<IMappingAlgorithm> mapping_algorithm_;
-    std::unique_ptr<mission_control::IDroneControl> drone_control_;
     std::unique_ptr<IMissionControl> mission_control_;
     // Changed: retained so run() can return the configs and output path in SimulationResult.
     types::SimulationConfigData simulation_config_;

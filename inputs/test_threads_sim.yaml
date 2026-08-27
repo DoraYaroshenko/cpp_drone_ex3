@@ -1,0 +1,9 @@
+simulation_compositions:
+  simulations:
+    - simulation_config: "simulation/empty_room_10x10x10_sim.yaml"
+      mission_configs:
+        - "mission/empty_room_10x10x10_mission.yaml"
+  drone_configs:
+    - "drone/drone_ex1.yaml"
+  lidar_configs:
+    - "lidar/lidar_ex1.yaml"

@@ -30,9 +30,8 @@ public:
     static void logVoxel(int x, int y, int z, int value);
 
 private:
-    static std::ofstream out_stream_;
-    static std::size_t current_step_id_;
-    static std::mutex mutex_;
+    static thread_local std::ofstream out_stream_;
+    static thread_local std::size_t current_step_id_;
 };
 
 

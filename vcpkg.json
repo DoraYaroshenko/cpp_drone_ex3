@@ -1,6 +1,6 @@
 {
   "dependencies": [
-        {
+    {
       "name": "mp-units",
       "version>=": "2.3.0"
     },

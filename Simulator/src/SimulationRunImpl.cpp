@@ -6,6 +6,7 @@
 #include <stdexcept>
 #include <utility>
 #include <vector>
+#include <fstream>
 
 
 
@@ -25,7 +26,6 @@ SimulationRunImpl::SimulationRunImpl(std::unique_ptr<const IMap3D> hidden_map,
                                      std::unique_ptr<IDroneMovement> movement,
                                      std::unique_ptr<ILidar> lidar,
                                      std::unique_ptr<IMappingAlgorithm> mapping_algorithm,
-                                     std::unique_ptr<mission_control::IDroneControl> drone_control,
                                      std::unique_ptr<IMissionControl> mission_control,
                                      types::SimulationConfigData simulation_config,
                                      types::MissionConfigData mission_config,
@@ -36,7 +36,6 @@ SimulationRunImpl::SimulationRunImpl(std::unique_ptr<const IMap3D> hidden_map,
       movement_(std::move(movement)),
       lidar_(std::move(lidar)),
       mapping_algorithm_(std::move(mapping_algorithm)),
-      drone_control_(std::move(drone_control)),
       mission_control_(std::move(mission_control)),
       simulation_config_(std::move(simulation_config)),
       mission_config_(std::move(mission_config)),
@@ -47,7 +46,6 @@ SimulationRunImpl::SimulationRunImpl(std::unique_ptr<const IMap3D> hidden_map,
         !movement_ ||
         !lidar_ ||
         !mapping_algorithm_ ||
-        !drone_control_ ||
         !mission_control_) {
         throw std::invalid_argument("SimulationRunImpl requires injected dependencies.");
     }
@@ -76,6 +74,11 @@ types::SimulationResult SimulationRunImpl::run() {
         types::MissionRunResult mission_result = mission_control_->runMission();
         result.mission_results.push_back(std::move(mission_result));
     } catch (const std::exception& e) {
+        std::ofstream err_file(output_map_file_.parent_path() / "error_log.txt", std::ios::app);
+        if (err_file) {
+            err_file << "Mission Exception: " << e.what() << "\n";
+        }
+        
         types::MissionRunResult error_result;
         error_result.status = types::MissionRunStatus::Error;
         error_result.errors.push_back(types::ErrorRef{"MISSION_EXCEPTION", e.what()});
@@ -88,6 +91,10 @@ types::SimulationResult SimulationRunImpl::run() {
         std::vector<double> scores = MapsComparison::compare(*hidden_map_, targets);
         result.mission_score = scores.empty() ? -1.0 : scores[0];
     } catch (const std::exception& e) {
+        std::ofstream err_file(output_map_file_.parent_path() / "error_log.txt", std::ios::app);
+        if (err_file) {
+            err_file << "MapsComparison Exception: " << e.what() << "\n";
+        }
         std::cerr << "MapsComparison Exception: " << e.what() << std::endl;
         result.mission_score = -1.0;
     }

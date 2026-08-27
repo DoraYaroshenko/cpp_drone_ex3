@@ -19,7 +19,7 @@ using namespace user_common_330371063_324976703;
 
 class SimulationManager final : public ISimulation {
 public:
-    explicit SimulationManager(std::unique_ptr<ISimulationRunFactory> run_factory);
+    explicit SimulationManager(std::unique_ptr<ISimulationRunFactory> run_factory, int num_threads = 1);
 
     // Changed: matches ISimulation's new SimulationManagerReport return type.
     [[nodiscard]] types::SimulationManagerReport run(const types::SimulationCompositionData& composition,
@@ -27,6 +27,7 @@ public:
 
 private:
     std::unique_ptr<ISimulationRunFactory> run_factory_;
+    int num_threads_;
 };
 
 

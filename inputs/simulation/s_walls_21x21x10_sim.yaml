@@ -1,0 +1,7 @@
+simulation_config:
+  map_filename: "map/s_walls_21x21x10.npy"
+  map_resolution_cm: 10
+  initial_drone_position:
+    x_cm: 20
+    y_cm: 20
+    height_cm: 50

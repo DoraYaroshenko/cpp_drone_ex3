@@ -48,12 +48,13 @@ The assignment is separated into three independent parts, each built with its ow
   - If `num_threads >= 2`, interpret this as the requested number of threads for running the actual simulation **in addition** to the main thread.
 - Main thread can wait for all other threads in a join call (or any similar blocking wait).
 - Do not open threads that cannot be utilized.
-- **Locking:** It is better not to lock if you can avoid locking. Only use locks (like `std::mutex`) when absolutely necessary. For example, if a result table's size is known in advance, create it ahead of time to avoid needing a synchronized sparse matrix or dynamic resizing during concurrent execution.
+- **Locking:** It is better not to lock if you can avoid locking. Only use locks (like `std::mutex`) when absolutely necessary. For example, if a result table's size is known in advance, create it ahead of time to avoid needing a synchronized sparse matrix or dynamic resizing during concurrent execution. Always use `jthread` instead of `thread`, and lock_guard` when using locks.
 
 ### API and Registration
 - Algorithms and MissionControls register themselves using macros: `REGISTER_MAPPING_ALGORITHM(<class_name>)` and `REGISTER_MISSION_CONTROL(<class_name>)`.
 - The `.so` files must be loaded dynamically and unloaded (`dlclose`) before the program ends. Make sure not to call `dlclose` if there are objects related to the `.so` which are still alive.
 - Factories are used to create instances. **Do not cache instances**, recreate them using the factories when needed.
+- Example of registration algorithm in `assignments_materials/register_example.cpp`.
 
 ### Common Issues Handling (Mandatory)
 - A valid algorithm should avoid errors it can detect. The valid algorithm will not create the error.
@@ -71,3 +72,8 @@ The assignment is separated into three independent parts, each built with its ow
   2. Try to map all the relevant surroundings in the configured boundaries.
   3. Try to be efficient and exact.
 - **Submission:** A zip file `ex3_<student1_id>_<student2_id>.zip` containing the 5 folders, 4 makefiles, `students.txt`, and `README.md`. No binary files or external libraries (unless standard or explicitly approved).
+
+## Communication Guidelines
+- When answering questions about design decisions, always consider the pros and cons of each option and concisely explain your train of thought.
+
+You can't use any external library except mp-units and yaml-cpp.

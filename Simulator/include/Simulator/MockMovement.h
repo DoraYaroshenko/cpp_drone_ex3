@@ -2,6 +2,7 @@
 
 #include <Common/IDroneMovement.h>
 #include <Simulator/MockGPS.h>
+#include <Common/IMap3D.h>
 
 
 
@@ -17,7 +18,7 @@ using namespace user_common_330371063_324976703;
 // Optional implementation for the 
 class MockMovement final : public IDroneMovement {
 public:
-    explicit MockMovement(MockGPS& gps);
+    explicit MockMovement(MockGPS& gps, const common::IMap3D& hidden_map, common::PhysicalLength drone_radius);
 
     types::MovementResult rotate(types::RotationDirection direction, HorizontalAngle angle) override;
     types::MovementResult advance(PhysicalLength distance) override;
@@ -25,6 +26,8 @@ public:
 
 private:
     MockGPS& gps_;
+    const common::IMap3D& hidden_map_;
+    common::PhysicalLength drone_radius_;
 };
 
 

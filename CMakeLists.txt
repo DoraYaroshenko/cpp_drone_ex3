@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.15)
+cmake_minimum_required(VERSION 3.16)
 project(assignment_3 LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 20)
@@ -12,6 +12,11 @@ function(drone_warnings target)
 endfunction()
 
 add_subdirectory(common)
+
+target_precompile_headers(drone_common INTERFACE
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/common/include/Common/Units.h>
+)
+
 add_subdirectory(Algorithm)
 add_subdirectory(MissionControl)
 add_subdirectory(Simulator)
