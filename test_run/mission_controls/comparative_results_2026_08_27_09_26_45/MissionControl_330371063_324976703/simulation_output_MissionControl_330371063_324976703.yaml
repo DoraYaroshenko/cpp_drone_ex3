@@ -1,0 +1,51 @@
+score_report:
+  composition_file: simulation.yaml
+  simulations:
+    - simulation:
+        simulation_config: simulation/empty_room_10x10x10_sim.yaml
+        missions:
+          - mission:
+              mission_config: mission/empty_room_10x10x10_mission.yaml
+              runs:
+                - drone_config: drone/drone_ex1.yaml
+                  lidar_config: lidar/lidar_ex1.yaml
+                  status: completed
+                  steps: 921
+                  score: 100
+    - simulation:
+        simulation_config: simulation/empty_room_30x30x10_sim.yaml
+        missions:
+          - mission:
+              mission_config: mission/empty_room_30x30x10_mission.yaml
+              runs:
+                - drone_config: drone/drone_ex1.yaml
+                  lidar_config: lidar/lidar_ex1.yaml
+                  status: completed
+                  steps: 1127
+                  score: 97.03333333333333
+    - simulation:
+        simulation_config: simulation/pillar_with_boundary_20x20x40_sim.yaml
+        missions:
+          - mission:
+              mission_config: mission/pillar_with_boundary_20x20x40_mission.yaml
+              runs:
+                - drone_config: drone/drone_ex1.yaml
+                  lidar_config: lidar/lidar_ex1.yaml
+                  status: error
+                  steps: 733
+                  score: -1
+                  error_ref:
+                    code: DRONE_STEP_ERROR
+    - simulation:
+        simulation_config: simulation/s_walls_21x21x10_sim.yaml
+        missions:
+          - mission:
+              mission_config: mission/s_walls_21x21x10_mission.yaml
+              runs:
+                - drone_config: drone/drone_ex1.yaml
+                  lidar_config: lidar/lidar_ex1.yaml
+                  status: error
+                  steps: 694
+                  score: -1
+                  error_ref:
+                    code: DRONE_STEP_ERROR

@@ -1,0 +1,8 @@
+comparative_report:
+  composition_file: simulation.yaml
+  mission_control_folder: mission_controls
+  generated_at_utc: 2026-08-27T09:26:56Z
+  results_summary:
+    - same_results: [MissionControl_330371063_324976703.so, MissionControl_Simple_330371063_324976703.so]
+      total_score: 197.03333333333333
+      total_steps: 2048
