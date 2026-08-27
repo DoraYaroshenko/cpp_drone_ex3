@@ -1,1 +1,0 @@
-Step 693: ERROR - Movement exception caught: Collision detected: Drone hit a wall
