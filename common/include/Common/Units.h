@@ -7,12 +7,12 @@
 namespace common {
 
 namespace mp = mp_units;
-namespace isq = mp_units::isq;
-namespace si = mp_units::si;
+namespace isq = mp_units::isq; // International System of Quantities(length,time,mass,speed)
+namespace si = mp_units::si; // International System of Units
 using mp_units::si::unit_symbols::deg;
 using si::unit_symbols::cm;
 
-QUANTITY_SPEC(x_extent, isq::length);
+QUANTITY_SPEC(x_extent, isq::length); //macro that creates strongly typed quantities
 QUANTITY_SPEC(y_extent, isq::length);
 QUANTITY_SPEC(z_extent, isq::length);
 
@@ -38,6 +38,7 @@ struct Orientation {
     AltitudeAngle altitude{};
 };
 
+//constexpr - calculate during compilation
 [[nodiscard]] constexpr Position3D operator+(const Position3D& lhs, const Position3D& rhs) {
     return {lhs.x + rhs.x, lhs.y + rhs.y, lhs.z + rhs.z};
 }

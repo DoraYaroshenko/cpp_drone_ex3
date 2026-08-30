@@ -1,0 +1,37 @@
+Error Codes:
+Since you are strictly forbidden from modifying the common folder, the best way to handle this is to use the UserCommon folder provided in your project structure.
+Here is exactly how I would suggest setting it up:
+The Solution: Create Constants in UserCommon
+Instead of an enum (which would require you to write an annoying to_string() boilerplate function to convert it back to a std::string for the ErrorRef), you can define a set of constexpr string variables in your own namespace.
+Create a Header File: Create a new file like UserCommon/include/UserCommon/ErrorCodes.h.
+Define Constants: Put your string codes in there under your specific namespace.
+cpp
+#pragma once
+#include <string_view> // or <string>
+namespace user_common_123456789 { // Replace with your actual student IDs
+    namespace ErrorCodes {
+        constexpr std::string_view DRONE_STEP_ERROR = "DRONE_STEP_ERROR";
+        constexpr std::string_view OUT_OF_BOUNDS = "ILLEGAL_MOVEMENT_OUT_OF_BOUNDS";
+        constexpr std::string_view DRONE_EXCEPTION = "DRONE_EXCEPTION";
+        constexpr std::string_view MAP_SAVE_ERROR = "MAP_SAVE_ERROR";
+        // ... add any custom ones your algorithm might throw
+    }
+} // namespace user_common_123456789
+Why this is the best approach:
+Compliance: You aren't touching the forbidden common folder.
+Safety: If you misspell an error code when using it, your code won't compile, rather than failing silently at runtime like a string literal would.
+Clean Usage: When you need to report an error in your Mission Control or Algorithm, you just #include <UserCommon/ErrorCodes.h> and do this:
+cpp
+result.errors.push_back(common::types::ErrorRef{
+    std::string(user_common_123456789::ErrorCodes::DRONE_STEP_ERROR),
+    "Something went wrong!"
+});
+This keeps your code incredibly clean and perfectly aligns with the assignment's rule about using UserCommon for your own shared data!
+
+write readme
+
+rename res to resolution in CollisionUtils.cpp. redundant XLength constructor.
+
+change value to VoxelOccupance enum value in void Logger::logVoxel(int x, int y, int z, int value) in Logger.cpp
+
+pointAlongBeam in ScanResultToVoxels.cpp should be external util and used by MockLidar.cpp too

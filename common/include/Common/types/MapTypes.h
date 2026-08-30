@@ -5,7 +5,7 @@
 namespace common::types {
 
 enum class VoxelOccupancy : signed char {
-    PotentiallyOccupied = -3,
+    PotentiallyOccupied = -3, //obstacle is too close to accurately measure
     OutOfBounds = -2,
     Unmapped = -1,
     Empty = 0,
@@ -30,7 +30,7 @@ struct MappedVoxel {
 struct MapConfig {
     MappingBounds boundaries{};
     Position3D offset{};
-    PhysicalLength resolution{};
+    PhysicalLength resolution{}; //length of each voxel edge
 };
 
 } // namespace common::types

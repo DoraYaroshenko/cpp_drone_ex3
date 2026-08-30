@@ -8,17 +8,17 @@
 namespace common::types {
 
 struct LidarConfigData {
-    PhysicalLength z_min{};
+    PhysicalLength z_min{}; //minimal operational distance from the lidar
     PhysicalLength z_max{};
-    PhysicalLength d{};
-    std::size_t fov_circles = 0;
+    PhysicalLength d{}; //spacing between circles
+    std::size_t fov_circles = 0; //number of beam circles. number of beams on each circle grows exponentially with 4
 };
 
-struct LidarHit {
+struct LidarHit { //when a specific beam hits an obstacle
     PhysicalLength distance{};
     Orientation angle{};
 };
 
-using LidarScanResult = std::vector<LidarHit>;
+using LidarScanResult = std::vector<LidarHit>; //Whenever I write LidarScanResult in the code, I actually mean std::vector<LidarHit>
 
 } // namespace common::types

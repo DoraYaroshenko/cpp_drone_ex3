@@ -10,7 +10,7 @@ namespace common::types {
 
 struct MissionConfigData {
     std::size_t max_steps = 0;
-    PhysicalLength gps_resolution{};
+    PhysicalLength gps_resolution{}; //the GPS will round the drone's true position to the nearest gps_resolution grid point.
     double output_mapping_resolution_factor = 0.0;
     MappingBounds mission_bounds{};
 };

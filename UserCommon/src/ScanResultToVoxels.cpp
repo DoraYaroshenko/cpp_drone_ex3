@@ -15,11 +15,12 @@ namespace {
     return distance == 0.0 * cm;
 }
 
+//did lidar hit no obstacles at max possible distance
 [[nodiscard]] bool isMissDistance(PhysicalLength distance) {
     return distance.force_numerical_value_in(cm) == std::numeric_limits<double>::max();
 }
 
-// LidarHit angles are relative to the scan direction. The map update needs a
+// LidarHit angles are relative to the drone's heading. The map update needs a
 // world-facing beam direction, so we add the drone heading.
 [[nodiscard]] Orientation absoluteBeamOrientation(const Orientation& drone_heading,
                                                   const Orientation& relative_beam) {
@@ -29,7 +30,6 @@ namespace {
     };
 }
 
-// Converts a distance along a beam into a world-space position. Could have been an external util and used with MockLidar.
 [[nodiscard]] Position3D pointAlongBeam(const Position3D& origin,
                                         const Orientation& beam_orientation,
                                         PhysicalLength distance) {
@@ -42,7 +42,8 @@ namespace {
     const double dir_x = dx.force_numerical_value_in(mp::one);
     const double dir_y = dy.force_numerical_value_in(mp::one);
     const double dir_z = dz.force_numerical_value_in(mp::one);
-
+    
+    //the coordinates where exactly the beam hit the wall
     return Position3D{
         origin.x + dir_x * distance_cm * x_extent[cm],
         origin.y + dir_y * distance_cm * y_extent[cm],
