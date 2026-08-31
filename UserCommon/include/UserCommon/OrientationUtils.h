@@ -23,6 +23,14 @@ public:
     // Adds two orientations (e.g. drone heading + relative beam orientation).
     static common::Orientation addOrientations(const common::Orientation& a, 
                                                const common::Orientation& b);
+
+    // Normalizes any mp-units angle to be within [-180, 180] degrees (or equivalent).
+    template<auto Reference, typename ValueType>
+    static mp_units::quantity<Reference, ValueType> normalizeAngle180(mp_units::quantity<Reference, ValueType> angle) {
+        while (angle > 180.0 * Reference) angle -= 360.0 * Reference;
+        while (angle < -180.0 * Reference) angle += 360.0 * Reference;
+        return angle;
+    }
 };
 
 } // namespace user_common_330371063_324976703

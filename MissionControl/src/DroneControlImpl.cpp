@@ -11,14 +11,12 @@ using namespace common;
 using namespace user_common_330371063_324976703;
 
 DroneControlImpl::DroneControlImpl(common::types::DroneConfigData drone,
-                                   common::types::MissionConfigData mission,
                                    ILidar& lidar,
                                    IGPS& gps,
                                    IDroneMovement& movement,
                                    IMutableMap3D& output_map,
                                    IMappingAlgorithm& mapping_algorithm)
     : drone_(std::move(drone)),
-      mission_(std::move(mission)),
       lidar_(lidar),
       gps_(gps),
       movement_(movement),

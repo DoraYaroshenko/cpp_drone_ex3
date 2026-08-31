@@ -2,6 +2,7 @@
 #include <UserCommon/CollisionUtils.h>
 #include <UserCommon/Logger.h>
 #include <Common/MissionControlRegistration.h>
+#include <UserCommon/ErrorCodes.h>
 
 #include <fstream>
 #include <chrono>
@@ -20,7 +21,7 @@ MissionControlImpl_330371063_324976703::MissionControlImpl_330371063_324976703(c
       output_map_(deps.output_map),
       output_map_file_(deps.output_map_file) {
       drone_control_ = std::make_unique<DroneControlImpl>(
-          deps.drone_config, deps.mission_config, deps.lidar, deps.gps, deps.movement,
+          deps.drone_config, deps.lidar, deps.gps, deps.movement,
           deps.output_map, deps.mapping_algorithm);
 }
 
@@ -40,7 +41,8 @@ common::types::MissionRunResult MissionControlImpl_330371063_324976703::runMissi
         }
     };
 
-    for (std::size_t step = 0; step < mission_.max_steps; ++step) {
+    while (drone_control_->state().step_index < mission_.max_steps) {
+        std::size_t step = drone_control_->state().step_index;
         try {
             common::types::DroneStepResult step_result = drone_control_->step();
 
@@ -56,7 +58,7 @@ common::types::MissionRunResult MissionControlImpl_330371063_324976703::runMissi
                 result.status = common::types::MissionRunStatus::Error;
                 result.steps = step + 1;
                 result.errors.push_back(common::types::ErrorRef{
-                    "DRONE_STEP_ERROR",
+                    std::string(user_common_330371063_324976703::ErrorCodes::DRONE_STEP_ERROR),
                     step_result.message
                 });
                 break;
@@ -73,7 +75,7 @@ common::types::MissionRunResult MissionControlImpl_330371063_324976703::runMissi
                 logError("Step " + std::to_string(step) + ": ERROR - Drone flew completely out of the mission boundaries!");
                 result.status = common::types::MissionRunStatus::Error;
                 result.errors.push_back(common::types::ErrorRef{
-                    "ILLEGAL_MOVEMENT_OUT_OF_BOUNDS",
+                    std::string(user_common_330371063_324976703::ErrorCodes::OUT_OF_BOUNDS),
                     "Drone's physical body is outside the configured mission boundaries."
                 });
                 break;
@@ -85,7 +87,7 @@ common::types::MissionRunResult MissionControlImpl_330371063_324976703::runMissi
             result.status = common::types::MissionRunStatus::Error;
             result.steps = step + 1;
             result.errors.push_back(common::types::ErrorRef{
-                "DRONE_EXCEPTION",
+                std::string(user_common_330371063_324976703::ErrorCodes::DRONE_EXCEPTION),
                 e.what()
             });
             break;
@@ -104,7 +106,7 @@ common::types::MissionRunResult MissionControlImpl_330371063_324976703::runMissi
     } catch (const std::exception& e) {
         logError("SAVE ERROR - " + std::string(e.what()));
         result.errors.push_back(common::types::ErrorRef{
-            "MAP_SAVE_ERROR",
+            std::string(user_common_330371063_324976703::ErrorCodes::MAP_SAVE_ERROR),
             e.what()
         });
     }

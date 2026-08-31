@@ -1,6 +1,7 @@
 #include <Simulator/SimulationRunImpl.h>
 
 #include <Simulator/MapsComparison.h>
+#include <UserCommon/ErrorCodes.h>
 #include <iostream>
 
 #include <stdexcept>
@@ -81,7 +82,7 @@ types::SimulationResult SimulationRunImpl::run() {
         
         types::MissionRunResult error_result;
         error_result.status = types::MissionRunStatus::Error;
-        error_result.errors.push_back(types::ErrorRef{"MISSION_EXCEPTION", e.what()});
+        error_result.errors.push_back(types::ErrorRef{std::string(::user_common_330371063_324976703::ErrorCodes::MISSION_EXCEPTION), e.what()});
         result.mission_results.push_back(std::move(error_result));
     }
 

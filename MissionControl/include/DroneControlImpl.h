@@ -13,7 +13,6 @@ using namespace common;
 class DroneControlImpl final : public mission_control::IDroneControl {
 public:
     DroneControlImpl(common::types::DroneConfigData drone,
-                     common::types::MissionConfigData mission,
                      ILidar& lidar,
                      IGPS& gps,
                      IDroneMovement& movement,
@@ -25,7 +24,6 @@ public:
 
 private:
     common::types::DroneConfigData drone_;
-    common::types::MissionConfigData mission_;
     ILidar& lidar_;
     IGPS& gps_;
     IDroneMovement& movement_;

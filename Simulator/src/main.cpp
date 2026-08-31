@@ -5,6 +5,7 @@
 #include <Simulator/YamlParserUtils.h>
 #include <UserCommon/TimeUtils.h>
 
+#include <UserCommon/ErrorCodes.h>
 #include <iostream>
 #include <string>
 #include <vector>
@@ -20,6 +21,7 @@
 #include <thread>
 #include <atomic>
 #include <memory>
+#include <mutex>
 
 void print_usage_and_exit(const std::string& error_msg) { //explains the user how to write command correctly
     std::cerr << "Error: " << error_msg << "\n";
@@ -192,30 +194,57 @@ void load_comparative_plugins(simulator::PluginLoader& loader,
     auto algoFactory = algoFactories[0];
     simulator::MappingAlgorithmRegistrar::getInstance().clear();
     
-    for (const auto& mc_path : parsed_args.mc_plugins_to_load) {
-        loader.loadLibrary(mc_path);
-        auto mcFactories = simulator::MissionControlRegistrar::getInstance().getFactories();
-        std::string mc_name = std::filesystem::path(mc_path).filename().stem().string();
-        if (mcFactories.empty()) {
-            std::cerr << "Warning: Mission Control " << mc_path << " failed to register.\n";
-            std::ofstream err_file(parsed_args.output_base_dir / "error_log.txt", std::ios::app);
-            if (err_file) err_file << "Failed to register mission control: " << mc_name << std::endl;
-            failed_plugins.push_back(mc_name);
-            simulator::MissionControlRegistrar::getInstance().clear();
-            continue;
-        }
-        auto mcFactory = mcFactories[0];
-        simulator::MissionControlRegistrar::getInstance().clear();
-        
-        std::filesystem::path run_out_dir = parsed_args.output_base_dir / mc_name;
-        std::filesystem::create_directories(run_out_dir);
+    std::atomic<size_t> next_plugin{0};
+    std::mutex out_mtx;
 
-        plugin_runs.push_back({
-            mc_name,
-            std::make_unique<simulator::SimulationRunFactoryImpl>(algoFactory, mcFactory),
-            {},
-            run_out_dir
-        });
+    auto worker = [&]() {
+        std::vector<PluginRun> local_runs;
+        std::vector<std::string> local_failed;
+        while (true) {
+            size_t idx = next_plugin.fetch_add(1, std::memory_order_relaxed);
+            if (idx >= parsed_args.mc_plugins_to_load.size()) break;
+            
+            const auto& mc_path = parsed_args.mc_plugins_to_load[idx];
+            loader.loadLibrary(mc_path);
+            auto mcFactories = simulator::MissionControlRegistrar::getInstance().getFactories();
+            std::string mc_name = std::filesystem::path(mc_path).filename().stem().string();
+            if (mcFactories.empty()) {
+                std::cerr << "Warning: Mission Control " << mc_path << " failed to register.\n";
+                {
+                    std::lock_guard<std::mutex> lock(out_mtx);
+                    std::ofstream err_file(parsed_args.output_base_dir / "error_log.txt", std::ios::app);
+                    if (err_file) err_file << "Failed to register mission control: " << mc_name << std::endl;
+                }
+                local_failed.push_back(mc_name);
+                simulator::MissionControlRegistrar::getInstance().clear();
+                continue;
+            }
+            auto mcFactory = mcFactories[0];
+            simulator::MissionControlRegistrar::getInstance().clear();
+            
+            std::filesystem::path run_out_dir = parsed_args.output_base_dir / mc_name;
+            std::filesystem::create_directories(run_out_dir);
+
+            local_runs.push_back({
+                mc_name,
+                std::make_unique<simulator::SimulationRunFactoryImpl>(algoFactory, mcFactory),
+                {},
+                run_out_dir
+            });
+        }
+        std::lock_guard<std::mutex> lock(out_mtx);
+        for (auto& r : local_runs) plugin_runs.push_back(std::move(r));
+        for (auto& f : local_failed) failed_plugins.push_back(std::move(f));
+    };
+
+    if (parsed_args.num_threads <= 1) {
+        worker();
+    } else {
+        int num_extra = std::min<int>(parsed_args.num_threads, static_cast<int>(parsed_args.mc_plugins_to_load.size()));
+        std::vector<std::jthread> threads;
+        for (int i = 0; i < num_extra; ++i) {
+            threads.emplace_back(worker);
+        }
     }
 }
 
@@ -234,30 +263,57 @@ void load_competition_plugins(simulator::PluginLoader& loader,
     auto mcFactory = mcFactories[0];
     simulator::MissionControlRegistrar::getInstance().clear();
     
-    for (const auto& algo_path : parsed_args.algo_plugins_to_load) {
-        loader.loadLibrary(algo_path);
-        auto algoFactories = simulator::MappingAlgorithmRegistrar::getInstance().getFactories();
-        std::string algo_name = std::filesystem::path(algo_path).filename().stem().string();
-        if (algoFactories.empty()) {
-            std::cerr << "Warning: Algorithm " << algo_path << " failed to register.\n";
-            std::ofstream err_file(parsed_args.output_base_dir / "error_log.txt", std::ios::app);
-            if (err_file) err_file << "Failed to register algorithm: " << algo_name << std::endl;
-            failed_plugins.push_back(algo_name);
-            simulator::MappingAlgorithmRegistrar::getInstance().clear();
-            continue;
-        }
-        auto algoFactory = algoFactories[0];
-        simulator::MappingAlgorithmRegistrar::getInstance().clear();
-        
-        std::filesystem::path run_out_dir = parsed_args.output_base_dir / algo_name;
-        std::filesystem::create_directories(run_out_dir);
+    std::atomic<size_t> next_plugin{0};
+    std::mutex out_mtx;
 
-        plugin_runs.push_back({
-            algo_name,
-            std::make_unique<simulator::SimulationRunFactoryImpl>(algoFactory, mcFactory),
-            {},
-            run_out_dir
-        });
+    auto worker = [&]() {
+        std::vector<PluginRun> local_runs;
+        std::vector<std::string> local_failed;
+        while (true) {
+            size_t idx = next_plugin.fetch_add(1, std::memory_order_relaxed);
+            if (idx >= parsed_args.algo_plugins_to_load.size()) break;
+            
+            const auto& algo_path = parsed_args.algo_plugins_to_load[idx];
+            loader.loadLibrary(algo_path);
+            auto algoFactories = simulator::MappingAlgorithmRegistrar::getInstance().getFactories();
+            std::string algo_name = std::filesystem::path(algo_path).filename().stem().string();
+            if (algoFactories.empty()) {
+                std::cerr << "Warning: Algorithm " << algo_path << " failed to register.\n";
+                {
+                    std::lock_guard<std::mutex> lock(out_mtx);
+                    std::ofstream err_file(parsed_args.output_base_dir / "error_log.txt", std::ios::app);
+                    if (err_file) err_file << "Failed to register algorithm: " << algo_name << std::endl;
+                }
+                local_failed.push_back(algo_name);
+                simulator::MappingAlgorithmRegistrar::getInstance().clear();
+                continue;
+            }
+            auto algoFactory = algoFactories[0];
+            simulator::MappingAlgorithmRegistrar::getInstance().clear();
+            
+            std::filesystem::path run_out_dir = parsed_args.output_base_dir / algo_name;
+            std::filesystem::create_directories(run_out_dir);
+
+            local_runs.push_back({
+                algo_name,
+                std::make_unique<simulator::SimulationRunFactoryImpl>(algoFactory, mcFactory),
+                {},
+                run_out_dir
+            });
+        }
+        std::lock_guard<std::mutex> lock(out_mtx);
+        for (auto& r : local_runs) plugin_runs.push_back(std::move(r));
+        for (auto& f : local_failed) failed_plugins.push_back(std::move(f));
+    };
+
+    if (parsed_args.num_threads <= 1) {
+        worker();
+    } else {
+        int num_extra = std::min<int>(parsed_args.num_threads, static_cast<int>(parsed_args.algo_plugins_to_load.size()));
+        std::vector<std::jthread> threads;
+        for (int i = 0; i < num_extra; ++i) {
+            threads.emplace_back(worker);
+        }
     }
 }
 
@@ -307,7 +363,7 @@ void execute_tasks(std::vector<GlobalRunTask>& global_tasks, int num_threads) {
                 error_result.mission_results.push_back(simulator::types::MissionRunResult{
                     simulator::types::MissionRunStatus::Error,
                     0,
-                    {simulator::types::ErrorRef{"SIMULATION_RUN_ERROR", e.what()}}
+                    {simulator::types::ErrorRef{std::string(::user_common_330371063_324976703::ErrorCodes::SIMULATION_RUN_ERROR), e.what()}}
                 });
                 task.plugin_run->results[task.result_index] = std::move(error_result);
             }

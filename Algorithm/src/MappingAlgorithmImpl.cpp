@@ -3,6 +3,7 @@
 #include <Common/IMap3D.h>
 #include <UserCommon/CollisionUtils.h>
 #include <Common/MappingAlgorithmRegistration.h>
+#include <UserCommon/OrientationUtils.h>
 
 #include <mp-units/systems/si/math.h>
 
@@ -203,12 +204,10 @@ Orientation scanOrientationToVoxel(const Position3D& drone_pos,
     AltitudeAngle abs_v(si::atan2(dz * cm, horiz * cm));
 
     HorizontalAngle h_diff = abs_h - drone_heading.horizontal; //difference between absolute angle of the target and drone's heading
-    while (h_diff > 180.0 * horizontal_angle[deg]) h_diff -= 360.0 * horizontal_angle[deg]; //angle normalization so it is between -180 and 180
-    while (h_diff < -180.0 * horizontal_angle[deg]) h_diff += 360.0 * horizontal_angle[deg];
+    h_diff = user_common_330371063_324976703::OrientationUtils::normalizeAngle180(h_diff);
 
     AltitudeAngle v_diff = abs_v - drone_heading.altitude;
-    while (v_diff > 180.0 * altitude_angle[deg]) v_diff -= 360.0 * altitude_angle[deg];
-    while (v_diff < -180.0 * altitude_angle[deg]) v_diff += 360.0 * altitude_angle[deg];
+    v_diff = user_common_330371063_324976703::OrientationUtils::normalizeAngle180(v_diff);
 
     return Orientation{h_diff, v_diff};
 }
@@ -645,9 +644,7 @@ std::optional<common::types::MappingStepCommand> handleFollowPath(
         HorizontalAngle desired_h(si::atan2(dy * cm, dx * cm));
         HorizontalAngle current_h = heading.horizontal;
         HorizontalAngle h_diff = desired_h - current_h;
-
-        while (h_diff > 180.0 * horizontal_angle[deg]) h_diff -= 360.0 * horizontal_angle[deg];
-        while (h_diff < -180.0 * horizontal_angle[deg]) h_diff += 360.0 * horizontal_angle[deg];
+        h_diff = user_common_330371063_324976703::OrientationUtils::normalizeAngle180(h_diff);
 
         double abs_diff = std::abs(h_diff.numerical_value_in(deg));
 

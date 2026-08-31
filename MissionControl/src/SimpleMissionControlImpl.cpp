@@ -1,6 +1,7 @@
 #include "SimpleMissionControlImpl.h"
 #include <Common/MissionControlRegistration.h>
 #include <UserCommon/Logger.h>
+#include <UserCommon/ErrorCodes.h>
 #include <fstream>
 
 #include "DroneControlImpl.h"
@@ -15,7 +16,7 @@ SimpleMissionControlImpl::SimpleMissionControlImpl(common::MissionControlDepende
       output_map_(deps.output_map),
       output_map_file_(deps.output_map_file) {
       drone_control_ = std::make_unique<DroneControlImpl>(
-          deps.drone_config, deps.mission_config, deps.lidar, deps.gps, deps.movement,
+          deps.drone_config, deps.lidar, deps.gps, deps.movement,
           deps.output_map, deps.mapping_algorithm);
 }
 
@@ -33,7 +34,8 @@ common::types::MissionRunResult SimpleMissionControlImpl::runMission() {
         }
     };
 
-    for (std::size_t step = 0; step < mission_.max_steps; ++step) {
+    while (drone_control_->state().step_index < mission_.max_steps) {
+        std::size_t step = drone_control_->state().step_index;
         if (step % 100 == 0) std::cout << "Step: " << step << std::endl;
         try {
             common::types::DroneStepResult step_result = drone_control_->step();
@@ -49,7 +51,7 @@ common::types::MissionRunResult SimpleMissionControlImpl::runMission() {
                 result.status = common::types::MissionRunStatus::Error;
                 result.steps = step + 1;
                 result.errors.push_back(common::types::ErrorRef{
-                    "DRONE_STEP_ERROR",
+                    std::string(user_common_330371063_324976703::ErrorCodes::DRONE_STEP_ERROR),
                     step_result.message
                 });
                 break;
@@ -61,7 +63,7 @@ common::types::MissionRunResult SimpleMissionControlImpl::runMission() {
             result.status = common::types::MissionRunStatus::Error;
             result.steps = step + 1;
             result.errors.push_back(common::types::ErrorRef{
-                "DRONE_EXCEPTION",
+                std::string(user_common_330371063_324976703::ErrorCodes::DRONE_EXCEPTION),
                 e.what()
             });
             break;
@@ -78,7 +80,7 @@ common::types::MissionRunResult SimpleMissionControlImpl::runMission() {
     } catch (const std::exception& e) {
         logError("SAVE ERROR - " + std::string(e.what()));
         result.errors.push_back(common::types::ErrorRef{
-            "MAP_SAVE_ERROR",
+            std::string(user_common_330371063_324976703::ErrorCodes::MAP_SAVE_ERROR),
             e.what()
         });
     }
