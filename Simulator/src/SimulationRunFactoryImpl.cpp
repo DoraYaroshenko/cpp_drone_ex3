@@ -52,7 +52,7 @@ SimulationRunFactoryImpl::create(const types::SimulationConfigData& simulation,
 
     std::vector<std::size_t> shape{sx, sy, sz};
     auto output_npy = std::make_shared<NpyArray>(shape, sizeof(int), NpyArray::GetTypeChar(typeid(int)), false);
-    output_npy->Allocate();
+    output_npy->Allocate(); //allocates memory for a map
     int* data = output_npy->Data<int>();
     std::fill(data, data + output_npy->NumValue(), static_cast<int>(types::VoxelOccupancy::Unmapped));
 

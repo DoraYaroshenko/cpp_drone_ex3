@@ -60,3 +60,23 @@ divide step in DroneControlImpl.cpp to smaller functions
 
 change using namespace common in MockGPS.h to smaller import to prevent namespace pollution
 very weird usings in include/Simulator in general
+
+why did we put all algorithm includes in include, mission control includes in include, but simulator includes in include/simulator
+
+make one function instead of two for producing timestamp in main.cpp
+
+main function in main.cpp is huge and should be divided. It has a lot of repeated code inside
+
+look for repeating math and calculations throughout code and extract them to utilities
+
+more indicative method names in Map3DImpl.cpp
+
+Maybe can divide compare in MapsComparison.cpp into smaller functions
+
+similar code in CollisionUtils and mockMovement, mocklidar and ScanResultToVoxels
+
+no reason to calculate time in SimulationManager.cpp again (calculated in parser utils and main)
+
+in simulation manager, rename next-task to next_task_index
+
+algorithms are run sequantually and not concurrently, also mission controls
