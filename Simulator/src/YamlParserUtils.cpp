@@ -1,5 +1,6 @@
 #include <Simulator/YamlParserUtils.h>
 #include <UserCommon/ConfigParserUtils.h>
+#include <UserCommon/TimeUtils.h>
 #include <Common/Units.h>
 #include <TinyNPY.h>
 
@@ -207,12 +208,7 @@ void YamlParserUtils::writeComparativeReport(
     out << YAML::Key << "mission_control_folder" << YAML::Value << folder_name;
 
     // Get current time for generated_at_utc
-    auto now = std::chrono::system_clock::now();
-    auto utc_time = std::chrono::system_clock::to_time_t(now);
-    std::tm utc_tm = *std::gmtime(&utc_time);
-    std::ostringstream time_ss;
-    time_ss << std::put_time(&utc_tm, "%Y-%m-%dT%H:%M:%SZ");
-    out << YAML::Key << "generated_at_utc" << YAML::Value << time_ss.str();
+    out << YAML::Key << "generated_at_utc" << YAML::Value << TimeUtils::generate_iso_timestamp();
 
     struct ResultBucket {
         double total_score = 0;
@@ -306,12 +302,7 @@ void YamlParserUtils::writeCompetitiveReport(
     out << YAML::Key << "mission_control" << YAML::Value << mission_control_name;
     
     // Get current time for generated_at_utc
-    auto now = std::chrono::system_clock::now();
-    auto utc_time = std::chrono::system_clock::to_time_t(now);
-    std::tm utc_tm = *std::gmtime(&utc_time);
-    std::ostringstream time_ss;
-    time_ss << std::put_time(&utc_tm, "%Y-%m-%dT%H:%M:%SZ");
-    out << YAML::Key << "generated_at_utc" << YAML::Value << time_ss.str();
+    out << YAML::Key << "generated_at_utc" << YAML::Value << TimeUtils::generate_iso_timestamp();
 
     struct AlgoResult {
         std::string algo_so;

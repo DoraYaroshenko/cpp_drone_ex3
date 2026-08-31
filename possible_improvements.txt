@@ -52,10 +52,6 @@ If we were to refactor this to adhere strictly to the Single Responsibility Prin
 2. Extract Map Saving into saveOutputMap The try-catch block at the end that saves the .npy file can easily be its own method.
 3. Extract logError to a private class method Instead of a lambda that captures everything, make it a proper member function.
 
-in DroneControlImpl.cpp - no need for static thread_local in step
-You should remove those lines from step() and move them to be standard private member variables in DroneControlImpl.h:
-Then, in step(), you just use the member variables normally. When a new drone is instantiated, its member variables will be cleanly initialized.
-
 divide step in DroneControlImpl.cpp to smaller functions
 
 change using namespace common in MockGPS.h to smaller import to prevent namespace pollution
@@ -78,5 +74,3 @@ similar code in CollisionUtils and mockMovement, mocklidar and ScanResultToVoxel
 no reason to calculate time in SimulationManager.cpp again (calculated in parser utils and main)
 
 in simulation manager, rename next-task to next_task_index
-
-algorithms are run sequantually and not concurrently, also mission controls

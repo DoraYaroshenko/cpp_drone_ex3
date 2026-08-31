@@ -110,26 +110,21 @@ bool isVoxelPassable(const VoxelIndex& vi,
         return false;
     }
 
-    double drone_r_cm = radius.numerical_value_in(cm);
-    double res = resolution.numerical_value_in(cm);
-    double step = std::max(1.0, res / 2.0);
-
-    for (double dx = -drone_r_cm; dx <= drone_r_cm; dx += step) {
-        for (double dy = -drone_r_cm; dy <= drone_r_cm; dy += step) {
-            for (double dz = -drone_r_cm; dz <= drone_r_cm; dz += step) {
-                if ((dx * dx + dy * dy + dz * dz) > (drone_r_cm * drone_r_cm)) continue;
-                Position3D p{
-                    centre.x + XLength(dx * x_extent[cm]),
-                    centre.y + YLength(dy * y_extent[cm]),
-                    centre.z + ZLength(dz * z_extent[cm])
-                };
-                if (!map.isInBounds(p)) return false;
-                auto v = map.atVoxel(p);
-                if (v == common::types::VoxelOccupancy::Occupied || v == common::types::VoxelOccupancy::PotentiallyOccupied) return false;
-            }
+    bool isPassable = true;
+    CollisionUtils::forEachVoxelInDroneSphere(centre, radius, resolution, [&](const Position3D& p) {
+        if (!map.isInBounds(p)) {
+            isPassable = false;
+            return false;
         }
-    }
-    return true;
+        auto v = map.atVoxel(p);
+        if (v == common::types::VoxelOccupancy::Occupied || v == common::types::VoxelOccupancy::PotentiallyOccupied) {
+            isPassable = false;
+            return false;
+        }
+        return true;
+    });
+
+    return isPassable;
 }
 
 /// Stricter check: all voxels inside the drone sphere must be Empty.
@@ -144,26 +139,21 @@ bool isVoxelKnownSafe(const VoxelIndex& vi,
         return false;
     }
 
-    double drone_r_cm = radius.numerical_value_in(cm);
-    double res = resolution.numerical_value_in(cm);
-    double step = std::max(1.0, res / 2.0);
-
-    for (double dx = -drone_r_cm; dx <= drone_r_cm; dx += step) {
-        for (double dy = -drone_r_cm; dy <= drone_r_cm; dy += step) {
-            for (double dz = -drone_r_cm; dz <= drone_r_cm; dz += step) {
-                if ((dx * dx + dy * dy + dz * dz) > (drone_r_cm * drone_r_cm)) continue;
-                Position3D p{
-                    centre.x + XLength(dx * x_extent[cm]),
-                    centre.y + YLength(dy * y_extent[cm]),
-                    centre.z + ZLength(dz * z_extent[cm])
-                };
-                if (!map.isInBounds(p)) return false;
-                auto v = map.atVoxel(p);
-                if (v != common::types::VoxelOccupancy::Empty) return false;
-            }
+    bool isSafe = true;
+    CollisionUtils::forEachVoxelInDroneSphere(centre, radius, resolution, [&](const Position3D& p) {
+        if (!map.isInBounds(p)) {
+            isSafe = false;
+            return false;
         }
-    }
-    return true;
+        auto v = map.atVoxel(p);
+        if (v != common::types::VoxelOccupancy::Empty) {
+            isSafe = false;
+            return false;
+        }
+        return true;
+    });
+
+    return isSafe;
 }
 
 /// Gather all unmapped/potentially-occupied voxel positions inside the drone
@@ -174,32 +164,22 @@ std::vector<VoxelIndex> getUnknownVoxelsInSphere(const VoxelIndex& vi,
                                                   const IMap3D& map) {
     std::vector<VoxelIndex> unknowns;
     Position3D centre = voxelIndexToPosition(vi, resolution);
-    double drone_r_cm = radius.numerical_value_in(cm);
-    double res = resolution.numerical_value_in(cm);
-    double step = std::max(1.0, res / 2.0);
-
     VoxelSet seen;
-    for (double dx = -drone_r_cm; dx <= drone_r_cm; dx += step) {
-        for (double dy = -drone_r_cm; dy <= drone_r_cm; dy += step) {
-            for (double dz = -drone_r_cm; dz <= drone_r_cm; dz += step) {
-                if ((dx * dx + dy * dy + dz * dz) > (drone_r_cm * drone_r_cm)) continue;
-                Position3D p{
-                    centre.x + XLength(dx * x_extent[cm]),
-                    centre.y + YLength(dy * y_extent[cm]),
-                    centre.z + ZLength(dz * z_extent[cm])
-                };
-                if (!map.isInBounds(p)) continue;
-                auto v = map.atVoxel(p);
-                if (v == common::types::VoxelOccupancy::Unmapped) {
-                    VoxelIndex idx = positionToVoxelIndex(p, resolution);
-                    if (!seen.count(idx)) { //counts the number of idx appearances in set (0 or 1)
-                        seen.insert(idx);
-                        unknowns.push_back(idx);
-                    }
-                }
+
+    CollisionUtils::forEachVoxelInDroneSphere(centre, radius, resolution, [&](const Position3D& p) {
+        if (!map.isInBounds(p)) return true;
+        
+        auto v = map.atVoxel(p);
+        if (v == common::types::VoxelOccupancy::Unmapped) {
+            VoxelIndex idx = positionToVoxelIndex(p, resolution);
+            if (!seen.count(idx)) {
+                seen.insert(idx);
+                unknowns.push_back(idx);
             }
         }
-    }
+        return true;
+    });
+
     return unknowns;
 }
 
@@ -418,6 +398,8 @@ std::vector<VoxelIndex> aStarPath(const VoxelIndex& start,
     return {};
 }
 
+} // namespace
+
 // ---------------------------------------------------------------------------
 // State machine for the Frontier Exploration algorithm
 // ---------------------------------------------------------------------------
@@ -444,12 +426,10 @@ struct SweepState {
     bool initial_scan_done = false;
 };
 
-std::unordered_map<const void*, SweepState> g_sweep_states;
-
 // ---------------------------------------------------------------------------
 // Phase handlers
 // ---------------------------------------------------------------------------
-
+//if there were many states, we would create an interface for state with method to handle it. Every instanse is a state. Automatic transition between states. We have a few states, so it is ok
 std::optional<common::types::MappingStepCommand> handleScanSurroundings(
     SweepState& sweep,
     const Position3D& pos,
@@ -709,15 +689,15 @@ std::optional<common::types::MappingStepCommand> handleFollowPath(
     return std::nullopt;
 }
 
-} // namespace
-
 MappingAlgorithmImpl_330371063_324976703::~MappingAlgorithmImpl_330371063_324976703() {
-    g_sweep_states.erase(this); //deletes sweep state from memory
 }
 
 common::types::MappingStepCommand MappingAlgorithmImpl_330371063_324976703::nextStep(const common::types::DroneState& state,
                                                          const common::types::LidarScanResult* /*latest_scan*/) {
-    auto& sweep = g_sweep_states[this];
+    if (!sweep_state_) {
+        sweep_state_ = std::make_unique<SweepState>();
+    }
+    auto& sweep = *sweep_state_;
     const Position3D& pos = state.position;
     const Orientation& heading = state.heading;
     PhysicalLength resolution = output_map_.getMapConfig().resolution;

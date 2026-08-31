@@ -31,17 +31,15 @@ common::types::DroneStepResult DroneControlImpl::step() {
     // 1. Build current state.
     common::types::DroneState current_state = state();
 
-    // 2. Get the latest scan result pointer (null on first call).
-    static thread_local const common::types::LidarScanResult* last_scan_ptr = nullptr;
-    static thread_local common::types::LidarScanResult last_scan_storage;
+    // 2. We use member variables last_scan_ptr_ and last_scan_storage_ to persist scans between steps.
 
     // 3. Obtain command from algorithm or pending state
     common::types::MappingStepCommand cmd;
     if (pending_command_.has_value()) {
         cmd = pending_command_.value();
     } else {
-        cmd = mapping_algorithm_.nextStep(current_state, last_scan_ptr);
-        last_scan_ptr = nullptr; // Reset scan pointer
+        cmd = mapping_algorithm_.nextStep(current_state, last_scan_ptr_);
+        last_scan_ptr_ = nullptr; // Reset scan pointer
 
         if (cmd.status == common::types::AlgorithmStatus::Finished ||
             cmd.status == common::types::AlgorithmStatus::FinishedWithUnmappableVoxels) {
@@ -127,15 +125,15 @@ common::types::DroneStepResult DroneControlImpl::step() {
     if (is_final_chunk) {
         if (cmd.scan_orientation.has_value()) {
             const Orientation& scan_orient = cmd.scan_orientation.value();
-            last_scan_storage = lidar_.scan(scan_orient);
-            last_scan_ptr = &last_scan_storage;
+            last_scan_storage_ = lidar_.scan(scan_orient);
+            last_scan_ptr_ = &last_scan_storage_;
 
             common::types::LidarConfigData lidar_config = lidar_.config();
             ScanResultToVoxels::applyToMap(
                 output_map_,
                 gps_.position(),
                 gps_.heading(),
-                last_scan_storage,
+                last_scan_storage_,
                 lidar_config
             );
         }
@@ -166,8 +164,8 @@ common::types::DroneStepResult DroneControlImpl::step() {
     );
 
     // If we performed a scan, log the scan rays
-    if (is_final_chunk && cmd.scan_orientation.has_value() && last_scan_ptr != nullptr) {
-        for (const auto& hit : *last_scan_ptr) {
+    if (is_final_chunk && cmd.scan_orientation.has_value() && last_scan_ptr_ != nullptr) {
+        for (const auto& hit : *last_scan_ptr_) {
             Logger::logScan(
                 hit.angle.horizontal.numerical_value_in(deg),
                 hit.angle.altitude.numerical_value_in(deg)

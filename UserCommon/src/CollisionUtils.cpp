@@ -13,43 +13,21 @@ bool CollisionUtils::isDroneColliding(const IMap3D& map, const Position3D& pos, 
     if (map.isInBounds(pos) && map.atVoxel(pos) == common::types::VoxelOccupancy::Occupied) {
         return true;
     }
-    //need numerical_value_in here, to add dx^2+dy^2+dz^2 later
-    double drone_r_cm = radius.numerical_value_in(cm);
     
     // We get the map resolution by retrieving its config.
-    // Map3DImpl implements getMapConfig(), and IMap3D exposes it.
-    auto cfg = map.getMapConfig(); //auto here, because we don't need to know the exact type to understand the purpose
-    double res = cfg.resolution.numerical_value_in(cm);
+    auto cfg = map.getMapConfig();
+    PhysicalLength res = cfg.resolution;
     
-    // Step through the bounding box. enforces a minimum step size of 1.0 cm to optimize performance in case the resolution is tiny. Divide by two so we don't skip a voxel accidentally
-    double step = std::max(1.0, res / 2.0); 
-    
-    //dx,dy,dz - offsetsrelative to the drone's center position
-    for (double dx = -drone_r_cm; dx <= drone_r_cm; dx += step) {
-        for (double dy = -drone_r_cm; dy <= drone_r_cm; dy += step) {
-            for (double dz = -drone_r_cm; dz <= drone_r_cm; dz += step) {
-                // Spherical check for more accurate collision
-                //dx*dx + dy*dy + dz*dz - squared euclidean distance from the center
-                //drone_r_cm*drone_r_cm - squared radius
-                if ((dx*dx + dy*dy + dz*dz) > (drone_r_cm*drone_r_cm)) {
-                    continue; // outside the spherical radius
-                }
-
-                //the specific position we want to check
-                Position3D p{
-                    pos.x + XLength(dx * x_extent[cm]),
-                    pos.y + YLength(dy * y_extent[cm]),
-                    pos.z + ZLength(dz * z_extent[cm])
-                };
-                
-                if (map.isInBounds(p) && map.atVoxel(p) == common::types::VoxelOccupancy::Occupied) {
-                    return true;
-                }
-            }
+    bool collided = false;
+    forEachVoxelInDroneSphere(pos, radius, res, [&](const Position3D& p) {
+        if (map.isInBounds(p) && map.atVoxel(p) == common::types::VoxelOccupancy::Occupied) {
+            collided = true;
+            return false; // Stop iteration
         }
-    }
+        return true; // Continue iteration
+    });
     
-    return false;
+    return collided;
 }
 
 bool CollisionUtils::isDroneFullyInBounds(const IMap3D& map, const Position3D& pos, PhysicalLength radius) {

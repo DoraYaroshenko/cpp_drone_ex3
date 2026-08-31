@@ -3,6 +3,8 @@ add_library(Algorithm_330371063_324976703 SHARED
     ../UserCommon/src/CollisionUtils.cpp
     ../UserCommon/src/ScanResultToVoxels.cpp
     ../UserCommon/src/Logger.cpp
+    ../UserCommon/src/TimeUtils.cpp
+    ../UserCommon/src/OrientationUtils.cpp
 )
 target_include_directories(Algorithm_330371063_324976703 PRIVATE include ../UserCommon/include)
 target_link_libraries(Algorithm_330371063_324976703 common::common)
@@ -13,6 +15,8 @@ add_library(Algorithm_Simple_330371063_324976703 SHARED
     ../UserCommon/src/CollisionUtils.cpp
     ../UserCommon/src/ScanResultToVoxels.cpp
     ../UserCommon/src/Logger.cpp
+    ../UserCommon/src/TimeUtils.cpp
+    ../UserCommon/src/OrientationUtils.cpp
 )
 target_include_directories(Algorithm_Simple_330371063_324976703 PRIVATE include src ../UserCommon/include)
 target_link_libraries(Algorithm_Simple_330371063_324976703 common::common)
@@ -23,6 +27,8 @@ add_library(Algorithm_Const_330371063_324976703 SHARED
     ../UserCommon/src/CollisionUtils.cpp
     ../UserCommon/src/ScanResultToVoxels.cpp
     ../UserCommon/src/Logger.cpp
+    ../UserCommon/src/TimeUtils.cpp
+    ../UserCommon/src/OrientationUtils.cpp
 )
 target_include_directories(Algorithm_Const_330371063_324976703 PRIVATE include src ../UserCommon/include)
 target_link_libraries(Algorithm_Const_330371063_324976703 common::common)
@@ -33,6 +39,8 @@ add_library(Algorithm_Cycling_330371063_324976703 SHARED
     ../UserCommon/src/CollisionUtils.cpp
     ../UserCommon/src/ScanResultToVoxels.cpp
     ../UserCommon/src/Logger.cpp
+    ../UserCommon/src/TimeUtils.cpp
+    ../UserCommon/src/OrientationUtils.cpp
 )
 target_include_directories(Algorithm_Cycling_330371063_324976703 PRIVATE include src ../UserCommon/include)
 target_link_libraries(Algorithm_Cycling_330371063_324976703 common::common)
@@ -43,6 +51,8 @@ add_library(Algorithm_SlowRandom_330371063_324976703 SHARED
     ../UserCommon/src/CollisionUtils.cpp
     ../UserCommon/src/ScanResultToVoxels.cpp
     ../UserCommon/src/Logger.cpp
+    ../UserCommon/src/TimeUtils.cpp
+    ../UserCommon/src/OrientationUtils.cpp
 )
 target_include_directories(Algorithm_SlowRandom_330371063_324976703 PRIVATE include src ../UserCommon/include)
 target_link_libraries(Algorithm_SlowRandom_330371063_324976703 common::common)

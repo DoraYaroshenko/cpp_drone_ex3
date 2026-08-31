@@ -1,9 +1,12 @@
 #pragma once
 
 #include <Common/IMappingAlgorithm.h>
+#include <memory>
 
 namespace algorithm_330371063_324976703 {
 using namespace common;
+
+struct SweepState;
 
 //final means no class can inherit from it
 class MappingAlgorithmImpl_330371063_324976703 final : public IMappingAlgorithm {
@@ -15,6 +18,8 @@ public:
     ~MappingAlgorithmImpl_330371063_324976703() override;
     [[nodiscard]] common::types::MappingStepCommand nextStep(const common::types::DroneState& state,
                                                      const common::types::LidarScanResult* latest_scan) override;
+private:
+    std::unique_ptr<SweepState> sweep_state_;
 };
 
 } // namespace algorithm_330371063_324976703

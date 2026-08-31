@@ -1,4 +1,5 @@
 #include <UserCommon/ScanResultToVoxels.h>
+#include <UserCommon/OrientationUtils.h>
 
 #include <mp-units/systems/si/math.h>
 
@@ -24,31 +25,14 @@ namespace {
 // world-facing beam direction, so we add the drone heading.
 [[nodiscard]] Orientation absoluteBeamOrientation(const Orientation& drone_heading,
                                                   const Orientation& relative_beam) {
-    return Orientation{
-        relative_beam.horizontal + drone_heading.horizontal,
-        relative_beam.altitude + drone_heading.altitude,
-    };
+    return OrientationUtils::addOrientations(relative_beam, drone_heading);
 }
 
 [[nodiscard]] Position3D pointAlongBeam(const Position3D& origin,
                                         const Orientation& beam_orientation,
                                         PhysicalLength distance) {
-    const auto cos_altitude = si::cos(beam_orientation.altitude);
-    const auto dx = cos_altitude * si::cos(beam_orientation.horizontal);
-    const auto dy = cos_altitude * si::sin(beam_orientation.horizontal);
-    const auto dz = si::sin(beam_orientation.altitude);
-
-    const double distance_cm = distance.force_numerical_value_in(cm);
-    const double dir_x = dx.force_numerical_value_in(mp::one);
-    const double dir_y = dy.force_numerical_value_in(mp::one);
-    const double dir_z = dz.force_numerical_value_in(mp::one);
-    
-    //the coordinates where exactly the beam hit the wall
-    return Position3D{
-        origin.x + dir_x * distance_cm * x_extent[cm],
-        origin.y + dir_y * distance_cm * y_extent[cm],
-        origin.z + dir_z * distance_cm * z_extent[cm],
-    };
+    Direction3D dir = OrientationUtils::getBeamDirection(beam_orientation);
+    return OrientationUtils::pointAlongBeam(origin, dir, distance);
 }
 
 // Evidence strength for conflicting writes to the same voxel.

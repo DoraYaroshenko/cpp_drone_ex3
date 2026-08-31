@@ -35,6 +35,9 @@ private:
     
     // State machine for splitting large commands (e.g. drone movements bigger than maximum)
     std::optional<common::types::MappingStepCommand> pending_command_;
+
+    const common::types::LidarScanResult* last_scan_ptr_ = nullptr; //compliance with IMappingAlgorithm.h. Also, the object can't be modified through that pointer
+    common::types::LidarScanResult last_scan_storage_;
 };
 
 } // namespace mission_control_330371063_324976703
