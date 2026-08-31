@@ -84,6 +84,7 @@ void setIfStronger(IMutableMap3D& output_map,
 }
 
 // Walks a beam segment and applies the same observation to each sampled point.
+//if lidar hit something, need to mark the voxels before the hit as empty. if lidar returned 0, need to mark all voxels between 0 and z_min potentially occupied
 void markBeamSegment(IMutableMap3D& output_map,
                      const Position3D& scan_origin,
                      const Orientation& beam_orientation,
@@ -100,7 +101,7 @@ void markBeamSegment(IMutableMap3D& output_map,
     }
 }
 
-} // namespace
+} // anonynous namespace, that allows all the functions above be private for this file
 
 void ScanResultToVoxels::applyToMap(IMutableMap3D& output_map,
                                     const Position3D& scan_origin,
@@ -111,8 +112,7 @@ void ScanResultToVoxels::applyToMap(IMutableMap3D& output_map,
         return;
     }
 
-    // Use a sub-voxel step like MockLidar so we do not skip thin voxels along
-    // diagonal rays.
+    // Use a sub-voxel step like MockLidar so we do not skip thin voxels along diagonal rays.
     const PhysicalLength step = 0.1 * output_map.getMapConfig().resolution;
     if (step <= 0.0 * cm) {
         return;
@@ -122,8 +122,7 @@ void ScanResultToVoxels::applyToMap(IMutableMap3D& output_map,
         const Orientation beam_orientation = absoluteBeamOrientation(drone_heading, hit.angle);
 
         if (isZeroDistance(hit.distance)) {
-            // Distance 0 means the hit happened before z_min. The exact voxel
-            // is unknown, so mark the near segment as uncertain.
+            // Distance 0 means the hit happened before z_min. The exact voxel is unknown, so mark the near segment as uncertain.
             markBeamSegment(output_map,
                             scan_origin,
                             beam_orientation,
@@ -148,8 +147,7 @@ void ScanResultToVoxels::applyToMap(IMutableMap3D& output_map,
         }
 
         if (hit.distance > 0.0 * cm) {
-            // A normal hit proves the path before the hit is empty and the hit
-            // position itself is occupied.
+            // A normal hit proves the path before the hit is empty and the hit position itself is occupied.
             markBeamSegment(output_map,
                             scan_origin,
                             beam_orientation,

@@ -6,8 +6,8 @@
 
 #include <mp-units/systems/si/math.h>
 
-#include <algorithm>
-#include <cmath>
+#include <algorithm> //provides std::sort, std::find, std::max
+#include <cmath> //provides std::sqrt, std::cos, std::pow
 #include <queue>
 #include <vector>
 #include <unordered_map>
@@ -15,7 +15,7 @@
 #include <optional>
 #include <functional>
 #include <array>
-#include <limits>
+#include <limits> //provides std::numeric_limits - infinity for a double, maximum possible int
 #include <tuple>
 
 namespace algorithm_330371063_324976703 {
@@ -24,7 +24,9 @@ using namespace user_common_330371063_324976703;
 
 namespace {
 
+//in cpp, class and struct have the same functionality, different default visibility
 // Voxel index in integer grid coordinates (one voxel per resolution unit).
+//here we use struct and not a class, because fields don't need encapsulation or protection
 struct VoxelIndex {
     int x;
     int y;
@@ -43,11 +45,11 @@ struct VoxelIndex {
     }
 };
 
-// Convert a world-space Position3D to a voxel index given a resolution.
-// Each voxel spans [i*res, (i+1)*res) in each axis.
+// Convert a world-space Position3D to a voxel index given a resolution. Each voxel spans [i*res, (i+1)*res) in each axis.
 [[nodiscard]] inline VoxelIndex positionToVoxelIndex(const Position3D& pos, PhysicalLength resolution) {
     double res = resolution.force_numerical_value_in(cm);
     return {
+        //static cast ensures the conversion is logical at compile time
         static_cast<int>(std::floor(pos.x.force_numerical_value_in(cm) / res)),
         static_cast<int>(std::floor(pos.y.force_numerical_value_in(cm) / res)),
         static_cast<int>(std::floor(pos.z.force_numerical_value_in(cm) / res))
@@ -69,17 +71,17 @@ struct VoxelIndex {
 // ---------------------------------------------------------------------------
 struct VoxelIndexHash {
     std::size_t operator()(const VoxelIndex& v) const noexcept {
-        auto h1 = std::hash<int>{}(v.x);
+        auto h1 = std::hash<int>{}(v.x); //{} creates an instance of a hasher object
         auto h2 = std::hash<int>{}(v.y);
         auto h3 = std::hash<int>{}(v.z);
-        return h1 ^ (h2 * 2654435761u) ^ (h3 * 40503u);
+        return h1 ^ (h2 * 2654435761u) ^ (h3 * 40503u); //xor with large prime numbers
     }
 };
 
 using VoxelSet = std::unordered_set<VoxelIndex, VoxelIndexHash>;
 using VoxelMap = std::unordered_map<VoxelIndex, VoxelIndex, VoxelIndexHash>;
 
-// The 6 cardinal neighbour offsets in 3D grid space.
+// All the neighbours of a specific voxel
 constexpr std::array<VoxelIndex, 6> kNeighbourOffsets = {{
     { 1,  0,  0},
     {-1,  0,  0},
@@ -93,11 +95,11 @@ constexpr std::array<VoxelIndex, 6> kNeighbourOffsets = {{
 // Collision-safe voxel queries
 // ---------------------------------------------------------------------------
 
-/// Check whether a voxel is "passable" for the drone — i.e. the drone can
-/// potentially move there. We require:
+/// Check whether a voxel is "passable" for the drone — i.e. the drone can potentially move there. We require:
 ///   - Drone is fully in bounds
 ///   - No voxel inside the drone sphere is Occupied
 /// Unmapped voxels are allowed (we'll scan before actually entering).
+//checks that the drone center can be safely positioned inside the voxel's center
 bool isVoxelPassable(const VoxelIndex& vi,
                      PhysicalLength resolution,
                      PhysicalLength radius,
@@ -190,7 +192,7 @@ std::vector<VoxelIndex> getUnknownVoxelsInSphere(const VoxelIndex& vi,
                 auto v = map.atVoxel(p);
                 if (v == common::types::VoxelOccupancy::Unmapped) {
                     VoxelIndex idx = positionToVoxelIndex(p, resolution);
-                    if (!seen.count(idx)) {
+                    if (!seen.count(idx)) { //counts the number of idx appearances in set (0 or 1)
                         seen.insert(idx);
                         unknowns.push_back(idx);
                     }
@@ -204,6 +206,7 @@ std::vector<VoxelIndex> getUnknownVoxelsInSphere(const VoxelIndex& vi,
 // ---------------------------------------------------------------------------
 // Compute scan orientations for unmapped voxels near a position
 // ---------------------------------------------------------------------------
+//generate scan orientation for a single voxel
 Orientation scanOrientationToVoxel(const Position3D& drone_pos,
                                    const Orientation& drone_heading,
                                    const VoxelIndex& target_voxel,
@@ -219,8 +222,8 @@ Orientation scanOrientationToVoxel(const Position3D& drone_pos,
     HorizontalAngle abs_h(si::atan2(dy * cm, dx * cm));
     AltitudeAngle abs_v(si::atan2(dz * cm, horiz * cm));
 
-    HorizontalAngle h_diff = abs_h - drone_heading.horizontal;
-    while (h_diff > 180.0 * horizontal_angle[deg]) h_diff -= 360.0 * horizontal_angle[deg];
+    HorizontalAngle h_diff = abs_h - drone_heading.horizontal; //difference between absolute angle of the target and drone's heading
+    while (h_diff > 180.0 * horizontal_angle[deg]) h_diff -= 360.0 * horizontal_angle[deg]; //angle normalization so it is between -180 and 180
     while (h_diff < -180.0 * horizontal_angle[deg]) h_diff += 360.0 * horizontal_angle[deg];
 
     AltitudeAngle v_diff = abs_v - drone_heading.altitude;
@@ -230,13 +233,12 @@ Orientation scanOrientationToVoxel(const Position3D& drone_pos,
     return Orientation{h_diff, v_diff};
 }
 
-/// Generate scan orientations for all unmapped voxels within a given range
-/// (in voxel units) of the drone.
+/// Generate scan orientations for all unmapped voxels within a given range (in voxel units) of the drone
 std::vector<Orientation> generateScansForUnmapped(const Position3D& drone_pos,
                                                    const Orientation& drone_heading,
                                                    PhysicalLength resolution,
                                                    const IMap3D& map,
-                                                   int scan_range) {
+                                                   int scan_range) { //the radius of searched box in voxel units
     std::vector<Orientation> scans;
     VoxelIndex drone_vi = positionToVoxelIndex(drone_pos, resolution);
 
@@ -249,9 +251,8 @@ std::vector<Orientation> generateScansForUnmapped(const Position3D& drone_pos,
                 auto v = map.atVoxel(p);
                 if (v == common::types::VoxelOccupancy::Unmapped) {
                     Orientation orient = scanOrientationToVoxel(drone_pos, drone_heading, target, resolution);
-                    // Deduplicate close orientations
                     bool exists = false;
-                    for (const auto& existing : scans) {
+                    for (const auto& existing : scans) { //Optimization step: the drone has field of view, so if we have two very close voxels, scanning one of them almost certainly will reveal the other one too
                         if (std::abs((existing.horizontal - orient.horizontal).numerical_value_in(deg)) < 1.0 &&
                             std::abs((existing.altitude - orient.altitude).numerical_value_in(deg)) < 1.0) {
                             exists = true;
@@ -281,6 +282,7 @@ struct FrontierResult {
     bool needs_move = false; // true if target != drone position
 };
 
+//finds the closest voxel that is passable and has unmapped neighbors
 FrontierResult findFrontier(const Position3D& drone_pos,
                             PhysicalLength resolution,
                             PhysicalLength radius,
@@ -299,7 +301,7 @@ FrontierResult findFrontier(const Position3D& drone_pos,
         VoxelIndex current = bfs_queue.front();
         bfs_queue.pop();
 
-        // Check if this voxel has any unmapped neighbours
+        // Check if this voxel has any unmapped neighbours. Returns it if true
         bool has_unmapped_neighbour = false;
         for (const auto& offset : kNeighbourOffsets) {
             VoxelIndex nb = current + offset;
@@ -315,22 +317,21 @@ FrontierResult findFrontier(const Position3D& drone_pos,
 
         if (has_unmapped_neighbour) {
             if (current == start) {
-                // Remember that start is a frontier, but keep looking for one
-                // that requires movement
+                // Remember that start is a frontier, but keep looking for one that requires movement
                 start_is_frontier = true;
             } else {
                 return {true, current, true};
             }
         }
 
-        // Expand to neighbours that are passable (not just known-safe)
+        // looks at the 6 neighbors again, uses isVoxelPassable() to check if the drone can physically fit inside that neighbor. If it is safe, and we haven't visited it yet, it pushes that neighbor onto the bfs_queue so the algorithm can step into it and repeat the whole process on the next cycle.
         for (const auto& offset : kNeighbourOffsets) {
             VoxelIndex nb = current + offset;
             if (visited.count(nb)) continue;
             visited.insert(nb);
 
             if (isVoxelPassable(nb, resolution, radius, map)) {
-                bfs_queue.push(nb);
+                bfs_queue.push(nb); //note we only add passable voxels to the queue
             }
         }
     }
@@ -346,11 +347,11 @@ FrontierResult findFrontier(const Position3D& drone_pos,
 // ---------------------------------------------------------------------------
 // A* pathfinding using passable voxels (not just known-safe).
 // ---------------------------------------------------------------------------
-
+//A* the most widely used pathfinding algorithm
 struct AStarNode {
     VoxelIndex pos;
-    double g_cost;
-    double f_cost;
+    double g_cost; //ground cost - the exact known cost to travel from the staring point to a specific voxel
+    double f_cost; //total estimated cost - g_cost + heuristic(educated guess on how far this voxel is from the final goal). f_cost represents the total estimated length of the trip if the drone decides to walk through this specific voxel
 
     bool operator>(const AStarNode& other) const {
         return f_cost > other.f_cost;
@@ -366,7 +367,7 @@ std::vector<VoxelIndex> aStarPath(const VoxelIndex& start,
                                    PhysicalLength resolution,
                                    PhysicalLength radius,
                                    const IMap3D& map) {
-    using PQ = std::priority_queue<AStarNode, std::vector<AStarNode>, std::greater<AStarNode>>;
+    using PQ = std::priority_queue<AStarNode, std::vector<AStarNode>, std::greater<AStarNode>>; //priority queue is always sorted by priority, std::greater makes the priority queue sort in ascending order
     PQ open;
     std::unordered_map<VoxelIndex, double, VoxelIndexHash> g_costs;
     VoxelMap came_from;
@@ -437,7 +438,7 @@ struct SweepState {
     std::vector<VoxelIndex> planned_path;
     std::size_t path_index = 0;
     VoxelIndex frontier_target{0, 0, 0};
-    int stall_count = 0;
+    int stall_count = 0; //optimization: counts the number of times we get frontier_target==last_frontier. If we get more than 50 stalls, be stop
     VoxelIndex last_frontier{-999, -999, -999};
     SweepPhase return_after_scans = SweepPhase::FindFrontier; // where to go after ExecuteScans
     bool initial_scan_done = false;
@@ -456,20 +457,19 @@ std::optional<common::types::MappingStepCommand> handleScanSurroundings(
     PhysicalLength resolution,
     const IMap3D& map) {
 
-    // On first call, do a broad scan (range 5) to map nearby space.
-    // On subsequent calls, use a smaller range.
+    // On first call, do a broad scan (range 5) to map nearby space. On subsequent calls, use a smaller range.
     int range = sweep.initial_scan_done ? 3 : 5;
     sweep.initial_scan_done = true;
 
     sweep.pending_scans = generateScansForUnmapped(pos, heading, resolution, map, range);
 
-    if (!sweep.pending_scans.empty()) {
+    if (!sweep.pending_scans.empty()) { 
         sweep.return_after_scans = SweepPhase::FindFrontier;
         sweep.phase = SweepPhase::ExecuteScans;
-    } else {
+    } else { //meaning no unmapped voxels in a given range
         sweep.phase = SweepPhase::FindFrontier;
     }
-    return std::nullopt;
+    return std::nullopt; //for uniform interface for all handlers and to prevent the main loop from stopping
 }
 
 std::optional<common::types::MappingStepCommand> handleExecuteScans(SweepState& sweep) {
@@ -712,7 +712,7 @@ std::optional<common::types::MappingStepCommand> handleFollowPath(
 } // namespace
 
 MappingAlgorithmImpl_330371063_324976703::~MappingAlgorithmImpl_330371063_324976703() {
-    g_sweep_states.erase(this);
+    g_sweep_states.erase(this); //deletes sweep state from memory
 }
 
 common::types::MappingStepCommand MappingAlgorithmImpl_330371063_324976703::nextStep(const common::types::DroneState& state,
@@ -752,7 +752,7 @@ common::types::MappingStepCommand MappingAlgorithmImpl_330371063_324976703::next
             }
         }
 
-        if (cmd_opt) {
+        if (cmd_opt) { //if a handler returned a command, this step is over and we return it. If it didn't, we go back to the top
             return *cmd_opt;
         }
     }

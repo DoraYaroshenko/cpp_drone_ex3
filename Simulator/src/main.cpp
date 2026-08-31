@@ -18,7 +18,7 @@
 #include <cstdlib>
 #include <algorithm>
 
-void print_usage_and_exit(const std::string& error_msg) {
+void print_usage_and_exit(const std::string& error_msg) { //explains the user how to write command correctly
     std::cerr << "Error: " << error_msg << "\n";
     std::cerr << "Usage:\n";
     std::cerr << "  Comparative run: simulator_<submitter_ids> -comparative simulation=<sim.yaml> mission_control_folder=<folder> algorithm=<algo.so> [num_threads=<num>] [-verbose]\n";
@@ -184,8 +184,6 @@ int main(int argc, char** argv) {
     }
 
     simulator::PluginLoader loader;
-
-    // We will parse compositions once, for now we just verify it works
     simulator::types::SimulationCompositionData composition;
     try {
         composition = simulator::YamlParserUtils::parseCompositions(sim_path);
@@ -214,7 +212,7 @@ int main(int argc, char** argv) {
         simulator::PluginLoader algo_loader;
         algo_loader.loadLibrary(algo_plugins_to_load[0]);
         auto algoFactories = simulator::MappingAlgorithmRegistrar::getInstance().getFactories();
-        std::string algo_name = std::filesystem::path(algo_plugins_to_load[0]).filename().stem().string();
+        std::string algo_name = std::filesystem::path(algo_plugins_to_load[0]).filename().stem().string(); //stem strips off .so extension
         if (algoFactories.empty()) {
             std::ofstream err_file(output_base_dir / "error_log.txt", std::ios::app);
             if (err_file) err_file << "Failed to register algorithm: " << algo_name << std::endl;
@@ -245,7 +243,7 @@ int main(int argc, char** argv) {
             std::filesystem::path run_out_dir = output_base_dir / mc_name;
             std::filesystem::create_directories(run_out_dir);
 
-            simulator::types::SimulationManagerReport report = simulation.run(composition, run_out_dir);
+            simulator::types::SimulationManagerReport report = simulation.run(composition, run_out_dir); //runs the whole composition
             simulator::YamlParserUtils::writeSimulationOutput(report, config, sim_path.filename().string(), run_out_dir, mc_name);
             mission_reports[mc_name] = std::move(report);
             

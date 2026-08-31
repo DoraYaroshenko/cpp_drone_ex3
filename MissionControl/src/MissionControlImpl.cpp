@@ -31,7 +31,7 @@ common::types::MissionRunResult MissionControlImpl_330371063_324976703::runMissi
     // Initialize the logger for this mission run
     Logger::init((output_map_file_.parent_path() / "drone_logs.jsonl").string());
 
-    auto logError = [&](const std::string& msg) {
+    auto logError = [&](const std::string& msg) { //[&] captures all local variables by reference
         std::filesystem::path error_log_path = output_map_file_.parent_path() / "error_log.txt";
         std::filesystem::create_directories(output_map_file_.parent_path());
         std::ofstream error_log(error_log_path, std::ios::app);

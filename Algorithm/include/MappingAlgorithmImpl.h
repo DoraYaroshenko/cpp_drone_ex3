@@ -5,10 +5,13 @@
 namespace algorithm_330371063_324976703 {
 using namespace common;
 
+//final means no class can inherit from it
 class MappingAlgorithmImpl_330371063_324976703 final : public IMappingAlgorithm {
 public:
-    //explicit MappingAlgorithmImpl(const common::types::DroneConfigData drone_config, const IMap3D& output_map);
+    //inherits constructor from the base class
     using IMappingAlgorithm::IMappingAlgorithm;
+
+    //override tells the compiler we intend to override a virtual method from the base class, if not it will give an error. So if we make a typo in the signature, we don't accidentally create a new method 
     ~MappingAlgorithmImpl_330371063_324976703() override;
     [[nodiscard]] common::types::MappingStepCommand nextStep(const common::types::DroneState& state,
                                                      const common::types::LidarScanResult* latest_scan) override;

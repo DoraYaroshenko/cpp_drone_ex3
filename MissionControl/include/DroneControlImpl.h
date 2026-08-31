@@ -33,7 +33,7 @@ private:
     IMappingAlgorithm& mapping_algorithm_;
     std::size_t step_index_ = 0;
     
-    // State machine for splitting large commands
+    // State machine for splitting large commands (e.g. drone movements bigger than maximum)
     std::optional<common::types::MappingStepCommand> pending_command_;
 };
 

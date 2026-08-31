@@ -35,3 +35,28 @@ rename res to resolution in CollisionUtils.cpp. redundant XLength constructor.
 change value to VoxelOccupance enum value in void Logger::logVoxel(int x, int y, int z, int value) in Logger.cpp
 
 pointAlongBeam in ScanResultToVoxels.cpp should be external util and used by MockLidar.cpp too
+
+make variables names more indicative in bool isVoxelKnownSafe and getUnknownVoxelsInSphere in MappingAlgorithmImpl.cpp
+
+getUnknownVoxelsInSphere update count to contains in MappingAlgorithmImpl.cpp
+
+divide handleFollowPath in MappingAlgorithmImpl.cpp to several functions
+
+maybe make angle normalization a common utility
+
+redundant common::types::MissionConfigData mission_ in DroneControlImpl.h/.cpp
+
+maybe divide runMission in MissionControlImpl.cpp into several funcs
+If we were to refactor this to adhere strictly to the Single Responsibility Principle, we could divide it into three private helper methods:
+1. Extract the main loop body into executeSingleStep You could pull the inside of the for loop into a method that returns a boolean indicating whether the mission should continue.
+2. Extract Map Saving into saveOutputMap The try-catch block at the end that saves the .npy file can easily be its own method.
+3. Extract logError to a private class method Instead of a lambda that captures everything, make it a proper member function.
+
+in DroneControlImpl.cpp - no need for static thread_local in step
+You should remove those lines from step() and move them to be standard private member variables in DroneControlImpl.h:
+Then, in step(), you just use the member variables normally. When a new drone is instantiated, its member variables will be cleanly initialized.
+
+divide step in DroneControlImpl.cpp to smaller functions
+
+change using namespace common in MockGPS.h to smaller import to prevent namespace pollution
+very weird usings in include/Simulator in general

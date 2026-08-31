@@ -134,7 +134,7 @@ bool Map3DImpl::isInBounds(const Position3D& pos) const {
     return idx != static_cast<std::size_t>(-1);
 }
 
-void Map3DImpl::set(const Position3D& pos, types::VoxelOccupancy value) {
+void Map3DImpl::set(const Position3D& pos, types::VoxelOccupancy value) { //modifies the map in memory during the simulation
     const auto& shape = map_->Shape();
     if (shape.size() != 3) {
         return;
@@ -189,7 +189,7 @@ void Map3DImpl::set(const Position3D& pos, types::VoxelOccupancy value) {
     }
 }
 
-void Map3DImpl::save(const std::filesystem::path& path) const {
+void Map3DImpl::save(const std::filesystem::path& path) const { //saves the map to disk
     const auto& shape = map_->Shape();
     if (shape.size() != 3) {
         throw std::runtime_error("Cannot save map: invalid shape.");

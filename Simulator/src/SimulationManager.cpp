@@ -32,7 +32,7 @@ SimulationManager::SimulationManager(std::unique_ptr<ISimulationRunFactory> run_
     }
 }
 
-// Helper struct to hold task parameters
+// Helper struct to hold task (single mission) parameters
 struct RunTask {
     const types::SimulationConfigData* simulation;
     const types::MissionConfigData* mission;
@@ -84,7 +84,7 @@ types::SimulationManagerReport SimulationManager::run(const types::SimulationCom
 
     auto worker = [&]() {
         while (true) {
-            size_t idx = next_task.fetch_add(1, std::memory_order_relaxed);
+            size_t idx = next_task.fetch_add(1, std::memory_order_relaxed); //fetch_add(1) fetches the current value of an atomic variable and adds 1. memory_order_relaxed tells the cpmpiler to check that this addition is atomic and not to worry about other variables
             if (idx >= tasks.size()) {
                 break;
             }
@@ -123,7 +123,7 @@ types::SimulationManagerReport SimulationManager::run(const types::SimulationCom
         int num_extra_threads = std::min<int>(num_threads_, static_cast<int>(tasks.size()));
         std::vector<std::jthread> threads;
         for (int i = 0; i < num_extra_threads; ++i) {
-            threads.emplace_back(worker);
+            threads.emplace_back(worker); //passes worker to std::jthread constructor and builds the object inside the vector
         }
         
         // Also do work on the main thread if needed
