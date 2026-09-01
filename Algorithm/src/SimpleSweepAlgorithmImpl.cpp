@@ -1,4 +1,4 @@
-#include "SimpleSweepAlgorithmImpl.h"
+#include "Algorithm/SimpleSweepAlgorithmImpl.h"
 #include <Common/MappingAlgorithmRegistration.h>
 #include <UserCommon/CollisionUtils.h>
 

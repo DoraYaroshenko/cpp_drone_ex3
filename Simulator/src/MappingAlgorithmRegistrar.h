@@ -38,7 +38,7 @@ private:
     MappingAlgorithmRegistrar& operator=(const MappingAlgorithmRegistrar&) = delete;
 
     std::mutex mtx_;
-    std::unordered_map<std::thread::id, std::vector<common::MappingAlgorithmFactory>> factories_;
+    std::unordered_map<std::thread::id, std::vector<common::MappingAlgorithmFactory>> factories_; //in registrar the key is thread_id and the value is the factories of the libraries it loaded
 };
 
 } // namespace simulator

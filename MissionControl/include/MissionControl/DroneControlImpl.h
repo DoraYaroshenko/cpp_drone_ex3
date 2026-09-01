@@ -23,6 +23,11 @@ public:
     [[nodiscard]] common::types::DroneState state() const override;
 
 private:
+    std::optional<common::types::DroneStepResult> fetchCommand(const common::types::DroneState& current_state, common::types::MappingStepCommand& out_cmd);
+    std::optional<common::types::DroneStepResult> executeMovementChunk(common::types::MovementCommand& move, bool& out_is_final_chunk);
+    void executeScan(const common::types::MappingStepCommand& cmd);
+    void logActivity(const common::types::MappingStepCommand& cmd, bool is_final_chunk);
+
     common::types::DroneConfigData drone_;
     ILidar& lidar_;
     IGPS& gps_;

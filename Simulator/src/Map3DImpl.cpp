@@ -163,9 +163,9 @@ void Map3DImpl::set(const Position3D& pos, types::VoxelOccupancy value) { //modi
         ix = static_cast<int>(idx / (sy * sz));
     }
 
-    auto logIfChanged = [ix, iy, iz, raw_value](int current_val) {
+    auto logIfChanged = [ix, iy, iz, value, raw_value](int current_val) {
         if (current_val != raw_value) {
-            ::user_common_330371063_324976703::Logger::logVoxel(ix, iy, iz, raw_value);
+            ::user_common_330371063_324976703::Logger::logVoxel(ix, iy, iz, value);
         }
     };
 

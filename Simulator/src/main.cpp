@@ -187,7 +187,7 @@ void load_comparative_plugins(simulator::PluginLoader& loader,
     auto algoFactories = simulator::MappingAlgorithmRegistrar::getInstance().getFactories();
     std::string algo_name = std::filesystem::path(parsed_args.algo_plugins_to_load[0]).filename().stem().string();
     if (algoFactories.empty()) {
-        std::ofstream err_file(parsed_args.output_base_dir / "error_log.txt", std::ios::app);
+        std::ofstream err_file(parsed_args.output_base_dir / "error_log.txt", std::ios::app); //write at the end of the file
         if (err_file) err_file << "Failed to register algorithm: " << algo_name << std::endl;
         print_usage_and_exit("Algorithm failed to register.");
     }
@@ -220,7 +220,7 @@ void load_comparative_plugins(simulator::PluginLoader& loader,
                 continue;
             }
             auto mcFactory = mcFactories[0];
-            simulator::MissionControlRegistrar::getInstance().clear();
+            simulator::MissionControlRegistrar::getInstance().clear(); //in registrar the key is thread_id and the value is the factories of the libraries it loaded
             
             std::filesystem::path run_out_dir = parsed_args.output_base_dir / mc_name;
             std::filesystem::create_directories(run_out_dir);
@@ -232,7 +232,7 @@ void load_comparative_plugins(simulator::PluginLoader& loader,
                 run_out_dir
             });
         }
-        std::lock_guard<std::mutex> lock(out_mtx);
+        std::lock_guard<std::mutex> lock(out_mtx); //unlocks automatically when worker ends
         for (auto& r : local_runs) plugin_runs.push_back(std::move(r));
         for (auto& f : local_failed) failed_plugins.push_back(std::move(f));
     };
@@ -241,9 +241,9 @@ void load_comparative_plugins(simulator::PluginLoader& loader,
         worker();
     } else {
         int num_extra = std::min<int>(parsed_args.num_threads, static_cast<int>(parsed_args.mc_plugins_to_load.size()));
-        std::vector<std::jthread> threads;
+        std::vector<std::jthread> threads; //join happens when threads vector goes out of scope
         for (int i = 0; i < num_extra; ++i) {
-            threads.emplace_back(worker);
+            threads.emplace_back(worker); //construct and append in place
         }
     }
 }
@@ -271,7 +271,7 @@ void load_competition_plugins(simulator::PluginLoader& loader,
         std::vector<std::string> local_failed;
         while (true) {
             size_t idx = next_plugin.fetch_add(1, std::memory_order_relaxed);
-            if (idx >= parsed_args.algo_plugins_to_load.size()) break;
+            if (idx >= parsed_args.algo_plugins_to_load.size()) break; //the loop ends when there are no more plugins to load
             
             const auto& algo_path = parsed_args.algo_plugins_to_load[idx];
             loader.loadLibrary(algo_path);

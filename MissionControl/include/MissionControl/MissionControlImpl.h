@@ -18,6 +18,11 @@ public:
     [[nodiscard]] common::types::MissionRunResult runMission() override;
 
 private:
+    void recordError(const std::string& errorCode, const std::string& message, common::types::MissionRunResult& result, const std::string& logPrefix = "") const;
+    void executeMissionLoop(common::types::MissionRunResult& result);
+    void finalizeMissionResult(common::types::MissionRunResult& result);
+    void saveMap(common::types::MissionRunResult& result);
+
     common::types::MissionConfigData mission_;
     common::types::DroneConfigData drone_;
     IMutableMap3D& output_map_;

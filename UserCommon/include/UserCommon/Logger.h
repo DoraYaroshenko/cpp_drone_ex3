@@ -27,7 +27,7 @@ public:
                             
     static void logScan(double relative_h_angle_deg, double relative_v_angle_deg);
     
-    static void logVoxel(int x, int y, int z, int value);
+    static void logVoxel(int x, int y, int z, common::types::VoxelOccupancy occupancy);
 
 private:
     static thread_local std::ofstream out_stream_; //output file stream

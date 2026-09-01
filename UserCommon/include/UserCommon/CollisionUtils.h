@@ -45,21 +45,21 @@ public:
                                           PhysicalLength radius, 
                                           PhysicalLength resolution, 
                                           Func callback) {
-        double drone_r_cm = radius.numerical_value_in(cm);
-        double res = resolution.numerical_value_in(cm);
-        double step = std::max(1.0, res / 2.0);
+        double droneRadiusCm = radius.numerical_value_in(cm);
+        double resolutionCm = resolution.numerical_value_in(cm);
+        double stepSizeCm = std::max(1.0, resolutionCm / 2.0);
 
-        for (double dx = -drone_r_cm; dx <= drone_r_cm; dx += step) {
-            for (double dy = -drone_r_cm; dy <= drone_r_cm; dy += step) {
-                for (double dz = -drone_r_cm; dz <= drone_r_cm; dz += step) {
-                    if ((dx * dx + dy * dy + dz * dz) > (drone_r_cm * drone_r_cm)) continue;
-                    Position3D p{
-                        center.x + XLength(dx * x_extent[cm]),
-                        center.y + YLength(dy * y_extent[cm]),
-                        center.z + ZLength(dz * z_extent[cm])
+        for (double deltaXCm = -droneRadiusCm; deltaXCm <= droneRadiusCm; deltaXCm += stepSizeCm) {
+            for (double deltaYCm = -droneRadiusCm; deltaYCm <= droneRadiusCm; deltaYCm += stepSizeCm) {
+                for (double deltaZCm = -droneRadiusCm; deltaZCm <= droneRadiusCm; deltaZCm += stepSizeCm) {
+                    if ((deltaXCm * deltaXCm + deltaYCm * deltaYCm + deltaZCm * deltaZCm) > (droneRadiusCm * droneRadiusCm)) continue;
+                    Position3D voxelPosition{
+                        center.x + deltaXCm * x_extent[cm],
+                        center.y + deltaYCm * y_extent[cm],
+                        center.z + deltaZCm * z_extent[cm]
                     };
                     
-                    if (!callback(p)) {
+                    if (!callback(voxelPosition)) {
                         return;
                     }
                 }

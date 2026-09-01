@@ -1,4 +1,4 @@
-#include "Algorithm/MappingAlgorithmImpl.h"
+#include "Algorithm/OptimizedAlgorithmImpl.h"
 #include <Common/Units.h>
 #include <Common/IMap3D.h>
 #include <UserCommon/CollisionUtils.h>
@@ -257,11 +257,9 @@ std::vector<Orientation> generateScansForUnmapped(const Position3D& drone_pos,
 // ---------------------------------------------------------------------------
 struct FrontierResult {
     bool found = false;
-    VoxelIndex target{0, 0, 0};
-    bool needs_move = false; // true if target != drone position
+    std::vector<VoxelIndex> path;
 };
 
-//finds the closest voxel that is passable and has unmapped neighbors
 FrontierResult findFrontier(const Position3D& drone_pos,
                             PhysicalLength resolution,
                             PhysicalLength radius,
@@ -270,6 +268,7 @@ FrontierResult findFrontier(const Position3D& drone_pos,
 
     std::queue<VoxelIndex> bfs_queue;
     VoxelSet visited;
+    VoxelMap came_from;
 
     bfs_queue.push(start);
     visited.insert(start);
@@ -299,7 +298,15 @@ FrontierResult findFrontier(const Position3D& drone_pos,
                 // Remember that start is a frontier, but keep looking for one that requires movement
                 start_is_frontier = true;
             } else {
-                return {true, current, true};
+                std::vector<VoxelIndex> path;
+                VoxelIndex node = current;
+                while (!(node == start)) {
+                    path.push_back(node);
+                    node = came_from[node];
+                }
+                path.push_back(start);
+                std::reverse(path.begin(), path.end());
+                return {true, path};
             }
         }
 
@@ -310,6 +317,7 @@ FrontierResult findFrontier(const Position3D& drone_pos,
             visited.insert(nb);
 
             if (isVoxelPassable(nb, resolution, radius, map)) {
+                came_from[nb] = current;
                 bfs_queue.push(nb); //note we only add passable voxels to the queue
             }
         }
@@ -317,85 +325,13 @@ FrontierResult findFrontier(const Position3D& drone_pos,
 
     // If we found no remote frontier but start itself is one, return it
     if (start_is_frontier) {
-        return {true, start, false};
+        return {true, {start}};
     }
 
-    return {false, {0, 0, 0}, false};
+    return {false, {}};
 }
 
-// ---------------------------------------------------------------------------
-// A* pathfinding using passable voxels (not just known-safe).
-// ---------------------------------------------------------------------------
-//A* the most widely used pathfinding algorithm
-struct AStarNode {
-    VoxelIndex pos;
-    double g_cost; //ground cost - the exact known cost to travel from the staring point to a specific voxel
-    double f_cost; //total estimated cost - g_cost + heuristic(educated guess on how far this voxel is from the final goal). f_cost represents the total estimated length of the trip if the drone decides to walk through this specific voxel
 
-    bool operator>(const AStarNode& other) const {
-        return f_cost > other.f_cost;
-    }
-};
-
-double heuristic(const VoxelIndex& a, const VoxelIndex& b) {
-    return std::abs(a.x - b.x) + std::abs(a.y - b.y) + std::abs(a.z - b.z);
-}
-
-std::vector<VoxelIndex> aStarPath(const VoxelIndex& start,
-                                   const VoxelIndex& goal,
-                                   PhysicalLength resolution,
-                                   PhysicalLength radius,
-                                   const IMap3D& map) {
-    using PQ = std::priority_queue<AStarNode, std::vector<AStarNode>, std::greater<AStarNode>>; //priority queue is always sorted by priority, std::greater makes the priority queue sort in ascending order
-    PQ open;
-    std::unordered_map<VoxelIndex, double, VoxelIndexHash> g_costs;
-    VoxelMap came_from;
-
-    open.push({start, 0.0, heuristic(start, goal)});
-    g_costs[start] = 0.0;
-
-    while (!open.empty()) {
-        AStarNode current = open.top();
-        open.pop();
-
-        if (current.pos == goal) {
-            std::vector<VoxelIndex> path;
-            VoxelIndex node = goal;
-            while (!(node == start)) {
-                path.push_back(node);
-                node = came_from[node];
-            }
-            path.push_back(start);
-            std::reverse(path.begin(), path.end());
-            return path;
-        }
-
-        if (current.g_cost > g_costs[current.pos] + 1e-9) {
-            continue;
-        }
-
-        for (const auto& offset : kNeighbourOffsets) {
-            VoxelIndex nb = current.pos + offset;
-
-            // Path through passable voxels (no occupied in drone sphere)
-            if (!isVoxelPassable(nb, resolution, radius, map)) {
-                continue;
-            }
-
-            double tentative_g = current.g_cost + 1.0;
-            auto it = g_costs.find(nb);
-            if (it != g_costs.end() && tentative_g >= it->second) {
-                continue;
-            }
-
-            g_costs[nb] = tentative_g;
-            came_from[nb] = current.pos;
-            open.push({nb, tentative_g, tentative_g + heuristic(nb, goal)});
-        }
-    }
-
-    return {};
-}
 
 } // namespace
 
@@ -407,7 +343,6 @@ enum class SweepPhase {
     ScanSurroundings,  // Generate scans for nearby unmapped voxels
     ExecuteScans,      // Drain pending scan queue
     FindFrontier,      // BFS to find nearest unmapped frontier
-    PlanPath,          // A* path to frontier
     FollowPath,        // Execute movement commands along path
     ScanBeforeMove,    // Scan unknown voxels in drone sphere at next path step
     Finished,
@@ -472,7 +407,7 @@ std::optional<common::types::MappingStepCommand> handleFindFrontier(
 
     auto result = findFrontier(pos, resolution, radius, map);
     if (result.found) {
-        sweep.frontier_target = result.target;
+        sweep.frontier_target = result.path.back();
 
         // Stall detection
         if (sweep.frontier_target == sweep.last_frontier) {
@@ -486,44 +421,18 @@ std::optional<common::types::MappingStepCommand> handleFindFrontier(
             return std::nullopt;
         }
 
-        if (!result.needs_move) {
+        if (result.path.size() <= 1) {
             // We're at the frontier; scan again and the map should update,
             // then next time findFrontier will find a remote one
             sweep.phase = SweepPhase::ScanSurroundings;
         } else {
-            sweep.phase = SweepPhase::PlanPath;
+            sweep.planned_path = std::move(result.path);
+            sweep.path_index = 1; // Skip start
+            sweep.phase = SweepPhase::FollowPath;
         }
     } else {
         sweep.phase = SweepPhase::Finished;
     }
-    return std::nullopt;
-}
-
-std::optional<common::types::MappingStepCommand> handlePlanPath(
-    SweepState& sweep,
-    const Position3D& pos,
-    PhysicalLength resolution,
-    PhysicalLength radius,
-    const IMap3D& map) {
-
-    VoxelIndex start = positionToVoxelIndex(pos, resolution);
-
-    if (start == sweep.frontier_target) {
-        // Already here — scan and find a new target
-        sweep.phase = SweepPhase::ScanSurroundings;
-        return std::nullopt;
-    }
-
-    auto path = aStarPath(start, sweep.frontier_target, resolution, radius, map);
-    if (path.empty()) {
-        // Can't reach this frontier — scan more and try again
-        sweep.phase = SweepPhase::ScanSurroundings;
-        return std::nullopt;
-    }
-
-    sweep.planned_path = std::move(path);
-    sweep.path_index = 1; // Skip start
-    sweep.phase = SweepPhase::FollowPath;
     return std::nullopt;
 }
 
@@ -717,10 +626,10 @@ std::optional<common::types::MappingStepCommand> handleFollowPath(
     return std::nullopt;
 }
 
-MappingAlgorithmImpl_330371063_324976703::~MappingAlgorithmImpl_330371063_324976703() {
+OptimizedAlgorithmImpl_330371063_324976703::~OptimizedAlgorithmImpl_330371063_324976703() {
 }
 
-common::types::MappingStepCommand MappingAlgorithmImpl_330371063_324976703::nextStep(const common::types::DroneState& state,
+common::types::MappingStepCommand OptimizedAlgorithmImpl_330371063_324976703::nextStep(const common::types::DroneState& state,
                                                          const common::types::LidarScanResult* /*latest_scan*/) {
     if (!sweep_state_) {
         sweep_state_ = std::make_unique<SweepState>();
@@ -744,9 +653,6 @@ common::types::MappingStepCommand MappingAlgorithmImpl_330371063_324976703::next
             case SweepPhase::FindFrontier:
                 cmd_opt = handleFindFrontier(sweep, pos, resolution, radius, output_map_);
                 break;
-            case SweepPhase::PlanPath:
-                cmd_opt = handlePlanPath(sweep, pos, resolution, radius, output_map_);
-                break;
             case SweepPhase::FollowPath:
                 cmd_opt = handleFollowPath(sweep, pos, heading, resolution, radius, output_map_, drone_config_);
                 break;
@@ -766,6 +672,6 @@ common::types::MappingStepCommand MappingAlgorithmImpl_330371063_324976703::next
     }
 }
 
-REGISTER_MAPPING_ALGORITHM(MappingAlgorithmImpl_330371063_324976703);
+REGISTER_MAPPING_ALGORITHM(OptimizedAlgorithmImpl_330371063_324976703);
 
 } // namespace algorithm_330371063_324976703

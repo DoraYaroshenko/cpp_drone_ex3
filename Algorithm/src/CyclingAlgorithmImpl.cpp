@@ -1,4 +1,4 @@
-#include "CyclingAlgorithmImpl.h"
+#include "Algorithm/CyclingAlgorithmImpl.h"
 #include <Common/MappingAlgorithmRegistration.h>
 
 namespace algorithm_330371063_324976703 {
