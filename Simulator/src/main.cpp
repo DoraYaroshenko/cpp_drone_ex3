@@ -227,7 +227,7 @@ void load_comparative_plugins(simulator::PluginLoader& loader,
 
             local_runs.push_back({
                 mc_name,
-                std::make_unique<simulator::SimulationRunFactoryImpl>(algoFactory, mcFactory),
+                std::make_unique<simulator::SimulationRunFactoryImpl>(algoFactory, mcFactory, parsed_args.is_verbose),
                 {},
                 run_out_dir
             });
@@ -296,7 +296,7 @@ void load_competition_plugins(simulator::PluginLoader& loader,
 
             local_runs.push_back({
                 algo_name,
-                std::make_unique<simulator::SimulationRunFactoryImpl>(algoFactory, mcFactory),
+                std::make_unique<simulator::SimulationRunFactoryImpl>(algoFactory, mcFactory, parsed_args.is_verbose),
                 {},
                 run_out_dir
             });

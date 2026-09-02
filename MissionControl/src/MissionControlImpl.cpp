@@ -19,7 +19,8 @@ MissionControlImpl_330371063_324976703::MissionControlImpl_330371063_324976703(c
     : mission_(deps.mission_config),
       drone_(deps.drone_config),
       output_map_(deps.output_map),
-      output_map_file_(deps.output_map_file) {
+      output_map_file_(deps.output_map_file),
+      verbose_(deps.verbose) {
       drone_control_ = std::make_unique<DroneControlImpl>(
           deps.drone_config, deps.lidar, deps.gps, deps.movement,
           deps.output_map, deps.mapping_algorithm);
@@ -108,14 +109,18 @@ common::types::MissionRunResult MissionControlImpl_330371063_324976703::runMissi
     common::types::MissionRunResult result;
     result.status = common::types::MissionRunStatus::Completed;
 
-    // Initialize the logger for this mission run
-    Logger::init((output_map_file_.parent_path() / "drone_logs.jsonl").string());
+    // Initialize the logger for this mission run if verbose
+    if (verbose_) {
+        Logger::init((output_map_file_.parent_path() / "drone_logs.jsonl").string());
+    }
 
     executeMissionLoop(result);
     finalizeMissionResult(result);
     saveMap(result);
 
-    Logger::close();
+    if (verbose_) {
+        Logger::close();
+    }
     return result;
 }
 

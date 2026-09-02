@@ -28,6 +28,7 @@ private:
     IMutableMap3D& output_map_;
     std::unique_ptr<mission_control::IDroneControl> drone_control_;
     std::filesystem::path output_map_file_;
+    bool verbose_;
 };
 
 } // namespace mission_control_330371063_324976703

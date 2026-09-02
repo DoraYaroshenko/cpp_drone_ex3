@@ -17,9 +17,11 @@ using namespace common;
 
 SimulationRunFactoryImpl::SimulationRunFactoryImpl(
     common::MappingAlgorithmFactory algo_factory,
-    common::MissionControlFactory mc_factory)
+    common::MissionControlFactory mc_factory,
+    bool is_verbose)
     : algo_factory_(std::move(algo_factory)),
-      mc_factory_(std::move(mc_factory)) {
+      mc_factory_(std::move(mc_factory)),
+      is_verbose_(is_verbose) {
 }
 
 std::unique_ptr<ISimulationRun>
@@ -84,7 +86,7 @@ SimulationRunFactoryImpl::create(const types::SimulationConfigData& simulation,
         *output_map,
         *mapping_algorithm,
         output_path,
-        false // verbose
+        is_verbose_
     };
     auto mission_control = mc_factory_(mc_deps);
 
