@@ -43,6 +43,37 @@ void checkMoveSafety(const IMap3D& map, const Position3D& pos, PhysicalLength ra
         }
     }
 }
+
+void checkPathSafety(const IMap3D& map, const Position3D& start, const Position3D& end, PhysicalLength radius) {
+    auto dx = end.x - start.x;
+    auto dy = end.y - start.y;
+    auto dz = end.z - start.z;
+    
+    // We must extract to double here because dx, dy, and dz are orthogonal extents 
+    // (XLength, YLength, ZLength). mp-units strictly forbids adding x_extent^2 to y_extent^2.
+    double dx_val = dx.numerical_value_in(cm);
+    double dy_val = dy.numerical_value_in(cm);
+    double dz_val = dz.numerical_value_in(cm);
+    PhysicalLength total_dist(std::sqrt(dx_val*dx_val + dy_val*dy_val + dz_val*dz_val) * cm);
+    
+    PhysicalLength res = map.getMapConfig().resolution;
+    PhysicalLength step = (res / 2.0 < 1.0 * cm) ? PhysicalLength(1.0 * cm) : (res / 2.0);
+    
+    for (PhysicalLength d = 0.0 * cm; d < total_dist; d += step) {
+        // Native dimensionless quantity handles multiplication natively!
+        auto t = d / total_dist;
+        
+        Position3D inter_pos{
+            start.x + dx * t,
+            start.y + dy * t,
+            start.z + dz * t
+        };
+        checkMoveSafety(map, inter_pos, radius);
+    }
+    
+    checkMoveSafety(map, end, radius);
+}
+
 } // namespace
 
 
@@ -82,7 +113,7 @@ types::MovementResult MockMovement::advance(PhysicalLength distance) {
     YLength new_y = position.y + YLength((distance * dy).numerical_value_in(cm) * y_extent[cm]);
     Position3D new_pos{new_x, new_y, position.z};
 
-    checkMoveSafety(hidden_map_, new_pos, drone_radius_);
+    checkPathSafety(hidden_map_, position, new_pos, drone_radius_);
     gps_.setPosition(new_pos);
     return types::MovementResult{true, {}};
 }
@@ -94,7 +125,7 @@ types::MovementResult MockMovement::elevate(PhysicalLength distance) {
     ZLength new_z = position.z + ZLength(distance);
     Position3D new_pos{position.x, position.y, new_z};
 
-    checkMoveSafety(hidden_map_, new_pos, drone_radius_);
+    checkPathSafety(hidden_map_, position, new_pos, drone_radius_);
     gps_.setPosition(new_pos);
     return types::MovementResult{true, {}};
 }
