@@ -30,6 +30,37 @@
 └── vcpkg.json
 ```
 
+## Build Instructions
+
+You can build the entire project at once or build each component individually using CMake presets from the **root directory**.
+
+Because the `CMakePresets.json` file is located at the root of the project (and configuring vcpkg correctly relies on it), you should run all commands from the root folder. To build individual components, you simply specify the `--target` flag instead of navigating into their subfolders.
+
+**1. Configure the Project (Run once from root)**
+```bash
+cmake --preset default
+```
+
+**2. Build All Components**
+```bash
+cmake --build --preset default
+```
+
+**3. Build Simulator Only**
+```bash
+cmake --build --preset default --target simulator_330371063_324976703
+```
+
+**4. Build Algorithm Only**
+```bash
+cmake --build --preset default --target Algorithm_330371063_324976703
+```
+
+**5. Build Mission Control Only**
+```bash
+cmake --build --preset default --target MissionControl_330371063_324976703
+```
+
 ## Running the Simulator
 The simulator supports two modes, which dynamically load the `MissionControl` and `Algorithm` `.so` plugins at runtime:
 
