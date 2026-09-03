@@ -30,7 +30,7 @@ std::string TimeUtils::generate_folder_timestamp() {
     gmtime_r(&time_t_now, &utc_tm);
 #endif
     std::ostringstream time_ss;
-    time_ss << std::put_time(&utc_tm, "%Y_%m_%d_%H_%M_%S");
+    time_ss << std::put_time(&utc_tm, "%Y%m%d%H%M%S");
     return time_ss.str();
 }
 
